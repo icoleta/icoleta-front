@@ -9,7 +9,7 @@ function Body(props) {
   return (
     <>
       <Header />
-      <Box>
+      <Box minHeight='100vh'>
         {props.children}
       </Box>
       <Footer />
