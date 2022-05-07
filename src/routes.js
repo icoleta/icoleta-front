@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import ListPoints from "./pages/ListPoints";
+import MapPoints from "./pages/MapPoints";
 import Body from "./components/Body";
 
 function Paths() {
@@ -11,6 +12,7 @@ function Paths() {
       <Body>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/map" element={<MapPoints />} />
           <Route path="/list-points" element={<ListPoints />} />
         </Routes>
       </Body>
