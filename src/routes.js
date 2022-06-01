@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import ListPoints from "./pages/ListPoints";
 import MapPoints from "./pages/MapPoints";
 import Body from "./components/Body";
+import AdminEntidade from "./pages/AdminEntidade";
 
 function Paths() {
   return (
@@ -14,6 +15,7 @@ function Paths() {
           <Route path="/" element={<Home />} />
           <Route path="/map" element={<MapPoints />} />
           <Route path="/list-points" element={<ListPoints />} />
+          <Route exact path="/entidade/admin" element={<AdminEntidade />} />
         </Routes>
       </Body>
     </BrowserRouter>
