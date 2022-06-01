@@ -3,12 +3,34 @@ import { Link } from "react-router-dom";
 
 function Entity() {
   return (
-    <div>
-      <Link to="/entidade/registro">Cadastrar entidade</Link>
-      <Link to="/entidade/login">Login de entidade</Link>
-      <Link to="/entidade/edicao">Editar entidade</Link>
-      <Link to="/entidade/admin">Admin entidade</Link>
-      <Link to="/ponto/criar">Registrar ponto</Link>
+    <div className="flex items-center justify-center">
+      <div className="flex flex-col pt-12 space-y-2">
+        <Link to="/entidade/registro">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Cadastrar entidade
+          </button>
+        </Link>
+        <Link to="/entidade/login">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Login de entidade
+          </button>
+        </Link>
+        <Link to="/entidade/edicao">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Editar entidade
+          </button>
+        </Link>
+        <Link to="/entidade/admin">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Admin entidade
+          </button>
+        </Link>
+        <Link to="/ponto/criar">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Registrar ponto
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
