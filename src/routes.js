@@ -9,6 +9,8 @@ import EditarEntidade from "./pages/EditarEntidade";
 import LoginEntidade from "./pages/LoginEntidade";
 import Body from "./components/Body";
 import Entity from "./pages/Entity";
+import AdminEntidade from "./pages/AdminEntidade";
+import CreatePoint from "./pages/CreatePoint";
 
 function Paths() {
   return (
@@ -22,6 +24,8 @@ function Paths() {
           <Route path="/entidade/registro" element={<CadastroEntidade />} />
           <Route path="/entidade/edicao" element={<EditarEntidade />} />
           <Route path="/entidade/login" element={<LoginEntidade />} />
+          <Route path="/entidade/admin" element={<AdminEntidade />} />
+          <Route path="/ponto/criar" element={<CreatePoint />} />
         </Routes>
       </Body>
     </BrowserRouter>
