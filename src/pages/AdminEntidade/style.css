@@ -1,0 +1,85 @@
+.header-admin {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.header-navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-admin {
+  padding: 0.5rem 2rem;
+}
+
+.main-admin-container {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.container-entidade {
+  margin: 0 2rem;
+  text-align: center;
+  width: 25%;
+}
+
+.logo-entidade {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-entidade img {
+  max-width: 160px;
+  max-height: 160px;
+  border-radius: 50%;
+}
+
+.container-pontos {
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.container-pontos h2 {
+  margin-bottom: 1rem;
+  font-size: large;
+}
+
+.container-ponto {
+  display: flex;
+  margin: 0.5rem 0;
+}
+
+.container-ponto-descricao {
+  margin: auto 2rem;
+}
+
+.ponto-img img {
+  width: 250px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.primary-button {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+}
