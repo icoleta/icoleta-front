@@ -1,12 +1,7 @@
-import { Flex } from "@chakra-ui/react";
 import React from "react";
 
 function Home() {
-  return (
-    <Flex align='center' justify='center'>
-      Landing Page
-    </Flex>
-  );
+  return <div className="flex items-center justify-center">Landing Page</div>;
 }
 
 export default Home;
