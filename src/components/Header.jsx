@@ -1,8 +1,11 @@
 import React from "react";
 import svg from "../assets/recycle_icon.svg";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/auth";
 
 function Header() {
+  const { signed } = useAuth();
+
   return (
     <div className="flex px-32 py-8 justify-between">
       <Link to="/">
@@ -16,7 +19,11 @@ function Header() {
       <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
         <Link to="/mapa">Mapa</Link>
         <Link to="/lista-de-pontos">Pontos de coleta</Link>
-        <Link to="/entidade">Cadastrar ponto</Link>
+        {signed ? (
+          <Link to="/ponto/criar">Cadastrar ponto</Link>
+        ) : (
+          <Link to="/entidade/login">Cadastrar ponto</Link>
+        )}
       </div>
     </div>
   );
