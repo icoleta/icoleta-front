@@ -12,6 +12,11 @@ import Entity from "./pages/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
 import CreatePoint from "./pages/CreatePoint";
 
+import CadastroUsuario from "./pages/CadastroUsuario";
+import LoginUsuario from "./pages/LoginUsuario";
+import RecuperarSenha from "./pages/RecuperarSenha";
+
+
 function Paths() {
   return (
     <BrowserRouter>
@@ -26,6 +31,11 @@ function Paths() {
           <Route path="/entidade/login" element={<LoginEntidade />} />
           <Route path="/entidade/admin" element={<AdminEntidade />} />
           <Route path="/ponto/criar" element={<CreatePoint />} />
+
+          <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
+          <Route path="/usuario/login" element={<LoginUsuario />} />
+          <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
+          
         </Routes>
       </Body>
     </BrowserRouter>

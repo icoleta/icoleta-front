@@ -1,0 +1,27 @@
+.container-recuperar html {
+    background-color: rgb(222, 216, 216);
+}
+
+.container-recuperar body {
+    margin: 0;
+    padding: 0;
+}
+
+.container-recuperar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.container-recuperar form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+    border: 1px gray solid;
+    padding: 20px 40px 20px 40px;
+    margin: 30px 0px 20px 0px;
+}
