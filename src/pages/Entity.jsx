@@ -30,6 +30,24 @@ function Entity() {
             Registrar ponto
           </button>
         </Link>
+
+        <Link to="/usuario/cadastrar">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Cadastrar Usuário
+          </button>
+        </Link>
+
+        <Link to="/usuario/login">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Login Usuário
+          </button>
+        </Link>
+
+        <Link to="/usuario/recuperar">
+          <button className="bg-green-700 text-white px-4 py-2 rounded w-80">
+            Recuperar senha usuário
+          </button>
+        </Link>
       </div>
     </div>
   );

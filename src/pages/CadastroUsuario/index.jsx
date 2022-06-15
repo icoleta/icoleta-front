@@ -2,15 +2,15 @@ import React from 'react'
 
 import './style.css'
 
-const CadastroEntidade = () => {
+const CadastroUsuario = () => {
   return (
       <div className="container-cadastrar">
         <form>
 
-          <p className="titulo-cadastro">Cadastro de entidade</p>
+          <p className="titulo-cadastro">Cadastro de usuário</p>
 
-          <label htmlFor="cnpj">CNPJ:</label>
-          <input type="text" id="cnpj" name="cnpj"></input>
+          <label htmlFor="cpf">CPF:</label>
+          <input type="text" id="cpf" name="cpf"></input>
           <br></br>
 
           <label htmlFor="nome">Nome:</label>
@@ -26,7 +26,7 @@ const CadastroEntidade = () => {
           <br></br>
 
           <div class="btn-flex">
-            <button type="submit" className="btn-cadastro" value="Submit">Criar conta</button>
+            <button type="submit" className="btn-cadastro" value="Submit">Criar conta de usuário</button>
           </div>
           
         </form>
@@ -34,4 +34,4 @@ const CadastroEntidade = () => {
   )
 }
 
-export default CadastroEntidade
+export default CadastroUsuario

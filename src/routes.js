@@ -12,6 +12,9 @@ import Body from "./components/Body";
 import Entity from "./pages/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
 import CreatePoint from "./pages/CreatePoint";
+import CadastroUsuario from "./pages/CadastroUsuario";
+import LoginUsuario from "./pages/LoginUsuario";
+import RecuperarSenha from "./pages/RecuperarSenha";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -23,6 +26,7 @@ const ProtectedRoute = function ({ children }) {
   return children;
 };
 
+
 function Paths() {
   return (
     <BrowserRouter>
@@ -33,6 +37,9 @@ function Paths() {
           <Route path="/lista-de-pontos" element={<ListPoints />} />
           <Route path="/entidade/registro" element={<CadastroEntidade />} />
           <Route path="/entidade/login" element={<LoginEntidade />} />
+          <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
+          <Route path="/usuario/login" element={<LoginUsuario />} />
+          <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route
             path="/entidade"
             element={
