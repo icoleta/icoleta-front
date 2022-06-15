@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./contexts/auth";
 
 import Home from "./pages/Home";
 import ListPoints from "./pages/ListPoints";
@@ -11,10 +12,19 @@ import Body from "./components/Body";
 import Entity from "./pages/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
 import CreatePoint from "./pages/CreatePoint";
-
 import CadastroUsuario from "./pages/CadastroUsuario";
 import LoginUsuario from "./pages/LoginUsuario";
 import RecuperarSenha from "./pages/RecuperarSenha";
+
+const ProtectedRoute = function ({ children }) {
+  const { signed } = useAuth();
+
+  if (!signed) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
 
 
 function Paths() {
@@ -25,17 +35,43 @@ function Paths() {
           <Route path="/" element={<Home />} />
           <Route path="/mapa" element={<MapPoints />} />
           <Route path="/lista-de-pontos" element={<ListPoints />} />
-          <Route path="/entidade" element={<Entity />} />
           <Route path="/entidade/registro" element={<CadastroEntidade />} />
-          <Route path="/entidade/edicao" element={<EditarEntidade />} />
           <Route path="/entidade/login" element={<LoginEntidade />} />
-          <Route path="/entidade/admin" element={<AdminEntidade />} />
-          <Route path="/ponto/criar" element={<CreatePoint />} />
-
           <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
           <Route path="/usuario/login" element={<LoginUsuario />} />
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
-          
+          <Route
+            path="/entidade"
+            element={
+              <ProtectedRoute>
+                <Entity />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/entidade/edicao"
+            element={
+              <ProtectedRoute>
+                <EditarEntidade />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/entidade/admin"
+            element={
+              <ProtectedRoute>
+                <AdminEntidade />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ponto/criar"
+            element={
+              <ProtectedRoute>
+                <CreatePoint />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Body>
     </BrowserRouter>
