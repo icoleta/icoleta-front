@@ -18,7 +18,7 @@ const CadastroEntidade = () => {
           type="text"
           id="cnpj"
           name="cnpj"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none block w-full p-2.5"
         ></input>
         <br></br>
 
@@ -32,7 +32,7 @@ const CadastroEntidade = () => {
           type="text"
           id="nome"
           name="nome"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none block w-full p-2.5"
         ></input>
         <br></br>
 
@@ -46,7 +46,7 @@ const CadastroEntidade = () => {
           type="mail"
           id="email"
           name="email"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none block w-full p-2.5"
         ></input>
         <br></br>
 
@@ -60,7 +60,7 @@ const CadastroEntidade = () => {
           type="password"
           id="senha"
           name="senha"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none block w-full p-2.5"
         ></input>
         <br></br>
 
