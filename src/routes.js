@@ -15,6 +15,7 @@ import CreatePoint from "./pages/CreatePoint";
 import CadastroUsuario from "./pages/CadastroUsuario";
 import LoginUsuario from "./pages/LoginUsuario";
 import RecuperarSenha from "./pages/RecuperarSenha";
+import AtualizarSenha from "./pages/AtualizarSenha";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -40,6 +41,7 @@ function Paths() {
           <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
           <Route path="/usuario/login" element={<LoginUsuario />} />
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
+          <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
           <Route
             path="/entidade"
             element={
