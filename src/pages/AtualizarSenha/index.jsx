@@ -1,61 +1,59 @@
-import React, { useState } from 'react'
-import { api } from '../../services/api'
+import React, { useState } from "react";
+import { api } from "../../services/api";
+import Input from "../../components/Input";
 
 const AtualizarSenha = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  })
-
+    email: "",
+    password: "",
+  });
 
   function handleInputChange(e) {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    const { email, token } = formData
+    const { email, token } = formData;
 
-    await api.post('/reset-pass', {
+    await api.post("/reset-pass", {
       email,
-      token
-    })
+      token,
+    });
   }
-  
+
   return (
     <div className="flex justify-center items-center h-4/6 flex-col">
       <form onSubmit={handleSubmit}>
         <p className="text-lg mb-4">Atualizar senha</p>
 
-        <label 
+        <label
           htmlFor="password"
           className="block mb-2 text-sm font-medium text-gray-900"
         >
           Nova senha:
         </label>
-        <input 
+        <Input
           type="password"
           id="password"
           name="password"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 outline-none block  w-full p-2.5"
           onChange={handleInputChange}
         />
         <br></br>
-        
+
         <div className="btn-flex-login">
-          <button 
+          <button
             type="submit"
             className="focus:outline-none text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
           >
             Atualizar
           </button>
         </div>
-
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AtualizarSenha
+export default AtualizarSenha;
