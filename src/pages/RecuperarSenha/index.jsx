@@ -2,21 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../services/api";
 import Input from "../../components/Input";
+import useForm from "../../hooks/useForm";
 
 const RecuperarSenha = () => {
-  const [email, setEmail] = useState("");
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    whenSubmitted,
+    ["email"]
+  );
 
-  function handleEmailChange(e) {
-    const value = e.target.value;
-    setEmail(value);
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    await api.post("/send-reset-email", {
-      email,
-    });
+  async function whenSubmitted() {
+    await api.post("/send-reset-email", values);
     alert("Link para atualização de senha enviado por email");
   }
 
@@ -35,7 +30,8 @@ const RecuperarSenha = () => {
           type="email"
           id="email"
           name="email"
-          onChange={handleEmailChange}
+          onChange={handleChange}
+          errors={errors}
         />
         <br></br>
 

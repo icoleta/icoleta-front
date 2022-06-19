@@ -1,12 +1,20 @@
 import React from "react";
 import Input from "../../components/Input";
+import useForm from "../../hooks/useForm";
 
 import "./style.css";
 
 const CadastroEntidade = () => {
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    whenSubmitted,
+    ["cnpj", "name", "email", "password"]
+  );
+
+  function whenSubmitted() {}
+
   return (
     <div className="flex justify-center items-center h-5/6 flex-col">
-      <form className="w-1/6">
+      <form className="w-1/6" onSubmit={handleSubmit}>
         <p className="text-lg mb-4">Cadastro de entidade</p>
 
         <label
@@ -15,16 +23,28 @@ const CadastroEntidade = () => {
         >
           CNPJ
         </label>
-        <Input type="text" id="cnpj" name="cnpj" />
+        <Input
+          type="text"
+          id="cnpj"
+          name="cnpj"
+          onChange={handleChange}
+          errors={errors}
+        />
         <br></br>
 
         <label
-          htmlFor="nome"
+          htmlFor="name"
           className="block mb-2 text-sm font-medium text-gray-900"
         >
           Nome
         </label>
-        <Input type="text" id="nome" name="nome" />
+        <Input
+          type="text"
+          id="name"
+          name="name"
+          onChange={handleChange}
+          errors={errors}
+        />
         <br></br>
 
         <label
@@ -33,16 +53,28 @@ const CadastroEntidade = () => {
         >
           Email
         </label>
-        <Input type="mail" id="email" name="email" />
+        <Input
+          type="mail"
+          id="email"
+          name="email"
+          onChange={handleChange}
+          errors={errors}
+        />
         <br></br>
 
         <label
-          htmlFor="senha"
+          htmlFor="password"
           className="block mb-2 text-sm font-medium text-gray-900"
         >
           Senha
         </label>
-        <Input type="password" id="senha" name="senha" />
+        <Input
+          type="password"
+          id="password"
+          name="password"
+          onChange={handleChange}
+          errors={errors}
+        />
         <br></br>
 
         <div class="btn-flex">

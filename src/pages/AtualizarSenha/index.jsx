@@ -1,27 +1,16 @@
 import React, { useState } from "react";
 import { api } from "../../services/api";
 import Input from "../../components/Input";
+import useForm from "../../hooks/useForm";
 
 const AtualizarSenha = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    whenSubmitted,
+    ["password"]
+  );
 
-  function handleInputChange(e) {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    const { email, token } = formData;
-
-    await api.post("/reset-pass", {
-      email,
-      token,
-    });
+  async function whenSubmitted() {
+    await api.post("/reset-pass", values);
   }
 
   return (
@@ -39,9 +28,11 @@ const AtualizarSenha = () => {
           type="password"
           id="password"
           name="password"
-          onChange={handleInputChange}
+          onChange={handleChange}
+          errors={errors}
         />
-        <br></br>
+        <br />
+        <br />
 
         <div className="btn-flex-login">
           <button

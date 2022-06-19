@@ -2,25 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
 import Input from "../../components/Input";
+import useForm from "../../hooks/useForm";
 
 const LoginUsuario = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
   const navigate = useNavigate();
   const { Login } = useAuth();
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    whenSubmitted,
+    ["email", "password"]
+  );
 
-  function handleInputChange(e) {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    const { email, password } = formData;
+  async function whenSubmitted() {
+    const { email, password } = values;
     const wasLoginSuccessful = await Login(email, password);
     if (wasLoginSuccessful) {
       alert("Login feito com sucesso");
@@ -45,7 +38,8 @@ const LoginUsuario = () => {
           type="mail"
           id="email"
           name="email"
-          onChange={handleInputChange}
+          onChange={handleChange}
+          errors={errors}
         />
         <br></br>
 
@@ -59,7 +53,8 @@ const LoginUsuario = () => {
           type="password"
           id="password"
           name="password"
-          onChange={handleInputChange}
+          onChange={handleChange}
+          errors={errors}
         />
         <br></br>
 

@@ -1,34 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
+import useForm from "../../hooks/useForm";
 
 import { api } from "./../../services/api";
 
 const CadastroUsuario = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    cpf: "",
-    email: "",
-    password: "",
-  });
-
   const navigate = useNavigate();
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    whenSubmitted,
+    ["cpf", "name", "email", "password"]
+  );
 
-  function handleInputChange(e) {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    const { name, cpf, email, password } = formData;
-    await api.post("/registerUser", {
-      name,
-      cpf,
-      email,
-      password,
-    });
+  async function whenSubmitted() {
+    await api.post("/registerUser", values);
     alert("Usuário criado");
     navigate("/");
   }
@@ -44,7 +29,13 @@ const CadastroUsuario = () => {
         >
           CPF:
         </label>
-        <Input type="text" id="cpf" name="cpf" onChange={handleInputChange} />
+        <Input
+          type="text"
+          id="cpf"
+          name="cpf"
+          onChange={handleChange}
+          errors={errors}
+        />
         <br></br>
 
         <label
@@ -53,7 +44,13 @@ const CadastroUsuario = () => {
         >
           Nome:
         </label>
-        <Input type="text" id="name" name="name" onChange={handleInputChange} />
+        <Input
+          type="text"
+          id="name"
+          name="name"
+          onChange={handleChange}
+          errors={errors}
+        />
         <br></br>
 
         <label
@@ -66,7 +63,8 @@ const CadastroUsuario = () => {
           type="email"
           id="email"
           name="email"
-          onChange={handleInputChange}
+          onChange={handleChange}
+          errors={errors}
         />
         <br></br>
 
@@ -80,7 +78,8 @@ const CadastroUsuario = () => {
           type="password"
           id="password"
           name="password"
-          onChange={handleInputChange}
+          onChange={handleChange}
+          errors={errors}
         />
         <br></br>
 
