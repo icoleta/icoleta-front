@@ -1,0 +1,48 @@
+.header-admin {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.header-navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-admin {
+    padding: 0.5rem 2rem;
+}
+
+.main-admin-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.container-entidade {
+    margin: 0 2rem;
+    text-align: center;
+    width: 25%;
+}
+
+.container-entidad {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  
+  .container-entidad h2 {
+    margin-bottom: 1rem;
+    font-size: large;
+  }
+  
+  .container-entid {
+    display: flex;
+    margin: 0.5rem 0;
+  }
+  
+  .container-entid-descricao {
+    margin: auto 2rem;
+  }
+  

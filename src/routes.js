@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
 import Home from "./pages/Home";
+import Admin from "./pages/Admin";
 import ListPoints from "./pages/ListPoints";
 import MapPoints from "./pages/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
@@ -42,6 +43,14 @@ function Paths() {
           <Route path="/usuario/login" element={<LoginUsuario />} />
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
+          <Route
+            path="/admin"
+            element={
+              // <ProtectedRoute>
+                <Admin />
+              // </ProtectedRoute>
+            }
+          />
           <Route
             path="/entidade"
             element={
