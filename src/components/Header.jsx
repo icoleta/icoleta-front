@@ -95,9 +95,10 @@ function Header() {
           </div>
         ) : (
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
-            <Link to="/usuario/cadastrar">Criar conta</Link>
+            {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
+            <Link to="/entidade/registro">Criar conta como Entidade</Link>
 
-            <Link to="/usuario/login">Fazer Login</Link>
+            <Link to="/login">Fazer Login</Link>
           </div>
         )}
       </div>

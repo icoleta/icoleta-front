@@ -37,10 +37,10 @@ function Paths() {
           <Route path="/" element={<Home />} />
           <Route path="/mapa" element={<MapPoints />} />
           <Route path="/lista-de-pontos" element={<ListPoints />} />
+          <Route path="/login" element={<LoginUsuario />} />
           <Route path="/entidade/registro" element={<CadastroEntidade />} />
-          <Route path="/entidade/login" element={<LoginEntidade />} />
+          {/* <Route path="/entidade/login" element={<LoginEntidade />} /> */}
           <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
-          <Route path="/usuario/login" element={<LoginUsuario />} />
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
           <Route
