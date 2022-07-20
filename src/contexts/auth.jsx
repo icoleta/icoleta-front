@@ -13,15 +13,14 @@ export const AuthProvider = function ({ children }) {
         password,
       });
 
-      const { name, cpf } = res.data.data;
+      const { email, token } = res.data.data;
       const user = {
         email,
-        name,
-        cpf,
+        token
       };
       setUser(user);
 
-      // api.defaults.headers.Authorization = `Bearer ${userData.token}`;
+      api.defaults.headers.Authorization = `Bearer ${token}`;
 
       // localStorage.setItem('@App:user', JSON.stringify(response.data.user))
       // localStorage.setItem('@App:token', response.data.token)

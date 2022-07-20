@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
@@ -15,7 +16,8 @@ const CadastroEntidade = () => {
   );
 
   async function whenSubmitted() {
-    await api.post("/company/register", values);
+    await axios.get('http://localhost:8000/sanctum/csrf-cookie')
+    await api.post("/company/register", values)
     alert("Entidade criada");
     navigate("/");
   }
@@ -91,6 +93,21 @@ const CadastroEntidade = () => {
                 errors={errors}
               />
             </div>
+          </div>
+          <div className="">
+              <label
+                htmlFor="license"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Licença para operação
+              </label>
+              <Input
+                type="file"
+                id="license"
+                name="license"
+                onChange={handleChange}
+                errors={errors}
+              />
           </div>
         </div>
 
