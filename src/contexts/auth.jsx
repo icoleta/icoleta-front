@@ -13,7 +13,7 @@ export const AuthProvider = function ({ children }) {
         password,
       });
 
-      const { email, token } = res.data.data;
+      const { token } = res.data.data;
       const user = {
         email,
         token
@@ -22,8 +22,8 @@ export const AuthProvider = function ({ children }) {
 
       api.defaults.headers.Authorization = `Bearer ${token}`;
 
-      // localStorage.setItem('@App:user', JSON.stringify(response.data.user))
-      // localStorage.setItem('@App:token', response.data.token)
+      // localStorage.setItem('@App:user', JSON.stringify(res.data.user))
+      // localStorage.setItem('@App:token', res.data.token)
 
       return true;
     } catch (error) {
