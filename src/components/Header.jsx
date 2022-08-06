@@ -98,8 +98,8 @@ function Header() {
             <Link to="/entidade/admin">Seu perfil</Link>
             <Link to="/entidade/edicao">Editar dados</Link>
             <Link to="/ponto/criar">Cadastrar ponto</Link>
-        </div>
-
+            <Link to="/ranking">Ranking</Link>
+          </div>
         ) : (
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
