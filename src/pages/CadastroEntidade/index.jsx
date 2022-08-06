@@ -47,7 +47,7 @@ const CadastroEntidade = () => {
                 errors={errors}
               />
             </div>
-            <div className="w-1/2">
+            {/* <div className="w-1/2">
               <label
                 htmlFor="company_name"
                 className="block mb-2 text-sm font-medium text-gray-900"
@@ -61,7 +61,7 @@ const CadastroEntidade = () => {
                 onChange={handleChange}
                 errors={errors}
               />
-            </div>            
+            </div>             */}
           </div>
 
           <div className="flex my-4">
@@ -96,7 +96,7 @@ const CadastroEntidade = () => {
               />
             </div>
           </div>
-          <div className="">
+          {/* <div className="">
               <label
                 htmlFor="license"
                 className="block mb-2 text-sm font-medium text-gray-900"
@@ -110,7 +110,7 @@ const CadastroEntidade = () => {
                 onChange={handleChange}
                 errors={errors}
               />
-          </div>
+          </div> */}
         </div>
 
         <fieldset className="font-semibold my-2 text-lg">Informações de Login</fieldset>

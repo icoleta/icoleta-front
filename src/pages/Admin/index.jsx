@@ -31,11 +31,10 @@ const AdminEntidade = () => {
                 <div class="bg-white  rounded-md">
                     <h1 class="text-center text-xl bg-white py-2 rounded-md border-b-2 cursor-pointer  text-olive-green">Área do ADMIN</h1>
                     <div class="bg-white rounded-md list-none  text-center ">
-                        <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Ranking de usuários</a></li>
-                        <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Histórico de coletas</a></li>
-                        <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Cadastrar coleta</a></li>
-                        <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Cadastrar entidade</a></li>
-                        <li class="py-3 rounded-lg hover:bg-sunset-orange"><a href="#" class="list-none">Cadastrar ponto</a></li>
+                        <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Lista de usuários</a></li>
+                        <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Lista de Coletas</a></li>
+                        <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Lista de entidade</a></li>
+                        <li class="py-3 rounded-lg hover:bg-sunset-orange"><a href="#" class="list-none">Lista de ponto</a></li>
                     </div>
                 </div>
             </div>

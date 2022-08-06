@@ -2,13 +2,17 @@ import React from "react";
 import { FaMapMarkedAlt, FaClipboardList } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import pessoas from "../assets/pessoas-icoleta.png";
-
+import papel from "../assets/papel.jpg";
+import metal from "../assets/metais.jpg";
+import pilha from "../assets/pilhas.jpg";
+import plastico from "../assets/plastico.png";
+import vidro from "../assets/vidro.jpg";
 
 function Home() {
   return (
     <div className="flex justify-center">
       <div className="flex flex-col mt-12 w-3/5">
-        <div className="flex space-x-24 mb-24 ">
+        <div className="flex mb-4 ">
           <div className="w-2/4">
             <h3 className="text-4xl font-bold text-gray-900">
             Seu marketplace de coleta de resíduos
@@ -20,32 +24,33 @@ function Home() {
             <p className="mt-4 text-lg font-normal text-gray-800" >
               Ajudamos e incentivamos pessoas a fazer o descarte correto de maneira eficiente e gamificada.
             </p>
-          </div>
 
-          <div>
-            <Link to="/lista-de-pontos">
-              <button className="flex w-full items-center focus:outline-none text-white bg-olive-green hover:bg-olive-green-dark focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2">
-                <FaClipboardList className="h-5 w-5 mr-2" />
-                Pontos de coleta mais próximos
-              </button>
-            </Link>
-            <Link to="/mapa">
-              <button className="flex w-full items-center focus:outline-none text-white bg-olive-green hover:bg-olive-green-dark focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2">
-                <FaMapMarkedAlt className="h-5 w-5 mr-2" />
-                Mapa dos pontos de coleta
-              </button>
-            </Link>
+            <div className="pt-12" >
+              <Link to="/lista-de-pontos">
+                <button className="flex w-full items-center focus:outline-none text-white bg-olive-green hover:bg-olive-green-dark focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2">
+                  <FaClipboardList className="h-5 w-5 mr-2" />
+                  Pontos de coleta
+                </button>
+              </Link>
+              <Link to="/mapa">
+                <button className="flex w-full items-center focus:outline-none text-white bg-olive-green hover:bg-olive-green-dark focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2">
+                  <FaMapMarkedAlt className="h-5 w-5 mr-2" />
+                  Mapa dos pontos de coleta
+                </button>
+              </Link>
+            </div>
+
           </div>
-          
+          <img src={pessoas} alt="plant" class="h-auto " />
+
         </div>
 
-        {/* <img src={pessoas}  alt="plant" class="h-auto " /> */}
 
         <h3 className="text-4xl font-bold text-gray-900 mb-4">
           Resíduos que recolhemos
         </h3>
 
-        <div class="flex flex-row ">
+        <div class="flex flex-row mb-28">
 
           <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
@@ -80,6 +85,7 @@ function Home() {
           </div>
           
         </div>
+
       </div>
     </div>
   );

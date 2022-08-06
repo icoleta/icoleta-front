@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="bg-slate-300 px-32 py-8">
+    <div className="bg-almost-white px-32 py-8">
       <div className="flex child:ml-8">
         <Link to="#">Ajuda</Link>
         <Link to="#">Enviar sugestão</Link>
