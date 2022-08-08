@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import useForm from "../../hooks/useForm";
 
-import { api } from "./../../services/api";
+import personApi from "./../../services/api/person";
 
 const CadastroUsuario = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const CadastroUsuario = () => {
   );
 
   async function whenSubmitted() {
-    await api.post("/registerUser", values);
+    await personApi.createUser(values);
     alert("Usuário criado");
     navigate("/");
   }

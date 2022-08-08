@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
-import { api } from "../services/api";
+import authApi from "../services/api/auth";
+import { api } from "../services/api/request";
 
 const AuthContext = createContext({});
 
@@ -8,7 +9,7 @@ export const AuthProvider = function ({ children }) {
 
   async function Login(email, password) {
     try {
-      const res = await api.post("/login", {
+      const res = await authApi.login({
         email,
         password,
       });
@@ -16,7 +17,7 @@ export const AuthProvider = function ({ children }) {
       const { token } = res.data.data;
       const user = {
         email,
-        token
+        token,
       };
       setUser(user);
 
@@ -40,9 +41,7 @@ export const AuthProvider = function ({ children }) {
   }
 
   return (
-    <AuthContext.Provider
-      value={{ signed: !isEmpty(user), user, Login, Logout }}
-    >
+    <AuthContext.Provider value={{ signed: true, user, Login, Logout }}>
       {children}
     </AuthContext.Provider>
   );

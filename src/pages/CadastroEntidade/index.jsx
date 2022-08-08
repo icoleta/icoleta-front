@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import useForm from "../../hooks/useForm";
 
-import { api } from "./../../services/api";
+import companyApi from "./../../services/api/company";
 
 import "./style.css";
 
@@ -12,25 +12,30 @@ const CadastroEntidade = () => {
   const navigate = useNavigate();
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
-    ['trading_name', "company_name", "cnpj", 'phone', "email", "password"]
+    ["trading_name", "company_name", "cnpj", "phone", "email", "password"]
   );
 
   async function whenSubmitted() {
-    await axios.get('http://localhost:8000/sanctum/csrf-cookie')
-    await api.post("/company/register", values)
+    //await axios.get('http://localhost:8000/sanctum/csrf-cookie')
+    await companyApi.createCompany(values);
     alert("Entidade criada");
     navigate("/");
   }
 
   return (
-    <div className="flex justify-center items-center h-5/6 flex-col" >
-      <form className="w-1/2 bg-olive-green rounded-lg text-base p-8" onSubmit={handleSubmit}>
+    <div className="flex justify-center items-center h-5/6 flex-col">
+      <form
+        className="w-1/2 bg-olive-green rounded-lg text-base p-8"
+        onSubmit={handleSubmit}
+      >
         <h3 className="text-4xl font-bold text-center text-gray-900 mb-8">
           Cadastro de entidade
         </h3>
 
         <div>
-          <fieldset className="font-semibold my-2 text-lg">Informações da Entidade</fieldset>
+          <fieldset className="font-semibold my-2 text-lg">
+            Informações da Entidade
+          </fieldset>
           <div className="flex mb-2">
             <div className="mr-4 w-1/2">
               <label
@@ -113,7 +118,9 @@ const CadastroEntidade = () => {
           </div> */}
         </div>
 
-        <fieldset className="font-semibold my-2 text-lg">Informações de Login</fieldset>
+        <fieldset className="font-semibold my-2 text-lg">
+          Informações de Login
+        </fieldset>
         <div className="flex my-2">
           <div className="mr-4 w-1/2">
             <label

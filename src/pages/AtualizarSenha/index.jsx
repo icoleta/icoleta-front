@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { api } from "../../services/api";
 import Input from "../../components/Input";
 import useForm from "../../hooks/useForm";
 
@@ -10,7 +9,7 @@ const AtualizarSenha = () => {
   );
 
   async function whenSubmitted() {
-    await api.post("/reset-pass", values);
+    //await api.post("/reset-pass", values);
   }
 
   return (
