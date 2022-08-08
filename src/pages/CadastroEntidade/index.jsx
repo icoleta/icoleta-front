@@ -23,12 +23,14 @@ const CadastroEntidade = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-5/6 flex-col">
-      <form className="w-1/2" onSubmit={handleSubmit}>
-        <p className="text-lg text-center mb-4">Cadastro de entidade</p>
+    <div className="flex justify-center items-center h-5/6 flex-col" >
+      <form className="w-1/2 bg-olive-green rounded-lg text-base p-8" onSubmit={handleSubmit}>
+        <h3 className="text-4xl font-bold text-center text-gray-900 mb-8">
+          Cadastro de entidade
+        </h3>
 
         <div>
-          <fieldset className="font-semibold my-2">Informações da Entidade</fieldset>
+          <fieldset className="font-semibold my-2 text-lg">Informações da Entidade</fieldset>
           <div className="flex mb-2">
             <div className="mr-4 w-1/2">
               <label
@@ -45,7 +47,7 @@ const CadastroEntidade = () => {
                 errors={errors}
               />
             </div>
-            <div className="w-1/2">
+            {/* <div className="w-1/2">
               <label
                 htmlFor="company_name"
                 className="block mb-2 text-sm font-medium text-gray-900"
@@ -59,7 +61,7 @@ const CadastroEntidade = () => {
                 onChange={handleChange}
                 errors={errors}
               />
-            </div>            
+            </div>             */}
           </div>
 
           <div className="flex my-4">
@@ -94,7 +96,7 @@ const CadastroEntidade = () => {
               />
             </div>
           </div>
-          <div className="">
+          {/* <div className="">
               <label
                 htmlFor="license"
                 className="block mb-2 text-sm font-medium text-gray-900"
@@ -108,10 +110,10 @@ const CadastroEntidade = () => {
                 onChange={handleChange}
                 errors={errors}
               />
-          </div>
+          </div> */}
         </div>
 
-        <fieldset className="font-semibold my-2">Informações de Login</fieldset>
+        <fieldset className="font-semibold my-2 text-lg">Informações de Login</fieldset>
         <div className="flex my-2">
           <div className="mr-4 w-1/2">
             <label
@@ -145,10 +147,10 @@ const CadastroEntidade = () => {
           </div>
         </div>
 
-        <div class="btn-flex">
+        <div class="btn-flex mt-4">
           <button
             type="submit"
-            className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+            className="focus:outline-none text-black  bg-white hover:bg-gray focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
             value="Submit"
           >
             Criar conta

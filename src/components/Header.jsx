@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import svg from "../assets/recycle_icon.svg";
+import svg from "../assets/recycle_icon.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/auth";
 import useOutsideClick from "../hooks/useOutsideClick";
@@ -11,7 +11,7 @@ function Header() {
   useOutsideClick(wrapperRef, () => setIsDropdownOpen(false));
 
   return (
-    <div className="flex px-32 py-8 justify-between">
+    <div className="flex px-32 py-8 justify-between pb-20">
       <Link to="/">
         <div className="flex items-center child:ml-4">
           <img src={svg} className="w-8 h-8" alt="logo" />
@@ -22,8 +22,8 @@ function Header() {
       </Link>
       <div className="flex">
         <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
-          <Link to="/mapa">Mapa</Link>
-          <Link to="/lista-de-pontos">Pontos de coleta</Link>
+          {/* <Link to="/mapa">Mapa</Link> */}
+          {/* <Link to="/lista-de-pontos">Pontos de coleta</Link> */}
           {/* {signed ? (
             <Link to="/ponto/criar">Cadastrar ponto</Link>
           ) : (
@@ -103,9 +103,11 @@ function Header() {
         ) : (
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
-            <Link to="/entidade/registro">Criar conta como Entidade</Link>
 
-            <Link to="/login">Fazer Login</Link>
+            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/ranking"  class="m-8">Ranking</Link></button>
+            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75"><Link to="/entidade/registro"  class="m-8">Cadastro</Link></button>
+            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/login"  class="m-8">Login</Link></button>
+
           </div>
         )}
       </div>
