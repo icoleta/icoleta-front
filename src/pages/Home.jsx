@@ -3,9 +3,9 @@ import { FaMapMarkedAlt, FaClipboardList } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import pessoas from "../assets/pessoas-icoleta.png";
 import papel from "../assets/papel.jpg";
-import metal from "../assets/metais.jpg";
-import pilha from "../assets/pilhas.jpg";
-import plastico from "../assets/plastico.png";
+import metal from "../assets/metal.jpg";
+import pilha from "../assets/pilha.jpg";
+import plastico from "../assets/plastico1.jpg";
 import vidro from "../assets/vidro.jpg";
 
 function Home() {
@@ -46,41 +46,49 @@ function Home() {
         </div>
 
 
-        <h3 className="text-4xl font-bold text-gray-900 mb-4">
-          Resíduos que recolhemos
+        <h3 className="text-4xl font-bold text-gray-900 mb-8 mt-8">
+          Resíduos que recolhemos e o tempo de decomposição
         </h3>
 
         <div class="flex flex-row mb-28">
 
           <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
-            <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
+            <img src={papel}  alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
-              <p class="text-medium mb-5 text-gray-700">Produtos que recolhemos</p>
-              <button class="w-full rounded-md bg-sunset-orange  py-2 text-white  bg-sunset-orange hover:bg-sunset-orange-dark duration-75">Pilhas e Baterias</button>
+              <p class="text-medium mb-5 text-gray-700">De 3 a 6 meses</p>
+              <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hbg-sunset-orange hover:bg-sunset-orange-dark duration-75">Papel</button>
             </div>
           </div>
-
+          
           <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
-            <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
+            <img src={metal} alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
-              <p class="text-medium mb-5 text-gray-700">Produtos que recolhemos</p>
+              <p class="text-medium mb-5 text-gray-700">Mais de 100 anos</p>
               <button class="w-full rounded-md  bg-sunset-orange py-2 text-white  bg-sunset-orange hover:bg-sunset-orange-dark duration-75">Metais</button>
             </div>
           </div>
 
           <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
-            <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
+            <img src={plastico} alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
-              <p class="text-medium mb-5 text-gray-700">Produtos que recolhemos</p>
-              <button class="w-full rounded-md  bg-sunset-orange py-2 text-white bg-sunset-orange hover:bg-sunset-orange-dark duration-75">Papeis e Plasticos</button>
+              <p class="text-medium mb-5 text-gray-700">Mais de 400 anos  </p>
+              <button class="w-full rounded-md  bg-sunset-orange py-2 text-white bg-sunset-orange hover:bg-sunset-orange-dark duration-75">Plasticos</button>
             </div>
           </div>
           
           <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
-            <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
+            <img src={vidro}  alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
-              <p class="text-medium mb-5 text-gray-700">Produtos que recolhemos</p>
+              <p class="text-medium mb-5 text-gray-700">Mais de 1000 anos</p>
               <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hbg-sunset-orange hover:bg-sunset-orange-dark duration-75">Vidros</button>
+            </div>
+          </div>
+
+          <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
+            <img src={pilha} alt="plant" class="h-auto w-[1900px] " />
+            <div class="p-5">
+              <p class="text-medium mb-5 text-gray-700">Substâncias tóxicas</p>
+              <button class="w-full rounded-md bg-sunset-orange  py-2 text-white  bg-sunset-orange hover:bg-sunset-orange-dark duration-75">Pilhas</button>
             </div>
           </div>
           
