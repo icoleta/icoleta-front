@@ -56,7 +56,7 @@ function Home() {
             <img src={papel}  alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
               <p class="text-medium mb-5 text-gray-700">De 3 a 6 meses</p>
-              <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hbg-sunset-orange hover:bg-sunset-orange-dark duration-75">Papel</button>
+              <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hbg-sunset-orange hover:bg-sunset-orange-dark duration-75">Papéis</button>
             </div>
           </div>
           

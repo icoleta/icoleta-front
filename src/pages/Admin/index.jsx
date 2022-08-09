@@ -6,17 +6,67 @@ const AdminEntidade = () => {
     <>
     <main class="main-admin">
 
-        <div class="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full lg:min-h-screen space-y-6 sm:space-y-0 sm:gap-4">
+        <div class="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
 
-            <div class="h-96 col-span-4  bg-olive-green rounded-md flex items-center">
-                <div class="ml-20 mr-20">
-                    <h2 class="text-white text-4xl">IColeta</h2>
-                    <p class="text-indigo-100 mt-4 font-thin tracking-wider leading-7">Alguma frase motivacional para quem estiver cuidando do projeto 
-                    não se esquecer do objetivo principal que é ajudar e incentivar a sustentabilidade, aprender e aperfeiçoar os conhecimentos em desenvolvimento web, 
-                    estar sempre melhorando o visual e a gamificação do app para que os usuários se sintam motivados, incluidos e bem informados sobre a coleta de 
-                    resíduos perigosos e reciclaveis para se sentirem instigados a proteger a natureza.</p>
+            <div class="h-96 col-span-4 flex items-center">
+                <div class="text-center mt-12">
+                    <h2 class="text-4xl tracking-tight">
+                        Cadastrar descarte do usuário
+                    </h2>
+                </div>
 
-                    <a href="#" class="uppercase inline-block mt-8 text-sm bg-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">Algo</a>
+                <div class="flex justify-center my-2 mx-4 md:mx-0">
+                    <form class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+
+                            <div class="w-full md:w-full px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Hash identificadora de usuário</label>
+                                <input class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
+                            </div>
+                            <div class="w-full md:w-full px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Peso</label>
+                                <input class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
+                            </div>
+                            
+                            
+                            <div class="mx-auto -mb-6 pb-1 mt-2">
+                                <span class="text-center text-xs text-gray-700">Tipo de resíduo</span>
+                            </div>
+                            <div class="flex items-center w-full mt-2">
+                                <div class="w-full md:w-1/3 px-3 pt-4 mx-2 ">
+                                    <button class='appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" color="#d48563"  class="icon icon-tabler icon-tabler-glass-full" width="45" height="45" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> 
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <line x1="8" y1="21" x2="16" y2="21" /> <line x1="12" y1="15" x2="12" y2="21" /> <path d="M17 3l1 7c0 3.012 -2.686 5 -6 5s-6 -1.988 -6 -5l1 -7h10z" /> <path d="M6 10a5 5 0 0 1 6 0a5 5 0 0 0 6 0" /> 
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400">
+                                    <button class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" color="#d48563"  width="45" height="45" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16"> <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/> </svg>
+                                    </button>
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 pt-4 mx-2 ">
+                                    <button class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg"  color="#d48563"  width="45" height="45" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16"> <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/> <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/> </svg>
+                                    </button>
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400">
+                                    <button class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" color="#d48563" fill="currentColor" class="bi bi-bucket-fill" viewBox="0 0 16 16"> <path d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527z"/> </svg>
+                                    </button>
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 pt-4 mx-2 ">
+                                    <button class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" color="#d48563"  class="icon icon-tabler icon-tabler-battery-3" width="45" height="45" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M6 7h11a2 2 0 0 1 2 2v.5a0.5 .5 0 0 0 .5 .5a0.5 .5 0 0 1 .5 .5v3a0.5 .5 0 0 1 -.5 .5a0.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-11a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2" /> <line x1="7" y1="10" x2="7" y2="14" /> <line x1="10" y1="10" x2="10" y2="14" /> <line x1="13" y1="10" x2="13" y2="14" /> </svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="w-full md:w-full px-3 mb-6">
+                            <button class="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Coletar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -28,8 +78,8 @@ const AdminEntidade = () => {
                     </svg></span>
                 </div>
 
-                <div class="bg-white  rounded-md">
-                    <h1 class="text-center text-xl bg-white py-2 rounded-md border-b-2 cursor-pointer  text-olive-green">Área do ADMIN</h1>
+                <div class="bg-white rounded-md">
+                    <h1 class="text-center text-xl bg-white py-2 rounded-md border-b-2 cursor-pointer"><a href="#" class="list-none text-olive-green">Área do ADMIN</a></h1>
                     <div class="bg-white rounded-md list-none  text-center ">
                         <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Lista de usuários</a></li>
                         <li class="py-3 rounded-lg border-b-2 hover:bg-sunset-orange"><a href="#" class="list-none">Lista de Coletas</a></li>
