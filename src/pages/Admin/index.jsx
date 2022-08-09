@@ -8,7 +8,7 @@ const AdminEntidade = () => {
 
         <div class="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
 
-            <div class="h-96 col-span-4 flex items-center">
+            <div class="col-span-4 items-center">
                 <div class="text-center mt-12">
                     <h2 class="text-4xl tracking-tight">
                         Cadastrar descarte do usuário
@@ -16,24 +16,24 @@ const AdminEntidade = () => {
                 </div>
 
                 <div class="flex justify-center my-2 mx-4 md:mx-0">
-                    <form class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
+                    <form class="w-full  bg-white rounded-lg shadow-md p-6">
                         <div class="flex flex-wrap -mx-3 mb-6">
 
                             <div class="w-full md:w-full px-3 mb-6">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Hash identificadora de usuário</label>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" for='Password'>Hash identificadora de usuário</label>
                                 <input class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
                             </div>
                             <div class="w-full md:w-full px-3 mb-6">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Peso</label>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" for='Password'>Peso</label>
                                 <input class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
                             </div>
                             
                             
                             <div class="mx-auto -mb-6 pb-1 mt-2">
-                                <span class="text-center text-xs text-gray-700">Tipo de resíduo</span>
+                                <span class="text-center text-xl text-gray-700">Tipo de resíduo</span>
                             </div>
                             <div class="flex items-center w-full mt-2">
-                                <div class="w-full md:w-1/3 px-3 pt-4 mx-2 ">
+                                <div class="w-6/12 md:w-1/3 px-3 pt-4 mx-2 ">
                                     <button class='appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'>
                                         <svg xmlns="http://www.w3.org/2000/svg" color="#d48563"  class="icon icon-tabler icon-tabler-glass-full" width="45" height="45" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> 
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <line x1="8" y1="21" x2="16" y2="21" /> <line x1="12" y1="15" x2="12" y2="21" /> <path d="M17 3l1 7c0 3.012 -2.686 5 -6 5s-6 -1.988 -6 -5l1 -7h10z" /> <path d="M6 10a5 5 0 0 1 6 0a5 5 0 0 0 6 0" /> 
@@ -62,12 +62,87 @@ const AdminEntidade = () => {
                                 </div>
 
                             </div>
+
+
                         </div>
                         <div class="w-full md:w-full px-3 mb-6">
                             <button class="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Coletar</button>
                         </div>
                     </form>
                 </div>
+
+                <div class="text-center mt-12  mb-6">
+                    <h2 class="text-4xl tracking-tight">
+                        Histórico de descartes
+                    </h2>
+                </div>
+
+                <div className="flex flex-col justify-center">
+
+                    <div className="overflow-x-auto relative">
+                        <table className="w-full text-sm text-left text-gray-500">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                            <th scope="col" className="py-3 px-6">
+                                Colocação
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Nome
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Quantidade doada{" "}
+                                <span className="text-gray-400 font-normal">(kg)</span>
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Material mais doado
+                            </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="bg-white border-b">
+                            <th
+                                scope="row"
+                                className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
+                            >
+                                1º
+                            </th>
+                            <td className="py-4 px-6 text-gray-700 font-semibold">
+                                Pessoa 1
+                            </td>
+                            <td className="py-4 px-6">2.5kg</td>
+                            <td className="py-4 px-6">papel</td>
+                            </tr>
+                            <tr className="bg-white border-b">
+                            <th
+                                scope="row"
+                                className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
+                            >
+                                2º
+                            </th>
+                            <td className="py-4 px-6 text-gray-700 font-semibold">
+                                Pessoa 2
+                            </td>
+                            <td className="py-4 px-6">1.2kg</td>
+                            <td className="py-4 px-6">plástico</td>
+                            </tr>
+                            <tr className="bg-white">
+                            <th
+                                scope="row"
+                                className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
+                            >
+                                3º
+                            </th>
+                            <td className="py-4 px-6 text-gray-700 font-semibold">
+                                Pessoa 3
+                            </td>
+                            <td className="py-4 px-6">0.8kg</td>
+                            <td className="py-4 px-6">metal</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+
             </div>
 
             <div class="h-96 col-span-1 ">
