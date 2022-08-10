@@ -21,7 +21,7 @@ export const AuthProvider = function ({ children }) {
   }, []);
 
   function Login(email, password) {
-    authApi
+    return authApi
       .login({
         email,
         password,

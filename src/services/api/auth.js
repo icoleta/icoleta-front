@@ -1,7 +1,7 @@
 import { api } from "./request";
 
 const authApi = {
-  login(payload) {
+  async login(payload) {
     return api.post("/login", payload);
   },
 };
