@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 
 import pointApi from "./../../services/api/points";
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const AdminEntidade = () => {
   const [points, setPoints] = useState([])
@@ -83,7 +84,7 @@ const AdminEntidade = () => {
             </div> 
 
             <div>
-              <button class="btn primary-button">Novo ponto</button>
+              <Link to='/ponto/criar' class="btn primary-button">Novo ponto</Link>
             </div>
           </div>
         </div>

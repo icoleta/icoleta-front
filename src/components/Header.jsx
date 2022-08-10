@@ -97,7 +97,7 @@ function Header() {
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
             <Link to="/entidade/admin">Seu perfil</Link>
             {/* <Link to="/entidade/edicao">Editar dados</Link> */}
-            <Link to="/ponto/criar">Cadastrar ponto</Link>
+            {/* <Link to="/ponto/criar">Cadastrar ponto</Link> */}
             <Link to="/ranking">Ranking</Link>
           </div>
         ) : (
