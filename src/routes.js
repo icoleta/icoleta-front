@@ -18,6 +18,7 @@ import LoginUsuario from "./pages/LoginUsuario";
 import RecuperarSenha from "./pages/RecuperarSenha";
 import AtualizarSenha from "./pages/AtualizarSenha";
 import Ranking from "./pages/Ranking";
+import Perfil from "./pages/PerfilUsuario";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -49,6 +50,14 @@ function Paths() {
             element={
               // <ProtectedRoute>
                 <Admin />
+              // </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/perfil"
+            element={
+              // <ProtectedRoute>
+                <Perfil />
               // </ProtectedRoute>
             }
           />

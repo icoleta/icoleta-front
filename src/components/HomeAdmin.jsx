@@ -1,4 +1,4 @@
-BOTAO AREA DO ADMIN
+// BOTAO AREA DO ADMIN
 
 <div class="h-96 col-span-4  bg-olive-green rounded-md flex items-center">
     <div class="ml-20 mr-20">
@@ -11,3 +11,4 @@ BOTAO AREA DO ADMIN
         <a href="#" class="uppercase inline-block mt-8 text-sm bg-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">Algo</a>
     </div>
 </div>
+
