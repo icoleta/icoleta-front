@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function useForm(callback, fields) {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    let tempValues = {};
+    fields.forEach((field) => {
+      tempValues = { ...tempValues, [field]: "" };
+    });
+    setValues(tempValues);
+  }, []);
 
   function validate() {
     let tempErrors = {};
@@ -30,6 +38,7 @@ function useForm(callback, fields) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(values);
     if (validate()) callback();
   }
 

@@ -1,47 +1,59 @@
-import React, { createContext, useState, useContext } from "react";
-import { api } from "../services/api";
+import React, { createContext, useState, useContext, useEffect } from "react";
+import authApi from "../services/api/auth";
+import { api } from "../services/api/request";
+import axios from "axios";
 
 const AuthContext = createContext({});
 
 export const AuthProvider = function ({ children }) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
-  async function Login(email, password) {
-    try {
-      const res = await api.post("/login", {
+  useEffect(() => {
+    if (
+      localStorage.getItem("@App:token") &&
+      localStorage.getItem("@App:email")
+    ) {
+      setUser({
+        email: localStorage.getItem("@App:email"),
+        token: localStorage.getItem("@App:token"),
+      });
+    }
+  }, []);
+
+  function Login(email, password) {
+    authApi
+      .login({
         email,
         password,
+      })
+      .then((res) => {
+        const { token } = res.data.data;
+        const user = {
+          email,
+          token,
+        };
+        setUser(user);
+
+        api.defaults.headers.Authorization = `Bearer ${token}`;
+
+        localStorage.setItem("@App:email", email);
+        localStorage.setItem("@App:token", token);
+        return true;
+      })
+      .catch(function () {
+        return false;
       });
-
-      const { token } = res.data.data;
-      const user = {
-        email,
-        token
-      };
-      setUser(user);
-
-      api.defaults.headers.Authorization = `Bearer ${token}`;
-
-      // localStorage.setItem('@App:user', JSON.stringify(res.data.user))
-      // localStorage.setItem('@App:token', res.data.token)
-
-      return true;
-    } catch (error) {
-      return false;
-    }
   }
 
   function Logout() {
     setUser(null);
-  }
-
-  function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
+    localStorage.removeItem("@App:token");
+    localStorage.removeItem("@App:email");
   }
 
   return (
     <AuthContext.Provider
-      value={{ signed: !isEmpty(user), user, Login, Logout }}
+      value={{ signed: Boolean(user), user, Login, Logout }}
     >
       {children}
     </AuthContext.Provider>

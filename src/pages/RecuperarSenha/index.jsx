@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../services/api";
 import Input from "../../components/Input";
 import useForm from "../../hooks/useForm";
 
@@ -11,7 +10,7 @@ const RecuperarSenha = () => {
   );
 
   async function whenSubmitted() {
-    await api.post("/send-reset-email", values);
+    //await api.post("/send-reset-email", values);
     alert("Link para atualização de senha enviado por email");
   }
 
