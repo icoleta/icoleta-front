@@ -4,7 +4,7 @@ const pointApi = {
   fetchPoints() {
     return api.get("/point");
   },
-  fetchCompanyPoints() {
+  async fetchCompanyPoints() {
     return api.get("/company/point");
   },
   fetchCompanyPoint(id) {
