@@ -12,7 +12,7 @@ const CadastroEntidade = () => {
   const navigate = useNavigate();
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
-    ["trading_name", "company_name", "cnpj", "phone", "email", "password"]
+    ["name", "cnpj", "phone", "email", "password"]
   );
 
   async function whenSubmitted() {
@@ -39,15 +39,15 @@ const CadastroEntidade = () => {
           <div className="flex mb-2">
             <div className="mr-4 w-1/2">
               <label
-                htmlFor="trading_name"
+                htmlFor="name"
                 className="block mb-2 text-sm font-medium text-gray-900"
               >
                 Nome
               </label>
               <Input
                 type="text"
-                id="trading_name"
-                name="trading_name"
+                id="name"
+                name="name"
                 onChange={handleChange}
                 errors={errors}
               />
