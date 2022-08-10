@@ -8,7 +8,7 @@ const companyApi = {
     return api.get(`/admin/company/${id}`);
   },
   createCompany(payload) {
-    return api.post("/admin/company", payload);
+    return api.post("/company", payload);
   },
   verifyCompany(id, payload) {
     return api.patch(`/admin/company/${id}`, payload);
