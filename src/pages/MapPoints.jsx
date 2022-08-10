@@ -30,7 +30,6 @@ function Home() {
 
   return (
     <div className="flex items-center justify-center">
-        <h1>oi</h1>
       <Map position={position} height="500px" width="700px">
         {showPositionMarker && <Marker position={position}></Marker>}
         {points.map((item) => {
