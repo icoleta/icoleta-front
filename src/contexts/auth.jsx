@@ -22,7 +22,7 @@ export const AuthProvider = function ({ children }) {
     }
   }, []);
 
-  function Login(email, password) {
+  async function Login(email, password) {
     return authApi
       .login({
         email,
@@ -47,10 +47,12 @@ export const AuthProvider = function ({ children }) {
       });
   }
 
-  function Logout() {
+  async function Logout() {
     setUser(null);
     localStorage.removeItem("@App:token");
     localStorage.removeItem("@App:email");
+
+    await authApi.logout()
   }
 
   return (

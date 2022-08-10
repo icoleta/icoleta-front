@@ -3,12 +3,20 @@ import svg from "../assets/recycle_icon.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/auth";
 import useOutsideClick from "../hooks/useOutsideClick";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const { signed } = useAuth();
+  const { signed, Logout } = useAuth();
   const wrapperRef = useRef(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   useOutsideClick(wrapperRef, () => setIsDropdownOpen(false));
+
+  const navigate = useNavigate();
+
+  async function logoutWrapper() {
+    await Logout()
+    navigate('/')
+  }
 
   return (
     <div className="flex px-32 py-8 justify-between pb-20">
@@ -99,6 +107,7 @@ function Header() {
             {/* <Link to="/entidade/edicao">Editar dados</Link> */}
             {/* <Link to="/ponto/criar">Cadastrar ponto</Link> */}
             <Link to="/ranking">Ranking</Link>
+            <button type="button" onClick={logoutWrapper}>Deslogar</button>
           </div>
         ) : (
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
