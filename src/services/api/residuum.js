@@ -1,17 +1,17 @@
 import { api } from "./request";
 
 const residuumApi = {
-  fetchResiduums() {
-    return api.get("/admin/residuum");
+  async fetchResiduums() {
+    return api.get("/residuum");
   },
-  createResiduum(payload) {
-    return api.post("/admin/residuum", payload);
+  async createResiduum(payload) {
+    return api.post("/residuum", payload);
   },
-  editResiduum(id, payload) {
-    return api.put(`/admin/residuum/${id}`, payload);
+  async editResiduum(id, payload) {
+    return api.put(`/residuum/${id}`, payload);
   },
-  deleteResiduum(id) {
-    return api.delete(`/admin/residuum/${id}`);
+  async deleteResiduum(id) {
+    return api.delete(`/residuum/${id}`);
   },
 };
 

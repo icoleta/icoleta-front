@@ -6,37 +6,34 @@ import useForm from "../../hooks/useForm";
 import axios from "axios";
 import pointApi from "./../../services/api/points";
 
+import residuumApi from "./../../services/api/residuum";
 import "./style.css";
 
+
 const CreatePoint = () => {
-  const [cities, setCities] = useState([]);
-  const selectedUF = "AL";
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUF}/distritos`
-      )
-      .then((res) => res.data)
-      .then((data) => {
-        const orderedCities = data
-          .map((city) => city.nome)
-          .sort((a, b) => a.localeCompare(b));
-        setCities(orderedCities);
-      });
-  }, []);
-
   const navigate = useNavigate();
+  const [residuums, setResiduums] = useState([])
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
-    ["items", "hours", "state", "city"]
+    ["name", "items", "hours"]
   );
+
+  useEffect(() => {
+    getResiduums()
+  }, [])
+
+  async function getResiduums() {
+    residuumApi.fetchResiduums()
+    .then(res => {
+      setResiduums(res.data)
+    })
+  }
 
   async function whenSubmitted() {
     console.log(values);
     //await axios.get("http://localhost:8000/sanctum/csrf-cookie");
     await pointApi.createPoint(values);
-    alert("Ponto criada");
+    alert("Ponto criado");
     navigate("/");
   }
 
@@ -45,67 +42,45 @@ const CreatePoint = () => {
       <form className="w-1/2" onSubmit={handleSubmit}>
         <p className="text-lg text-center mb-4">Cadastro do ponto de coleta</p>
 
-        <div>
+        <div className="mb-2 flex flex-col justify-center items-center">
           <fieldset className="font-semibold my-2">Dados</fieldset>
-          <div className="flex mb-2">
-            <div className="mr-4 w-1/2">
-              <label
-                htmlFor="items"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Itens
-              </label>
-              <Input
-                type="text"
-                id="items"
-                name="items"
-                onChange={handleChange}
-                errors={errors}
-              />
-            </div>
             <div className="w-1/2">
               <label
-                htmlFor="hours"
+                htmlFor="name"
                 className="block mb-2 text-sm font-medium text-gray-900"
               >
-                Horários de atendimento
+                Name
               </label>
               <Input
                 type="text"
-                id="hours"
-                name="hours"
+                id="name"
+                name="name"
                 onChange={handleChange}
                 errors={errors}
               />
             </div>
+          <div className="w-1/2">
+            <label
+              htmlFor="hours"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Horários de atendimento
+            </label>
+            <Input
+              type="text"
+              id="hours"
+              name="hours"
+              onChange={handleChange}
+              errors={errors}
+            />
           </div>
         </div>
 
-        <fieldset className="font-semibold my-2">Endereço</fieldset>
-        <div className="flex my-2">
-          <div className="mr-4 w-1/2">
-            <label htmlFor="state">Estado</label>
-            <select
-              name="state"
-              id="state"
-              value={selectedUF}
-              onChange={handleChange}
-            >
-              <option value="0">{selectedUF}</option>
-            </select>
-          </div>
-
-          <div className="mr-4 w-1/2">
-            <label htmlFor="city">Cidade</label>
-            <select name="city" id="city" onChange={handleChange}>
-              <option value="0">Selecione uma cidade</option>
-              {cities.map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div className="text-center">
+          <h1 className="font-bold">Resíduos disponíveis</h1>
+          {
+            residuums.map(residuum => <p>{residuum.name}</p>)
+          }
         </div>
 
         <div class="btn-flex">

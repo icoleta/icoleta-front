@@ -1,10 +1,10 @@
 import { api } from "./request";
 
 const othersApi = {
-  fetchCourses() {
+  async fetchCourses() {
     return api.get("/course");
   },
-  fetchSemesters() {
+  async fetchSemesters() {
     return api.get("/semester");
   },
 };

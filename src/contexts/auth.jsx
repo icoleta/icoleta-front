@@ -17,11 +17,13 @@ export const AuthProvider = function ({ children }) {
         email: localStorage.getItem("@App:email"),
         token: localStorage.getItem("@App:token"),
       });
+
+      api.defaults.headers.Authorization = `Bearer ${localStorage.getItem("@App:token")}`;
     }
   }, []);
 
   function Login(email, password) {
-    authApi
+    return authApi
       .login({
         email,
         password,
