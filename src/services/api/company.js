@@ -1,16 +1,16 @@
 import { api } from "./request";
 
 const companyApi = {
-  fetchCompanies() {
+  async fetchCompanies() {
     return api.get("/company");
   },
-  fetchCompany(id) {
+  async fetchCompany(id) {
     return api.get(`/admin/company/${id}`);
   },
-  createCompany(payload) {
+  async createCompany(payload) {
     return api.post("/company", payload);
   },
-  verifyCompany(id, payload) {
+  async verifyCompany(id, payload) {
     return api.patch(`/admin/company/${id}`, payload);
   },
 };

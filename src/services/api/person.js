@@ -1,13 +1,13 @@
 import { api } from "./request";
 
 const personApi = {
-  createUser(payload) {
+  async createUser(payload) {
     return api.post("/person", payload);
   },
-  fetchUsers() {
+  async fetchUsers() {
     return api.get("/admin/person");
   },
-  makeVolunteer(id, payload) {
+  async makeVolunteer(id, payload) {
     return api.patch(`/admin/person/${id}`, payload);
   },
 };
