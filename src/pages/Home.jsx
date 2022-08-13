@@ -1,7 +1,7 @@
 import React from "react";
 import { FaMapMarkedAlt, FaClipboardList } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import pessoas from "../assets/pessoas-icoleta.png";
+import pessoas from "../assets/recicle-icoleta.png";
 import papel from "../assets/papel.jpg";
 import metal from "../assets/metal.jpg";
 import pilha from "../assets/pilha.jpg";
