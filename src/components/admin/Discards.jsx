@@ -3,15 +3,17 @@ import { useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import pointApi from "./../../services/api/points";
 import residuumApi from "./../../services/api/residuum";
+import discardApi from "./../../services/api/discards";
 
 function Discards() {
   const navigate = useNavigate();
   const [residuums, setResiduums] = useState([]);
   const [points, setPoints] = useState([]);
   const [selectedResiduum, setSelectedResiduum] = useState(null);
+  const [selectedPoint, setSelectedPoint] = useState(null);
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
-    ["hash", "weight", "user", "point"]
+    ["hash", "weight", "user"]
   );
 
   useEffect(() => {
@@ -25,13 +27,15 @@ function Discards() {
 
   async function whenSubmitted() {
     let temp = {
-      ...values,
+      weight: parseInt(values["weight"]),
+      cpf: values["user"],
       residuum_id: parseInt(selectedResiduum.split("_")[1]),
+      point_id: parseInt(selectedPoint.split("_")[1]),
     };
-    console.log(temp);
-    //await pointApi.createPoint(temp);
-    //alert("Descarte criado");
-    //navigate("/");
+
+    await discardApi.createDiscard(temp);
+    alert("Descarte criado");
+    navigate("/");
   }
 
   return (
@@ -68,7 +72,7 @@ function Discards() {
                     class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
                     for="user"
                   >
-                    Voluntário que coletou
+                    CPF do voluntário que coletou
                   </label>
                   <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
@@ -91,7 +95,7 @@ function Discards() {
                   </label>
                   <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
-                    type="text"
+                    type="number"
                     id="weight"
                     name="weight"
                     onChange={handleChange}
@@ -100,16 +104,22 @@ function Discards() {
                 </div>
 
                 <div class="w-full md:w-full px-3 mb-6">
-                  {points.map((item) => (
-                    <div>{item.name}</div>
-                  ))}
-                  <label
-                    class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
-                    for="point"
-                  >
+                  <label class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2">
                     Ponto de coleta
+                    <select
+                      value={selectedPoint}
+                      onChange={(event) => setSelectedPoint(event.target.value)}
+                    >
+                      {" "}
+                      {points.map((item) => (
+                        <option value={item.name + "_" + item.id}>
+                          {item.name}
+                        </option>
+                      ))}
+                    </select>
                   </label>
-                  <input
+                  {/*
+                    <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                     type="text"
                     id="point"
@@ -117,6 +127,7 @@ function Discards() {
                     onChange={handleChange}
                     required
                   />
+                  */}
                 </div>
               </div>
 
