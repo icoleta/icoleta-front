@@ -11,14 +11,18 @@ export const AuthProvider = function ({ children }) {
   useEffect(() => {
     if (
       localStorage.getItem("@App:token") &&
-      localStorage.getItem("@App:email")
+      localStorage.getItem("@App:email") &&
+      localStorage.getItem("@App:isCompany")
     ) {
       setUser({
         email: localStorage.getItem("@App:email"),
         token: localStorage.getItem("@App:token"),
+        isCompany: localStorage.getItem("@App:isCompany"),
       });
 
-      api.defaults.headers.Authorization = `Bearer ${localStorage.getItem("@App:token")}`;
+      api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+        "@App:token"
+      )}`;
     }
   }, []);
 
@@ -29,10 +33,11 @@ export const AuthProvider = function ({ children }) {
         password,
       })
       .then((res) => {
-        const { token } = res.data.data;
+        const { token, isCompany } = res.data.data;
         const user = {
           email,
           token,
+          isCompany,
         };
         setUser(user);
 
@@ -40,6 +45,7 @@ export const AuthProvider = function ({ children }) {
 
         localStorage.setItem("@App:email", email);
         localStorage.setItem("@App:token", token);
+        localStorage.setItem("@App:isCompany", isCompany);
         return true;
       })
       .catch(function () {
@@ -51,8 +57,8 @@ export const AuthProvider = function ({ children }) {
     setUser(null);
     localStorage.removeItem("@App:token");
     localStorage.removeItem("@App:email");
-
-    await authApi.logout()
+    localStorage.removeItem("@App:isCompany");
+    await authApi.logout();
   }
 
   return (
