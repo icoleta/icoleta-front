@@ -9,32 +9,46 @@ import pointApi from "./../../services/api/points";
 import residuumApi from "./../../services/api/residuum";
 import "./style.css";
 
-
 const CreatePoint = () => {
   const navigate = useNavigate();
-  const [residuums, setResiduums] = useState([])
+  const [residuums, setResiduums] = useState([]);
+  const [items, setItems] = useState(new Array(5).fill(false));
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
-    ["name", "items", "hours"]
+    ["name", "hours"]
   );
 
   useEffect(() => {
-    getResiduums()
-  }, [])
+    getResiduums();
+  }, []);
 
   async function getResiduums() {
-    residuumApi.fetchResiduums()
-    .then(res => {
-      setResiduums(res.data)
-    })
+    residuumApi.fetchResiduums().then((res) => {
+      let temp = [];
+      res.data.forEach((element, index) => {
+        temp.push(false);
+      });
+      setItems(temp);
+      setResiduums(res.data);
+    });
   }
 
   async function whenSubmitted() {
-    console.log(values);
     //await axios.get("http://localhost:8000/sanctum/csrf-cookie");
-    await pointApi.createPoint(values);
+    let items_res = [];
+    residuums.map((element, index) => {
+      if (items[index]) items_res.push(element.name);
+    });
+    let temp = { ...values, items: items_res };
+    await pointApi.createPoint(temp);
     alert("Ponto criado");
     navigate("/");
+  }
+
+  function handleChecked(index) {
+    let temp = items;
+    temp[index] = !temp[index];
+    setItems([...temp]);
   }
 
   return (
@@ -44,21 +58,21 @@ const CreatePoint = () => {
 
         <div className="mb-2 flex flex-col justify-center items-center">
           <fieldset className="font-semibold my-2">Dados</fieldset>
-            <div className="w-1/2">
-              <label
-                htmlFor="name"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Name
-              </label>
-              <Input
-                type="text"
-                id="name"
-                name="name"
-                onChange={handleChange}
-                errors={errors}
-              />
-            </div>
+          <div className="w-1/2">
+            <label
+              htmlFor="name"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Name
+            </label>
+            <Input
+              type="text"
+              id="name"
+              name="name"
+              onChange={handleChange}
+              errors={errors}
+            />
+          </div>
           <div className="w-1/2">
             <label
               htmlFor="hours"
@@ -76,11 +90,21 @@ const CreatePoint = () => {
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center my-4">
           <h1 className="font-bold">Resíduos disponíveis</h1>
-          {
-            residuums.map(residuum => <p>{residuum.name}</p>)
-          }
+          {residuums.map((residuum, index) => (
+            <div key={index}>
+              <input
+                type="checkbox"
+                id={residuum.name}
+                name={residuum.name}
+                value={residuum.name}
+                checked={items[index]}
+                onChange={() => handleChecked(index)}
+              />
+              <label for={residuum.name}>{residuum.name}</label>
+            </div>
+          ))}
         </div>
 
         <div class="btn-flex">
