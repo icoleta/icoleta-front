@@ -2,16 +2,16 @@ import { api } from "./request";
 
 const discardApi = {
   async fetchDiscards() {
-    return api.get("/discards");
+    return api.get("/admin/discards");
   },
   async fetchDiscard(id) {
-    return api.get(`/discards/${id}`);
+    return api.get(`/admin/discards/${id}`);
   },
   async createDiscard(payload) {
-    return api.post("/discards", payload);
+    return api.post("/admin/discards", payload);
   },
   async verifyDiscard(id, payload) {
-    return api.patch(`/discards/${id}`, payload);
+    return api.patch(`/admin/discards/${id}`, payload);
   },
 };
 
