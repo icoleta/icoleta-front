@@ -35,7 +35,7 @@ const CadastroEntidade = () => {
     <div class="flex justify-center my-2 mx-4 md:mx-0">
       <form onSubmit={handleSubmit} class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
         <fieldset className="font-semibold my-2 text-lg text-center">
-              Informações da Entidade
+              Informações do Entidade
         </fieldset>
         
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -102,7 +102,7 @@ const CadastroEntidade = () => {
 
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-full px-3 mb-6">
-              <button type="submit" class="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500">Entrar</button>
+              <button type="submit" class="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500">Criar conta de entidade</button>
           </div>
         </div>
       </form>
