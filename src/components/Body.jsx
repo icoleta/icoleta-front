@@ -7,7 +7,7 @@ function Body(props) {
   return (
     <>
       <Header />
-      <div className="h-screen">{props.children}</div>
+      <div className="min-h-screen">{props.children}</div>
       <Footer />
     </>
   );
