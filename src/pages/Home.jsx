@@ -1,7 +1,7 @@
 import React from "react";
 import { FaMapMarkedAlt, FaClipboardList } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import pessoas from "../assets/pessoas-icoleta.png";
+import pessoas from "../assets/recicle-icoleta.png";
 import papel from "../assets/papel.jpg";
 import metal from "../assets/metal.jpg";
 import pilha from "../assets/pilha.jpg";
@@ -12,8 +12,8 @@ function Home() {
   return (
     <div className="flex justify-center">
       <div className="flex flex-col mt-12 w-3/5">
-        <div className="flex mb-4 ">
-          <div className="w-2/4">
+        <div className="flex mb-4 flex-col tablet:flex-row ">
+          <div className="w-4/4 tablet:w-2/4  ">
             <h3 className="text-4xl font-bold text-gray-900">
             Seu marketplace de coleta de resíduos
             </h3>
@@ -50,7 +50,7 @@ function Home() {
           Resíduos que recolhemos e o tempo de decomposição
         </h3>
 
-        <div class="flex flex-row mb-28">
+        <div class="grid grid-cols-1 phone:grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 desktop:grid-cols-5 mb-28">
 
           <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={papel}  alt="plant" class="h-auto w-[1900px]" />

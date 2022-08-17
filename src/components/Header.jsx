@@ -19,16 +19,16 @@ function Header() {
   }
 
   return (
-    <div className="flex px-32 py-8 justify-between pb-20">
+    <div className="flex flex-col px-16 py-8  justify-between tablet:flex-row tablet:px-32">
       <Link to="/">
-        <div className="flex items-center child:ml-4">
+        <div className="flex items-center tablet:child:ml-4 justify-center mb-2">
           <img src={svg} className="w-8 h-8" alt="logo" />
           <h3 className="text-4xl font-bold text-slate-900 tracking-tighter">
             IColeta
           </h3>
         </div>
       </Link>
-      <div className="flex">
+      <div className="flex justify-center">
         <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
           {/* <Link to="/mapa">Mapa</Link> */}
           {/* <Link to="/lista-de-pontos">Pontos de coleta</Link> */}
@@ -101,7 +101,7 @@ function Header() {
           //     </ul>
           //   </div>
           // </div>
-          <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
+          <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm ">
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
             {user.isCompany ? (
               <Link to="/entidade/admin">Seu perfil</Link>
@@ -116,24 +116,12 @@ function Header() {
             </button>
           </div>
         ) : (
-          <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
+          <div className="child:ml-4 flex flex-col items-center text-slate-700 font-semibold text-sm phone:flex-row">
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
 
-            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75">
-              <Link to="/ranking" class="m-8">
-                Ranking
-              </Link>
-            </button>
-            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75">
-              <Link to="/entidade/registro" class="m-8">
-                Cadastro
-              </Link>
-            </button>
-            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75">
-              <Link to="/login" class="m-8">
-                Login
-              </Link>
-            </button>
+            <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/ranking"  class="m-8">Ranking</Link></button>
+            <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75"><Link to="/usuario/cadastrar"  class="m-8">Cadastro</Link></button>
+            <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/login"  class="m-8">Login</Link></button>
           </div>
         )}
       </div>
