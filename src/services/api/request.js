@@ -1,5 +1,6 @@
 import axios from "axios";
+require("dotenv").config();
 
 export const api = axios.create({
-  baseURL: "https://icoleta-api.herokuapp.com/api",
+  baseURL: process.env.API,
 });
