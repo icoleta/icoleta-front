@@ -1,12 +1,27 @@
-import React, { useState } from "react";
-import "./style.css";
+import React, { useEffect, useState } from 'react'
+import './style.css'
 import Discards from "../../components/admin/Discards";
 import Residuum from "../../components/admin/Residuum";
 import Users from "../../components/admin/Users";
 import Companies from "../../components/admin/Companies";
 
+import DiscardApi from "./../../services/api/discards";
+
 const AdminEntidade = () => {
+  const [discards, setDiscards] = useState([])
   const [selectedItem, setSelectedItem] = useState("discards");
+    
+  useEffect(() => {
+    loadDiscardList()
+  }, [])
+
+  async function loadDiscardList() {
+    DiscardApi.fetchDiscards()
+    .then(res => {
+        console.log(res.data)
+        setDiscards(res.data)
+    })
+  }
 
   return (
     <>

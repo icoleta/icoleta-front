@@ -16,31 +16,30 @@ const CadastroEntidade = () => {
   );
 
   async function whenSubmitted() {
-    //await axios.get('http://localhost:8000/sanctum/csrf-cookie')
     await companyApi.createCompany(values);
     alert("Entidade criada");
     navigate("/");
   }
 
   return (
-    <div className="flex justify-center items-center h-5/6 flex-col">
-      <form
-        className="w-1/2 bg-olive-green rounded-lg text-base p-8"
-        onSubmit={handleSubmit}
-      >
-        <h3 className="text-4xl font-bold text-center text-gray-900 mb-8">
-          Cadastro de entidade
-        </h3>
-
-        <div>
-          <fieldset className="font-semibold my-2 text-lg">
+    <div class="m-8">
+      <div class="text-center mt-8">
+        <h2 class="text-4xl tracking-tight">Cadastro de Entidade</h2>
+      </div>
+      <div class="flex justify-center my-2 mx-4 md:mx-0">
+        <form
+          onSubmit={handleSubmit}
+          class="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
+        >
+          <fieldset className="font-semibold my-2 text-lg text-center">
             Informações da Entidade
           </fieldset>
-          <div className="flex mb-2">
-            <div className="mr-4 w-1/2">
+
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6">
               <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="name"
-                className="block mb-2 text-sm font-medium text-gray-900"
               >
                 Nome
               </label>
@@ -52,28 +51,11 @@ const CadastroEntidade = () => {
                 errors={errors}
               />
             </div>
-            {/* <div className="w-1/2">
-              <label
-                htmlFor="company_name"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Razão Social
-              </label>
-              <Input
-                type="text"
-                id="company_name"
-                name="company_name"
-                onChange={handleChange}
-                errors={errors}
-              />
-            </div>             */}
-          </div>
 
-          <div className="flex my-4">
-            <div className="mr-4 w-1/2">
+            <div class="w-full md:w-full px-3 mb-6">
               <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="cnpj"
-                className="block mb-2 text-sm font-medium text-gray-900"
               >
                 CNPJ
               </label>
@@ -85,10 +67,11 @@ const CadastroEntidade = () => {
                 errors={errors}
               />
             </div>
-            <div className="w-1/2">
+
+            <div class="w-full md:w-full px-3 mb-6">
               <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="phone"
-                className="block mb-2 text-sm font-medium text-gray-900"
               >
                 Telefone
               </label>
@@ -101,69 +84,55 @@ const CadastroEntidade = () => {
               />
             </div>
           </div>
-          {/* <div className="">
+          <fieldset className="font-semibold my-2 text-lg text-center">
+            Informações de Login
+          </fieldset>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6">
               <label
-                htmlFor="license"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="email"
               >
-                Licença para operação
+                Email da entidade
               </label>
               <Input
-                type="file"
-                id="license"
-                name="license"
+                type="mail"
+                id="email"
+                name="email"
                 onChange={handleChange}
                 errors={errors}
               />
-          </div> */}
-        </div>
+            </div>
 
-        <fieldset className="font-semibold my-2 text-lg">
-          Informações de Login
-        </fieldset>
-        <div className="flex my-2">
-          <div className="mr-4 w-1/2">
-            <label
-              htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Email da Entidade
-            </label>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              onChange={handleChange}
-              errors={errors}
-            />
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="password"
+              >
+                Senha
+              </label>
+              <Input
+                type="password"
+                id="password"
+                name="password"
+                onChange={handleChange}
+                errors={errors}
+              />
+            </div>
           </div>
-          <div className="w-1/2">
-            <label
-              htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Senha
-            </label>
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              onChange={handleChange}
-              errors={errors}
-            />
-          </div>
-        </div>
 
-        <div class="btn-flex mt-4">
-          <button
-            type="submit"
-            className="focus:outline-none text-black  bg-white hover:bg-gray focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-            value="Submit"
-          >
-            Criar conta
-          </button>
-        </div>
-      </form>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6">
+              <button
+                type="submit"
+                class="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
+              >
+                Entrar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
