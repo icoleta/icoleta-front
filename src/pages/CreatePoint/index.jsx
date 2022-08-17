@@ -37,7 +37,7 @@ const CreatePoint = () => {
     //await axios.get("http://localhost:8000/sanctum/csrf-cookie");
     let items_res = [];
     residuums.map((element, index) => {
-      if (items[index]) items_res.push(element.name);
+      if (items[index]) items_res.push(element.id);
     });
     let temp = { ...values, items: items_res };
     await pointApi.createPoint(temp);
