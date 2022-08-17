@@ -22,6 +22,7 @@ function Discards() {
     });
     pointApi.fetchPoints().then((res) => {
       setPoints(res.data);
+      if (res.data) setSelectedPoint(res.data[0].name + "_" + res.data[0].id);
     });
   }, []);
 
@@ -109,10 +110,14 @@ function Discards() {
                     <select
                       value={selectedPoint}
                       onChange={(event) => setSelectedPoint(event.target.value)}
+                      className="block w-full mt-2 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                     >
                       {" "}
                       {points.map((item) => (
-                        <option value={item.name + "_" + item.id}>
+                        <option
+                          value={item.name + "_" + item.id}
+                          className="block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
+                        >
                           {item.name}
                         </option>
                       ))}
@@ -277,7 +282,10 @@ function Discards() {
 */}
             </div>
             <div class="w-full md:w-full px-3 mb-6">
-              <button class="appearance-none block w-full bg-olive-green hover:bg-olive-green-dark text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500">
+              <button
+                type="submit"
+                class="appearance-none block w-full bg-olive-green hover:bg-olive-green-dark text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
+              >
                 Coletar
               </button>
             </div>
