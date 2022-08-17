@@ -5,7 +5,7 @@ import Residuum from "../../components/admin/Residuum";
 import Users from "../../components/admin/Users";
 import Companies from "../../components/admin/Companies";
 
-import DiscardsApi from "./../../services/api/discards";
+import DiscardApi from "./../../services/api/discards";
 
 const AdminEntidade = () => {
   const [discards, setDiscards] = useState([])
@@ -16,7 +16,7 @@ const AdminEntidade = () => {
   }, [])
 
   async function loadDiscardList() {
-    DiscardsApi.fetchDiscards()
+    DiscardApi.fetchDiscards()
     .then(res => {
         console.log(res.data)
         setDiscards(res.data)

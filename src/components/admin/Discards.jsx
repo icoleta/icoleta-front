@@ -1,40 +1,85 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import useForm from "../../hooks/useForm";
+import pointApi from "./../../services/api/points";
+import residuumApi from "./../../services/api/residuum";
+import discardApi from "./../../services/api/discards";
 
 function Discards() {
+  const navigate = useNavigate();
+  const [residuums, setResiduums] = useState([]);
+  const [points, setPoints] = useState([]);
+  const [selectedResiduum, setSelectedResiduum] = useState(null);
+  const [selectedPoint, setSelectedPoint] = useState(null);
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    whenSubmitted,
+    ["hash", "weight", "user"]
+  );
+
+  useEffect(() => {
+    residuumApi.fetchResiduums().then((res) => {
+      setResiduums(res.data);
+    });
+    pointApi.fetchPoints().then((res) => {
+      setPoints(res.data);
+    });
+  }, []);
+
+  async function whenSubmitted() {
+    let temp = {
+      weight: parseInt(values["weight"]),
+      cpf: values["user"],
+      residuum_id: parseInt(selectedResiduum.split("_")[1]),
+      point_id: parseInt(selectedPoint.split("_")[1]),
+    };
+
+    await discardApi.createDiscard(temp);
+    alert("Descarte criado");
+    navigate("/");
+  }
+
   return (
     <div class="col-span-4 items-center">
       <div>
         <div class="text-center mt-8">
           <h2 class="text-4xl tracking-tight">Cadastrar descarte do usuário</h2>
         </div>
-
         <div class="flex justify-center my-2 mx-4 md:mx-0">
-          <form class="w-full  bg-white rounded-lg shadow-md p-6">
+          <form
+            class="w-full  bg-white rounded-lg shadow-md p-6"
+            onSubmit={handleSubmit}
+          >
             <div class="flex flex-wrap -mx-3 mb-6">
               <div class="flex w-full">
                 <div class="w-full md:w-full px-3 mb-6">
                   <label
                     class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
-                    for="Password"
+                    for="hash"
                   >
                     Hash identificadora de usuário
                   </label>
                   <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
-                    type="password"
+                    type="text"
+                    id="hash"
+                    name="hash"
+                    onChange={handleChange}
                     required
                   />
                 </div>
                 <div class="w-full md:w-full px-3 mb-6">
                   <label
                     class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
-                    for="Password"
+                    for="user"
                   >
-                    Voluntário que coletou
+                    CPF do voluntário que coletou
                   </label>
                   <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
-                    type="password"
+                    type="text"
+                    id="user"
+                    name="user"
+                    onChange={handleChange}
                     required
                   />
                 </div>
@@ -44,29 +89,45 @@ function Discards() {
                 <div class="w-full md:w-full px-3 mb-6">
                   <label
                     class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
-                    for="Password"
+                    for="weight"
                   >
                     Peso do resíduo
                   </label>
                   <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
-                    type="password"
+                    type="number"
+                    id="weight"
+                    name="weight"
+                    onChange={handleChange}
                     required
                   />
                 </div>
 
                 <div class="w-full md:w-full px-3 mb-6">
-                  <label
-                    class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
-                    for="Password"
-                  >
+                  <label class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2">
                     Ponto de coleta
+                    <select
+                      value={selectedPoint}
+                      onChange={(event) => setSelectedPoint(event.target.value)}
+                    >
+                      {" "}
+                      {points.map((item) => (
+                        <option value={item.name + "_" + item.id}>
+                          {item.name}
+                        </option>
+                      ))}
+                    </select>
                   </label>
-                  <input
+                  {/*
+                    <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
-                    type="password"
+                    type="text"
+                    id="point"
+                    name="point"
+                    onChange={handleChange}
                     required
                   />
+                  */}
                 </div>
               </div>
 
@@ -75,10 +136,31 @@ function Discards() {
                   Tipo de resíduo
                 </span>
               </div>
+              <div className="flex flex-col items-center w-full my-6">
+                {residuums.map((residuum, index) => (
+                  <div key={index}>
+                    <input
+                      type="radio"
+                      id={residuum.name + "_" + residuum.id}
+                      name={residuum.name + "_" + residuum.id}
+                      value={residuum.name + "_" + residuum.id}
+                      checked={
+                        residuum.name + "_" + residuum.id === selectedResiduum
+                      }
+                      onChange={(e) => setSelectedResiduum(e.target.value)}
+                    />
+                    <label for={residuum.name + "_" + residuum.id}>
+                      {residuum.name}
+                    </label>
+                  </div>
+                ))}
+              </div>
+              {/*
               <div class="flex items-center w-full mt-2">
                 <div class="w-6/12 md:w-1/3 px-3 pt-4 mx-2 ">
                   <button
                     title="Vidro"
+                    type="button"
                     class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none"
                   >
                     <svg
@@ -105,6 +187,7 @@ function Discards() {
                 <div class="w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400">
                   <button
                     title="Plástico"
+                    type="button"
                     class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none"
                   >
                     <svg
@@ -124,6 +207,7 @@ function Discards() {
                 <div class="w-full md:w-1/3 px-3 pt-4 mx-2 ">
                   <button
                     title="Papel"
+                    type="button"
                     class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none"
                   >
                     <svg
@@ -144,6 +228,7 @@ function Discards() {
                 <div class="w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400">
                   <button
                     title="Metal"
+                    type="button"
                     class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none"
                   >
                     <svg
@@ -163,6 +248,7 @@ function Discards() {
                 <div class="w-full md:w-1/3 px-3 pt-4 mx-2 ">
                   <button
                     title="Pilha"
+                    type="button"
                     class="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-gray-500 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none"
                   >
                     <svg
@@ -188,6 +274,7 @@ function Discards() {
                   </button>
                 </div>
               </div>
+*/}
             </div>
             <div class="w-full md:w-full px-3 mb-6">
               <button class="appearance-none block w-full bg-olive-green hover:bg-olive-green-dark text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500">

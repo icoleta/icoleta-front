@@ -6,7 +6,7 @@ import useOutsideClick from "../hooks/useOutsideClick";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const { signed, Logout } = useAuth();
+  const { signed, user, Logout } = useAuth();
   const wrapperRef = useRef(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   useOutsideClick(wrapperRef, () => setIsDropdownOpen(false));
@@ -14,8 +14,8 @@ function Header() {
   const navigate = useNavigate();
 
   async function logoutWrapper() {
-    await Logout()
-    navigate('/')
+    await Logout();
+    navigate("/");
   }
 
   return (
@@ -103,20 +103,37 @@ function Header() {
           // </div>
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
-            <Link to="/entidade/admin">Seu perfil</Link>
+            {user.isCompany ? (
+              <Link to="/entidade/admin">Seu perfil</Link>
+            ) : (
+              <Link to="/perfil">Seu perfil</Link>
+            )}
             {/* <Link to="/entidade/edicao">Editar dados</Link> */}
             {/* <Link to="/ponto/criar">Cadastrar ponto</Link> */}
             <Link to="/ranking">Ranking</Link>
-            <button type="button" onClick={logoutWrapper}>Deslogar</button>
+            <button type="button" onClick={logoutWrapper}>
+              Deslogar
+            </button>
           </div>
         ) : (
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
 
-            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/ranking"  class="m-8">Ranking</Link></button>
-            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75"><Link to="/entidade/registro"  class="m-8">Cadastro</Link></button>
-            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/login"  class="m-8">Login</Link></button>
-
+            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75">
+              <Link to="/ranking" class="m-8">
+                Ranking
+              </Link>
+            </button>
+            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75">
+              <Link to="/entidade/registro" class="m-8">
+                Cadastro
+              </Link>
+            </button>
+            <button class="w-full rounded-md  bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75">
+              <Link to="/login" class="m-8">
+                Login
+              </Link>
+            </button>
           </div>
         )}
       </div>
