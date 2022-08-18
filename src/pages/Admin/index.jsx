@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
+import AreaAdmin from "../../components/admin/AreaAdmin";
 import Discards from "../../components/admin/Discards";
 import Residuum from "../../components/admin/Residuum";
 import Users from "../../components/admin/Users";
@@ -29,6 +30,7 @@ const AdminEntidade = () => {
         <div class="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
           {
             {
+              area: <AreaAdmin />,
               discards: <Discards />,
               residuum: <Residuum />,
               users: <Users />,
@@ -63,7 +65,8 @@ const AdminEntidade = () => {
 
             <div class="bg-white rounded-md">
               <h1 class="text-center text-xl bg-white py-2 rounded-md border-b-2 cursor-pointer">
-                <a href="#" class="list-none text-olive-green">
+                <a href="#" class="list-none text-olive-green"
+                  onClick={() => setSelectedItem("area")}>
                   Área do ADMIN
                 </a>
               </h1>
