@@ -44,7 +44,7 @@ function Users() {
               <tbody>
                 {
                   users.map(user => (
-                    <tr key={`user-${user.id}`} className="bg-white">
+                    <tr  className="bg-white">
                       <th
                         scope="row"
                         className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
@@ -55,24 +55,11 @@ function Users() {
                         {user.name}
                       </td>
                       <td className="py-4 px-6">
-                        <button className="center">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-pencil"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
-                            <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
-                          </svg>
-                        </button>
+                        <label for="volunteer-toggle" class="inline-flex relative items-center mr-5 cursor-pointer">
+                          <input type="checkbox" value="" id="volunteer-toggle" class="sr-only peer" />
+                          <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:sunset-orange dark:peer-focus:sunset-orange-dark peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-sunset-orange"></div>
+                          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Voluntário</span>
+                        </label>
                       </td>
                       <td className="py-4 px-6">
                         <svg
