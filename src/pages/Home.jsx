@@ -52,7 +52,7 @@ function Home() {
 
         <div class="grid grid-cols-1 phone:grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 desktop:grid-cols-5 mb-28">
 
-          <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
+          <div class="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={papel}  alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
               <p class="text-medium mb-5 text-gray-700">De 3 a 6 meses</p>
@@ -60,7 +60,7 @@ function Home() {
             </div>
           </div>
           
-          <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
+          <div class="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={metal} alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
               <p class="text-medium mb-5 text-gray-700">Mais de 100 anos</p>
@@ -68,7 +68,7 @@ function Home() {
             </div>
           </div>
 
-          <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
+          <div class="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={plastico} alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
               <p class="text-medium mb-5 text-gray-700">Mais de 400 anos  </p>
@@ -76,7 +76,7 @@ function Home() {
             </div>
           </div>
           
-          <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
+          <div class="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={vidro}  alt="plant" class="h-auto w-[1900px]" />
             <div class="p-5">
               <p class="text-medium mb-5 text-gray-700">Mais de 1000 anos</p>
@@ -84,7 +84,7 @@ function Home() {
             </div>
           </div>
 
-          <div class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
+          <div class="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={pilha} alt="plant" class="h-auto w-[1900px] " />
             <div class="p-5">
               <p class="text-medium mb-5 text-gray-700">Substâncias tóxicas</p>
