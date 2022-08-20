@@ -120,7 +120,8 @@ function Header() {
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
 
             <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/ranking"  class="m-8">Ranking</Link></button>
-            <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75"><Link to="/usuario/cadastrar"  class="m-8">Cadastro</Link></button>
+            <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75"><Link to="/usuario/cadastrar"  class="m-8">Usuário</Link></button>
+            <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark duration-75"><Link to="/entidade/registro"  class="m-8">Entidade</Link></button>
             <button class="w-full rounded-md mb-2 bg-sunset-orange  py-2 text-white hover: bg-sunset-orange hover:bg-sunset-orange-dark  duration-75"><Link to="/login"  class="m-8">Login</Link></button>
           </div>
         )}
