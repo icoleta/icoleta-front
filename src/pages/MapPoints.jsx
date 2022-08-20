@@ -30,8 +30,8 @@ function Home() {
 
   return (
     <div className="flex items-center justify-center">
-      <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div class="lg:w-2/3 md:w-1/2 bg-olive-green rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start inicial">
+      <div class="container px-5 py-24 mx-auto flex tablet:flex-nowrap tablet:w-full flex-wrap">
+        <div class="desktop:w-2/3 tablet:w-1/2 bg-olive-green rounded-lg overflow-hidden phone:mr-10 p-8 laptop:p-12 flex items-end justify-start inicial">
           <Map position={position} height="500px" width="700px">
             {showPositionMarker && <Marker position={position}></Marker>}
             {points.map((item) => {
@@ -47,7 +47,7 @@ function Home() {
             })}
           </Map>
         </div>
-        <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+        <div class="desktop:w-1/3 tablet:w-1/2 bg-white flex flex-col tablet:ml-auto w-full tablet:py-8 mt-8 tablet:mt-0">
           <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">
             Encontre o ponto de descarte mais próximo
           </h2>
