@@ -51,20 +51,20 @@ const CadastroUsuario = () => {
             <div class="w-full md:w-full px-3 mb-6">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="cnpj"
+                htmlFor="cpf"
               >
                 Matrícula/Siape
               </label>
               <Input
                 type="text"
-                id="cnpj"
-                name="cnpj"
+                id="cpf"
+                name="cpf"
                 onChange={handleChange}
                 errors={errors}
               />
             </div>
 
-            <div class="w-full md:w-full px-3 mb-6">
+            {/* <div class="w-full md:w-full px-3 mb-6">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="phone"
@@ -78,7 +78,7 @@ const CadastroUsuario = () => {
                 onChange={handleChange}
                 errors={errors}
               />
-            </div>
+            </div> */}
           </div>
           <fieldset className="font-semibold my-2 text-lg text-center">
             Informações de Login
