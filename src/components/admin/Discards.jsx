@@ -55,25 +55,9 @@ function Discards() {
                 <div class="w-full md:w-full px-3 mb-6">
                   <label
                     class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
-                    for="hash"
-                  >
-                    Hash identificadora de usuário
-                  </label>
-                  <input
-                    class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
-                    type="text"
-                    id="hash"
-                    name="hash"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div class="w-full md:w-full px-3 mb-6">
-                  <label
-                    class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
                     for="user"
                   >
-                    CPF do voluntário que coletou
+                    CPF do usuário
                   </label>
                   <input
                     class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
@@ -84,9 +68,6 @@ function Discards() {
                     required
                   />
                 </div>
-              </div>
-
-              <div class="flex w-full">
                 <div class="w-full md:w-full px-3 mb-6">
                   <label
                     class="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
@@ -284,7 +265,7 @@ function Discards() {
             <div class="w-full md:w-full px-3 mb-6">
               <button
                 type="submit"
-                class="appearance-none block w-full bg-olive-green hover:bg-olive-green-dark text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
+                class="appearance-none block justify-center w-full bg-olive-green hover:bg-olive-green-dark text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
               >
                 Coletar
               </button>
