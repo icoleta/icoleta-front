@@ -11,6 +11,7 @@ function Discards() {
   const [points, setPoints] = useState([]);
   const [selectedResiduum, setSelectedResiduum] = useState(null);
   const [selectedPoint, setSelectedPoint] = useState(null);
+  const [discards, setDiscards] = useState([])
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
     ["hash", "weight", "user"]
@@ -25,6 +26,13 @@ function Discards() {
       if (res.data) setSelectedPoint(res.data[0].name + "_" + res.data[0].id);
     });
   }, []);
+
+  useEffect(() => {
+    discardApi.fetchDiscards()
+    .then(res => {
+      setDiscards(res.data)
+    })
+  }, [])
 
   async function whenSubmitted() {
     let temp = {
@@ -307,168 +315,67 @@ function Discards() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
-                  >
-                    1
-                  </th>
-                  <td className="py-4 px-6 text-gray-700 font-semibold">
-                    Pessoa 1
-                  </td>
-                  <td className="py-4 px-6">2.5kg</td>
-                  <td className="py-4 px-6">papel</td>
-                  <td className="py-4 px-6">IC - UFAL</td>
-                  <td className="py-4 px-6">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-pencil"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
-                      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
-                    </svg>
-                  </td>
-                  <td className="py-4 px-6">
-                    {" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-trash"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <line x1="4" y1="7" x2="20" y2="7"></line>
-                      <line x1="10" y1="11" x2="10" y2="17"></line>
-                      <line x1="14" y1="11" x2="14" y2="17"></line>
-                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                    </svg>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
-                  >
-                    2
-                  </th>
-                  <td className="py-4 px-6 text-gray-700 font-semibold">
-                    Pessoa 2
-                  </td>
-                  <td className="py-4 px-6">1.2kg</td>
-                  <td className="py-4 px-6">plástico</td>
-                  <td className="py-4 px-6">IC - UFAL</td>
-                  <td className="py-4 px-6">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-pencil"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
-                      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
-                    </svg>
-                  </td>
-                  <td className="py-4 px-6">
-                    {" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-trash"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <line x1="4" y1="7" x2="20" y2="7"></line>
-                      <line x1="10" y1="11" x2="10" y2="17"></line>
-                      <line x1="14" y1="11" x2="14" y2="17"></line>
-                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                    </svg>
-                  </td>
-                </tr>
-                <tr className="bg-white">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
-                  >
-                    3
-                  </th>
-                  <td className="py-4 px-6 text-gray-700 font-semibold">
-                    Pessoa 1
-                  </td>
-                  <td className="py-4 px-6">0.8kg</td>
-                  <td className="py-4 px-6">metal</td>
-                  <td className="py-4 px-6">IC - UFAL</td>
-                  <td className="py-4 px-6">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-pencil"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
-                      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
-                    </svg>
-                  </td>
-                  <td className="py-4 px-6">
-                    {" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-trash"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <line x1="4" y1="7" x2="20" y2="7"></line>
-                      <line x1="10" y1="11" x2="10" y2="17"></line>
-                      <line x1="14" y1="11" x2="14" y2="17"></line>
-                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                    </svg>
-                  </td>
-                </tr>
+                {
+                  discards.map(discard => (
+                    <tr className="bg-white border-b">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
+                      >
+                        1
+                      </th>
+                      <td className="py-4 px-6 text-gray-700 font-semibold">
+                        {discard.person.name}
+                      </td>
+                      <td className="py-4 px-6">{discard.weight}</td>
+                      <td className="py-4 px-6">{discard.residuum.name}</td>
+                      <td className="py-4 px-6">{discard.point.name}</td>
+                      <td className="py-4 px-6">
+                        <button>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-pencil"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
+                            <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
+                          </svg>
+                        </button>
+                      </td>
+                      <td className="py-4 px-6">
+                        <button>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-trash"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <line x1="4" y1="7" x2="20" y2="7"></line>
+                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                          </svg>
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                }
               </tbody>
             </table>
           </div>
