@@ -27,7 +27,7 @@ const AdminEntidade = () => {
   return (
     <>
       <main class="main-admin">
-        <div class="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
+        <div class="bg-gray-100 phone:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 phone:space-y-0 phone:gap-4">
           {
             {
               area: <AreaAdmin />,

@@ -9,7 +9,7 @@ function Ranking() {
         Ranking Geral
       </h3>
       <div className="overflow-x-auto relative">
-        <table className="w-full text-sm text-left text-gray-500">
+        <table className="table-auto w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
               <th scope="col" className="py-3 px-6">
