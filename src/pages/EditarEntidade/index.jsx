@@ -13,86 +13,100 @@ const EditarEntidade = () => {
   async function whenSubmitted() {}
 
   return (
-    <div className="flex justify-center items-center h-5/6 flex-col">
-      <form className="w-1/6" onSubmit={handleSubmit}>
-        <p className="text-lg mb-4">Editar entidade</p>
-
-        <label
-          htmlFor="cnpj"
-          className="block mb-2 text-sm font-medium text-gray-900"
+    <div class="m-8">
+      <div class="text-center mt-8">
+        <h2 class="text-4xl tracking-tight">Editar Entidade</h2>
+      </div>
+      <div class="flex justify-center my-2 mx-4 md:mx-0">
+        <form
+          onSubmit={handleSubmit}
+          class="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
         >
-          CNPJ
-        </label>
-        <Input
-          type="text"
-          id="cnpj"
-          name="cnpj"
-          onChange={handleChange}
-          errors={errors}
-        />
+          <div class="flex flex-wrap -mx-3 mb-6">
 
-        <br></br>
+          <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="cnpj"
+              >
+                CNPJ
+              </label>
+              <Input
+                type="text"
+                id="cnpj"
+                name="cnpj"
+                onChange={handleChange}
+                errors={errors}
+              />
+            </div>
 
-        <label
-          htmlFor="name"
-          className="block mb-2 text-sm font-medium text-gray-900"
-        >
-          Nome
-        </label>
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="name"
+              >
+                Nome
+              </label>
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                onChange={handleChange}
+                errors={errors}
+              />
+            </div>
 
-        <Input
-          type="text"
-          id="name"
-          name="name"
-          onChange={handleChange}
-          errors={errors}
-        />
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <Input
+                type="mail"
+                id="email"
+                name="email"
+                onChange={handleChange}
+                errors={errors}
+              />
+            </div>
 
-        <br></br>
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="password"
+              >
+                Senha
+              </label>
+              <Input
+                type="password"
+                id="password"
+                name="password"
+                onChange={handleChange}
+                errors={errors}
+              />
+            </div>
+            
+          </div>
+          
+          <div class="flex flex-wrap -mx-3 mb-6">
+          </div>
 
-        <label
-          htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900"
-        >
-          Email
-        </label>
-        <Input
-          type="mail"
-          id="email"
-          name="email"
-          onChange={handleChange}
-          errors={errors}
-        />
-
-        <br></br>
-
-        <label
-          htmlFor="password"
-          className="block mb-2 text-sm font-medium text-gray-900"
-        >
-          Senha
-        </label>
-        <Input
-          type="password"
-          id="password"
-          name="password"
-          onChange={handleChange}
-          errors={errors}
-        />
-
-        <br></br>
-
-        <div class="btn-flex">
-          <button
-            type="submit"
-            className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-            value="Submit"
-          >
-            Editar
-          </button>
-        </div>
-      </form>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6">
+              <button
+                type="submit"
+                class="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
+              >
+                Editar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+
   );
 };
 
