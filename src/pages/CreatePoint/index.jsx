@@ -52,46 +52,58 @@ const CreatePoint = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-5/6 flex-col">
-      <form className="w-1/2" onSubmit={handleSubmit}>
-        <p className="text-lg text-center mb-4">Cadastro do ponto de coleta</p>
+    <div class="m-8">
+      <div class="text-center mt-8">
+        <h2 class="text-4xl tracking-tight">Cadastro do ponto de coleta</h2>
+      </div>
+      <div class="flex justify-center my-2 mx-4 md:mx-0">
+        <form
+          onSubmit={handleSubmit}
+          class="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
+        >
+          <fieldset className="font-semibold my-2 text-lg text-center">
+            Dados do ponto
+          </fieldset>
 
-        <div className="mb-2 flex flex-col justify-center items-center">
-          <fieldset className="font-semibold my-2">Dados</fieldset>
-          <div className="w-1/2">
-            <label
-              htmlFor="name"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Name
-            </label>
-            <Input
-              type="text"
-              id="name"
-              name="name"
-              onChange={handleChange}
-              errors={errors}
-            />
-          </div>
-          <div className="w-1/2">
-            <label
-              htmlFor="hours"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Horários de atendimento
-            </label>
-            <Input
-              type="text"
-              id="hours"
-              name="hours"
-              onChange={handleChange}
-              errors={errors}
-            />
-          </div>
-        </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="name"
+              >
+                Nome
+              </label>
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                onChange={handleChange}
+                errors={errors}
+              />
+            </div>
 
-        <div className="text-center my-4">
-          <h1 className="font-bold">Resíduos disponíveis</h1>
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="hours"
+              >
+                Horários de atendimento
+              </label>
+              <Input
+                type="text"
+                id="hours"
+                name="hours"
+                onChange={handleChange}
+                errors={errors}
+              />
+            </div>
+
+            
+          </div>
+          <fieldset className="font-semibold my-2 text-lg text-center">
+            Resíduos disponíveis
+          </fieldset>
+          
           {residuums.map((residuum, index) => (
             <div key={index}>
               <input
@@ -105,18 +117,19 @@ const CreatePoint = () => {
               <label for={residuum.name}>{residuum.name}</label>
             </div>
           ))}
-        </div>
 
-        <div class="btn-flex">
-          <button
-            type="submit"
-            className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-            value="Submit"
-          >
-            Criar ponto
-          </button>
-        </div>
-      </form>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6">
+              <button
+                type="submit"
+                class="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
+              >
+                Criar ponto
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

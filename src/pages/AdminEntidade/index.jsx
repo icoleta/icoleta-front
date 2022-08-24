@@ -3,7 +3,7 @@ import React from 'react'
 import './style.css'
 
 import imaSede from '../../assets/ima-sede.jpeg'
-import logo from '../../assets/logo-ima.png'
+import logo from '../../assets/logo-ufal.png'
 import { useEffect } from 'react'
 
 import pointApi from "./../../services/api/points";
@@ -32,11 +32,11 @@ const AdminEntidade = () => {
             <div class="logo-entidade">
               <img src={logo} alt=""></img>
             </div>
-            <h3 class="h5">IMA/AL</h3>
+            <h3 class="h5">UFAL - Universidade Federal de Alagoas</h3>
           </div>
 
           <div class="container-pontos">
-            <h2>Seus pontos de coleta</h2>
+            <div class="text-4xl tracking-tight">Seus pontos de coleta</div>
 
             <div class="container-ponto">
               {
@@ -84,7 +84,7 @@ const AdminEntidade = () => {
             </div> 
 
             <div>
-              <Link to='/ponto/criar' class="btn primary-button">Novo ponto</Link>
+              <Link to='/ponto/criar' class="appearance-none block w-fit bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500">Novo ponto</Link>
             </div>
           </div>
         </div>
