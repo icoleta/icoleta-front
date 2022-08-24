@@ -103,17 +103,19 @@ function Header() {
           // </div>
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm ">
             {/* <Link to="/usuario/cadastrar">Criar conta</Link> */}
+            {/* <Link to="/entidade/edicao">Editar dados</Link> */}
+            {/* <Link to="/ponto/criar">Cadastrar ponto</Link> */}
+
             {user.isCompany ? (
               <Link to="/entidade/admin">Seu perfil</Link>
             ) : (
               <Link to="/perfil">Seu perfil</Link>
             )}
-            {/* <Link to="/entidade/edicao">Editar dados</Link> */}
-            {/* <Link to="/ponto/criar">Cadastrar ponto</Link> */}
             <Link to="/ranking">Ranking</Link>
             <button type="button" onClick={logoutWrapper}>
               Deslogar
             </button>
+            
           </div>
         ) : (
           <div className="child:ml-4 flex flex-col items-center text-slate-700 font-semibold text-sm phone:flex-row">
