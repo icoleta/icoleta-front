@@ -9,7 +9,7 @@ const CadastroUsuario = () => {
   const navigate = useNavigate();
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
-    ["cpf", "name", "email", "password"]
+    ["name", "email", "password"]
   );
 
   async function whenSubmitted() {
@@ -47,38 +47,6 @@ const CadastroUsuario = () => {
                 errors={errors}
               />
             </div>
-
-            <div class="w-full md:w-full px-3 mb-6">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="cpf"
-              >
-                Matrícula/Siape
-              </label>
-              <Input
-                type="text"
-                id="cpf"
-                name="cpf"
-                onChange={handleChange}
-                errors={errors}
-              />
-            </div>
-
-            {/* <div class="w-full md:w-full px-3 mb-6">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="phone"
-              >
-                Telefone
-              </label>
-              <Input
-                type="text"
-                id="phone"
-                name="phone"
-                onChange={handleChange}
-                errors={errors}
-              />
-            </div> */}
           </div>
           <fieldset className="font-semibold my-2 text-lg text-center">
             Informações de Login
@@ -130,78 +98,6 @@ const CadastroUsuario = () => {
         </form>
       </div>
     </div>
-    // <div className="flex justify-center items-center h-5/6 flex-col">
-    //   <form onSubmit={handleSubmit} className="w-1/6">
-    //     <p className="text-lg mb-4">Cadastro de usuário</p>
-
-    //     <label
-    //       htmlFor="cpf"
-    //       className="block mb-2 text-sm font-medium text-gray-900"
-    //     >
-    //       CPF:
-    //     </label>
-    //     <Input
-    //       type="text"
-    //       id="cpf"
-    //       name="cpf"
-    //       onChange={handleChange}
-    //       errors={errors}
-    //     />
-    //     <br></br>
-
-    //     <label
-    //       htmlFor="name"
-    //       className="block mb-2 text-sm font-medium text-gray-900"
-    //     >
-    //       Nome:
-    //     </label>
-    //     <Input
-    //       type="text"
-    //       id="name"
-    //       name="name"
-    //       onChange={handleChange}
-    //       errors={errors}
-    //     />
-    //     <br></br>
-
-    //     <label
-    //       htmlFor="email"
-    //       className="block mb-2 text-sm font-medium text-gray-900"
-    //     >
-    //       Email:
-    //     </label>
-    //     <Input
-    //       type="email"
-    //       id="email"
-    //       name="email"
-    //       onChange={handleChange}
-    //       errors={errors}
-    //     />
-    //     <br></br>
-
-    //     <label
-    //       htmlFor="password"
-    //       className="block mb-2 text-sm font-medium text-gray-900"
-    //     >
-    //       Senha:
-    //     </label>
-    //     <Input
-    //       type="password"
-    //       id="password"
-    //       name="password"
-    //       onChange={handleChange}
-    //       errors={errors}
-    //     />
-    //     <br></br>
-
-    //     <button
-    //       type="submit"
-    //       className="focus:outline-none text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-    //     >
-    //       Criar conta de usuário
-    //     </button>
-    //   </form>
-    // </div>
   );
 };
 
