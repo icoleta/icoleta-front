@@ -12,12 +12,14 @@ export const AuthProvider = function ({ children }) {
     if (
       localStorage.getItem("@App:token") &&
       localStorage.getItem("@App:email") &&
-      localStorage.getItem("@App:isCompany")
+      localStorage.getItem("@App:isCompany") &&
+      localStorage.getItem("@App:role")
     ) {
       setUser({
         email: localStorage.getItem("@App:email"),
         token: localStorage.getItem("@App:token"),
         isCompany: localStorage.getItem("@App:isCompany"),
+        role: localStorage.getItem("@App:role"),
       });
 
       api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
@@ -33,11 +35,12 @@ export const AuthProvider = function ({ children }) {
         password,
       })
       .then((res) => {
-        const { token, isCompany } = res.data.data;
+        const { token, isCompany, role_id } = res.data.data;
         const user = {
           email,
           token,
           isCompany,
+          role: role_id,
         };
         setUser(user);
 
@@ -46,6 +49,7 @@ export const AuthProvider = function ({ children }) {
         localStorage.setItem("@App:email", email);
         localStorage.setItem("@App:token", token);
         localStorage.setItem("@App:isCompany", isCompany);
+        localStorage.setItem("@App:role", role_id);
         return true;
       })
       .catch(function () {
@@ -58,6 +62,7 @@ export const AuthProvider = function ({ children }) {
     localStorage.removeItem("@App:token");
     localStorage.removeItem("@App:email");
     localStorage.removeItem("@App:isCompany");
+    localStorage.removeItem("@App:role");
     await authApi.logout();
   }
 
