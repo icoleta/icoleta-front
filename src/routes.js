@@ -64,33 +64,33 @@ function Paths() {
           <Route
             path="/entidade"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <Entity />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
             path="/entidade/edicao"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <EditarEntidade />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
             path="/entidade/admin"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <AdminEntidade />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
             path="/ponto/criar"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <CreatePoint />
-              </ProtectedRoute>
+              // 
             }
           />
         </Routes>
