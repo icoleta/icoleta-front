@@ -29,73 +29,82 @@ function Header() {
         </div>
       </Link>
       <div className="flex justify-center">
-        {signed ? (
-          <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
-            {user.isCompany ? (
+        {
+          signed ? (
+            <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
+              {
+                !user.role && (
+                  <Link
+                    to="/entidade/admin"
+                    className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+                  >
+                    Dashboard
+                  </Link>
+                )
+              }
+              {
+                user.role === 'company' && (
+                  <Link
+                    to="/perfil"
+                    className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+                  >
+                    Dashboard
+                  </Link>
+                )
+              }
+              {
+                user.role === 'admin' && (
+                  <Link
+                    to="/admin"
+                    className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+                  >
+                    Admin
+                  </Link>
+                )
+              }
               <Link
-                to="/entidade/admin"
+                to="/ranking"
                 className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
               >
-                Seu perfil
+                Ranking
               </Link>
-            ) : (
+              <button
+                type="button"
+                className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 font-semibold"
+                onClick={logoutWrapper}
+              >
+                Deslogar
+              </button>
+            </div>
+          ) : (
+            <div className="child:ml-5 flex flex-col items-center text-slate-700 font-semibold text-sm phone:flex-row">
               <Link
-                to="/perfil"
+                to="/ranking"
                 className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
               >
-                Seu perfil
+                Ranking
               </Link>
-            )}
-            {user.role === 1 && (
               <Link
-                to="/admin"
+                to="/usuario/cadastrar"
                 className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
               >
-                Admin
+                Usuário
               </Link>
-            )}
-            <Link
-              to="/ranking"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
-            >
-              Ranking
-            </Link>
-            <button
-              type="button"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 font-semibold"
-              onClick={logoutWrapper}
-            >
-              Deslogar
-            </button>
-          </div>
-        ) : (
-          <div className="child:ml-5 flex flex-col items-center text-slate-700 font-semibold text-sm phone:flex-row">
-            <Link
-              to="/ranking"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
-            >
-              Ranking
-            </Link>
-            <Link
-              to="/usuario/cadastrar"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
-            >
-              Usuário
-            </Link>
-            <Link
-              to="/entidade/registro"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
-            >
-              Entidade
-            </Link>
-            <Link
-              to="/login"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
-            >
-              Login
-            </Link>
-          </div>
-        )}
+              <Link
+                to="/entidade/registro"
+                className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+              >
+                Entidade
+              </Link>
+              <Link
+                to="/login"
+                className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+              >
+                Login
+              </Link>
+            </div>
+          )
+        }
       </div>
     </div>
   );

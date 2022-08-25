@@ -13,8 +13,8 @@ const LoginUsuario = () => {
   );
 
   if (user) {
-    if (user.role === 1) navigate("/admin");
-    else if (user.isCompany) navigate("/entidade/admin");
+    if (user.role === 'admin') navigate("/admin");
+    else if (user.role === 'company') navigate("/entidade/admin");
     else navigate("/perfil");
   }
 
