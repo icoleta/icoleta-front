@@ -8,7 +8,6 @@ import ListPoints from "./pages/ListPoints";
 import MapPoints from "./pages/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
-import LoginEntidade from "./pages/LoginEntidade";
 import Body from "./components/Body";
 import Entity from "./pages/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
@@ -18,6 +17,7 @@ import LoginUsuario from "./pages/LoginUsuario";
 import RecuperarSenha from "./pages/RecuperarSenha";
 import AtualizarSenha from "./pages/AtualizarSenha";
 import Ranking from "./pages/Ranking";
+import Perfil from "./pages/PerfilUsuario";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -39,7 +39,6 @@ function Paths() {
           <Route path="/lista-de-pontos" element={<ListPoints />} />
           <Route path="/login" element={<LoginUsuario />} />
           <Route path="/entidade/registro" element={<CadastroEntidade />} />
-          {/* <Route path="/entidade/login" element={<LoginEntidade />} /> */}
           <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
@@ -53,35 +52,43 @@ function Paths() {
             }
           />
           <Route
+            path="/perfil"
+            element={
+              // <ProtectedRoute>
+                <Perfil />
+              // </ProtectedRoute>
+            }
+          />
+          <Route
             path="/entidade"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <Entity />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
             path="/entidade/edicao"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <EditarEntidade />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
             path="/entidade/admin"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <AdminEntidade />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
             path="/ponto/criar"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <CreatePoint />
-              </ProtectedRoute>
+              // 
             }
           />
         </Routes>

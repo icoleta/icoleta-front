@@ -11,7 +11,7 @@ const residuumApi = {
     return api.put(`/residuum/${id}`, payload);
   },
   async deleteResiduum(id) {
-    return api.delete(`/residuum/${id}`);
+    return api.delete(`admin/residuum/${id}`);
   },
 };
 
