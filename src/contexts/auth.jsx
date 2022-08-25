@@ -1,7 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import authApi from "../services/api/auth";
 import { api } from "../services/api/request";
-import axios from "axios";
 
 const AuthContext = createContext({});
 
@@ -11,28 +10,34 @@ export const AuthProvider = function ({ children }) {
   useEffect(() => {
     if (
       localStorage.getItem("@App:token") &&
-      localStorage.getItem("@App:email")
+      localStorage.getItem("@App:email") &&
+      localStorage.getItem("@App:role")
     ) {
       setUser({
         email: localStorage.getItem("@App:email"),
         token: localStorage.getItem("@App:token"),
+        role: localStorage.getItem("@App:role"),
       });
 
-      api.defaults.headers.Authorization = `Bearer ${localStorage.getItem("@App:token")}`;
+      api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+        "@App:token"
+      )}`;
     }
   }, []);
 
-  function Login(email, password) {
+  async function Login(email, password) {
     return authApi
       .login({
         email,
         password,
       })
       .then((res) => {
-        const { token } = res.data.data;
+        const { role } = res.data;
+        const { token } = res.data.user
         const user = {
           email,
           token,
+          role,
         };
         setUser(user);
 
@@ -40,17 +45,20 @@ export const AuthProvider = function ({ children }) {
 
         localStorage.setItem("@App:email", email);
         localStorage.setItem("@App:token", token);
+        localStorage.setItem("@App:role", role);
         return true;
       })
-      .catch(function () {
+      .catch(_ => {
         return false;
       });
   }
 
-  function Logout() {
+  async function Logout() {
     setUser(null);
     localStorage.removeItem("@App:token");
     localStorage.removeItem("@App:email");
+    localStorage.removeItem("@App:role");
+    await authApi.logout();
   }
 
   return (

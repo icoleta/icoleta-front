@@ -1,6 +1,16 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    screens: {
+      'phone': '519px',
+
+      'tablet': '964px',
+
+      'laptop': '1024px',
+
+      'desktop': '1280px',
+
+    },
     extend: {
       colors: {
         'olive-green': '#4B9093',

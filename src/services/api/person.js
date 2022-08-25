@@ -10,6 +10,9 @@ const personApi = {
   async makeVolunteer(id, payload) {
     return api.patch(`/admin/person/${id}`, payload);
   },
+  async listUserDiscards() {
+    return api.get(`/person/discards`)
+  },
 };
 
 export default personApi;

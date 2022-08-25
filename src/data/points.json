@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "ponto 1",
+    "title": "Ponto de coleta IC - UFAL",
     "materials": ["Eletrônicos", "Plástico", "Vidro", "Papel"],
     "address": {
       "street": "Rua lorem ipsum",
@@ -9,102 +9,8 @@
       "neighborhood": "Centro"
     },
     "location": {
-      "latitude": -9.555558494077474,
-      "longitude": -35.77656186122037 
-    },
-    "opening_hours": {
-      "sunday": {
-        "isOpen": false
-      },
-      "monday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "tuesday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "wednesday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "thursday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "friday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "saturday": {
-        "isOpen": false
-      }
-    }
-  },
-  {
-    "id": 2,
-    "title": "ponto 2",
-    "materials": ["Plástico", "Vidro", "Papel"],
-    "address": {
-      "street": "Rua lorem ipsum",
-      "number": 1234,
-      "neighborhood": "Centro"
-    },
-    "location": {
-      "latitude": -9.636292955723393,
-      "longitude": -35.72111774516577 
-    },
-    "opening_hours": {
-      "sunday": {
-        "isOpen": false
-      },
-      "monday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "tuesday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "wednesday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "thursday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "friday": {
-        "isOpen": true,
-        "open": "9:00",
-        "close": "16:00"
-      },
-      "saturday": {
-        "isOpen": false
-      }
-    }
-  },
-  {
-    "id": 3,
-    "title": "ponto 3",
-    "materials": ["Eletrônicos"],
-    "address": {
-      "street": "Rua lorem ipsum",
-      "number": 1234,
-      "neighborhood": "Centro"
-    },
-    "location": {
-      "latitude": -9.610309213645696,
-      "longitude": -35.739574546939565 
+      "latitude": -9.553288,
+      "longitude": -35.776893
     },
     "opening_hours": {
       "sunday": {

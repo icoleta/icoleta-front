@@ -7,6 +7,9 @@ const othersApi = {
   async fetchSemesters() {
     return api.get("/semester");
   },
+  async fetchRanking() {
+    return api.get('/ranking');
+  },
 };
 
 export default othersApi;

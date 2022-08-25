@@ -2,7 +2,7 @@ import { api } from "./request";
 
 const companyApi = {
   async fetchCompanies() {
-    return api.get("/company");
+    return api.get("/admin/company");
   },
   async fetchCompany(id) {
     return api.get(`/admin/company/${id}`);

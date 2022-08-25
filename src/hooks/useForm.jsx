@@ -38,7 +38,6 @@ function useForm(callback, fields) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(values);
     if (validate()) callback();
   }
 
