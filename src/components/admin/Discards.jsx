@@ -62,7 +62,7 @@ function Discards() {
             onSubmit={handleSubmit}
           >
             <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="flex w-full">
+              <div className="flex flex-col tablet:flex-row w-full">
                 <div className="w-full md:w-full px-3 mb-6">
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
@@ -84,7 +84,7 @@ function Discards() {
                     className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
                     htmlFor="weight"
                   >
-                    Peso do resíduo (em gramas)
+                    Peso do resíduo (g)
                   </label>
                   <input
                     className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
@@ -133,7 +133,7 @@ function Discards() {
                   Tipo de resíduo
                 </span>
               </div>
-              <div className="flex flex-col items-center w-full my-6">
+              <div className="flex flex-col tablet:flex-row items-center w-full my-6">
                 {
                   residuums && residuums.map((residuum, index) => (
                     <div key={index}>
@@ -177,52 +177,55 @@ function Discards() {
           <h2 className="text-4xl tracking-tight">Histórico de descartes</h2>
         </div>
 
-        <div className="flex flex-col justify-center">
-          <div className="overflow-x-auto relative">
-            <table className="w-full text-sm text-left text-gray-500">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-                <tr>
-                  <th scope="col" className="py-3 px-6">
-                    ID
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Nome do usuário
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Quantidade doada{" "}
-                    <span className="text-gray-400 font-normal">(kg)</span>
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Material doado
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Ponto de coleta
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Editar
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Excluir
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  discards.map(discard => (
-                    <tr className="bg-white border-b">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
-                      >
-                        1
+        <div className="flex flex-col">
+          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+              <div className="overflow-x-auto">
+                <table className="min-w-full">
+                  <thead className="border-b">
+                    <tr>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        ID
                       </th>
-                      <td className="py-4 px-6 text-gray-700 font-semibold">
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Nome do usuário
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Quantidade doada{" "}
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Material doado
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Ponto de coleta
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Editar
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Excluir
+                      </th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                    discards.map(discard => (
+                      <tr className="bg-white border-b">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-sunset-orange">1</td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         {discard.person.name}
-                      </td>
-                      <td className="py-4 px-6">{discard.weight}</td>
-                      <td className="py-4 px-6">{discard.residuum.name}</td>
-                      <td className="py-4 px-6">{discard.point.name}</td>
-                      <td className="py-4 px-6">
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {discard.weight}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {discard.residuum.name}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {discard.point.name}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         <button>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -241,8 +244,8 @@ function Discards() {
                             <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
                           </svg>
                         </button>
-                      </td>
-                      <td className="py-4 px-6">
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         <button>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -264,12 +267,15 @@ function Discards() {
                             <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
                           </svg>
                         </button>
-                      </td>
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
+                        </td>
+                      </tr>
+                    ))
+
+                  }
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

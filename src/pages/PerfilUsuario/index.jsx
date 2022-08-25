@@ -17,59 +17,52 @@ function PerfilUsuario() {
     }, [])
     
     return (
-        <div className="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
+            <div className="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
 
                 <div className="col-span-8 items-center"> 
 
                 <div className=" flex col-span-4  bg-olive-green rounded-md flex items-center">
-                    <div className="flex flex-col w-full mx-2 py-12 justify-between tablet:flex-row phone:mx-20">
-                        <h2 className="text-white text-4xl w-full">Bem vindo(a)!</h2>
-                        <div className="flex flex-col w-full mx-2 justify-end tablet:flex-row phone:mx-20">
+                    <div className="flex flex-col w-full mx-2 py-12 justify-between desktop:flex-row phone:mx-20">
+                        <h2 className="text-white text-4xl">Bem vindo! Essa é sua hash para descarte:</h2>
 
-                            <div className="p-4 m-4 tablet:w-1/3 w-1/2 justify-center text-center  bg-sunset-orange text-white py-2 px-4 rounded">
-                                <p className="leading-relaxed">Descartes</p>
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{discardCount}</h2>
-                                <p className="leading-relaxed">Total</p>
-                            </div>
-
-                            <div className="p-4 m-4 tablet:w-1/3 w-1/2 justify-center text-center  bg-sunset-orange text-white py-2 px-4 rounded">
-                                <p className="leading-relaxed">Peso</p>
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{totalWeight} g</h2>
-                                <p className="leading-relaxed">Total</p>
-                            </div>
-                        </div>
+                        <p className="mt-4 w-fit uppercase inline-block text-sm bg-sunset-orange text-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">
+                            Total descartado: {totalWeight} gramas
+                        </p>
+                        <p className="mt-4 w-fit uppercase inline-block text-sm bg-sunset-orange text-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">
+                            Número de descartes: {discardCount}
+                        </p>
                     </div>
                 </div>
 
-                <div className="container px-5 pt-20 mx-auto">
-                    <div className="flex flex-wrap -m-4 text-center">
-                        <div className="p-4 tablet:w-1/5 w-1/2">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                            <p className="leading-relaxed">Papel</p>
-                        </div>
+                    <div className="container px-5 pt-20 mx-auto">
+                        <div className="flex flex-wrap -m-4 text-center">
+                            <div className="p-4 tablet:w-1/5 w-1/2">
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
+                                <p className="leading-relaxed">Papel</p>
+                            </div>
 
-                        <div className="p-4 tablet:w-1/5 w-1/2">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                            <p className="leading-relaxed">Metal</p>
-                        </div>
+                            <div className="p-4 tablet:w-1/5 w-1/2">
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
+                                <p className="leading-relaxed">Metal</p>
+                            </div>
 
-                        <div className="p-4 tablet:w-1/5 w-1/2">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                            <p className="leading-relaxed">Plástico</p>
-                        </div>
+                            <div className="p-4 tablet:w-1/5 w-1/2">
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
+                                <p className="leading-relaxed">Plástico</p>
+                            </div>
 
-                        <div className="p-4 tablet:w-1/5 w-1/2">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                            <p className="leading-relaxed">Vidro</p>
-                        </div>
+                            <div className="p-4 tablet:w-1/5 w-1/2">
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
+                                <p className="leading-relaxed">Vidro</p>
+                            </div>
 
-                        <div className="p-4 tablet:w-1/5 w-1/2">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                            <p className="leading-relaxed">Pilha</p>
+                            <div className="p-4 tablet:w-1/5 w-1/2">
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
+                                <p className="leading-relaxed">Pilha</p>
+                            </div>
+                            
                         </div>
-                        
                     </div>
-                </div>
 
                 <div className="text-center mt-12  mb-6">
                     <h2 className="text-4xl tracking-tight text-olive-green">
