@@ -71,7 +71,7 @@ function Residuum() {
                             strokeWidth="2"
                             stroke="currentColor"
                             fill="none"
-                            stroke-linecap="round"
+                            strokeLinecap="round"
                             stroke-linejoin="round"
                           >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -93,7 +93,7 @@ function Residuum() {
                             strokeWidth="2"
                             stroke="currentColor"
                             fill="none"
-                            stroke-linecap="round"
+                            strokeLinecap="round"
                             stroke-linejoin="round"
                           >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
