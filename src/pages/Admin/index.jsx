@@ -7,7 +7,7 @@ import Users from "../../components/admin/Users";
 import Companies from "../../components/admin/Companies";
 
 const AdminEntidade = () => {
-  const [selectedItem, setSelectedItem] = useState("discards");
+  const [selectedItem, setSelectedItem] = useState("area");
     
   return (
     <>
