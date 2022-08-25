@@ -8,7 +8,6 @@ import ListPoints from "./pages/ListPoints";
 import MapPoints from "./pages/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
-import LoginEntidade from "./pages/LoginEntidade";
 import Body from "./components/Body";
 import Entity from "./pages/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
@@ -40,7 +39,6 @@ function Paths() {
           <Route path="/lista-de-pontos" element={<ListPoints />} />
           <Route path="/login" element={<LoginUsuario />} />
           <Route path="/entidade/registro" element={<CadastroEntidade />} />
-          {/* <Route path="/entidade/login" element={<LoginEntidade />} /> */}
           <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
