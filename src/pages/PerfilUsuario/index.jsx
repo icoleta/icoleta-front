@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../../contexts/auth";
 
 import personApi from '../../services/api/person'
 
