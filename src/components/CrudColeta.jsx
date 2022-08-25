@@ -13,23 +13,23 @@
 
             <div className="flex w-full">
                     <div className="w-full md:w-full px-3 mb-6">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" for='Password'>Hash identificadora de usuário</label>
+                        <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" htmlFor='Password'>Hash identificadora de usuário</label>
                         <input className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
                     </div>
                     <div className="w-full md:w-full px-3 mb-6">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" for='Password'>Voluntário que coletou</label>
+                        <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" htmlFor='Password'>Voluntário que coletou</label>
                         <input className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
                     </div>
                 </div>
                 
                     <div className="flex w-full">
                         <div className="w-full md:w-full px-3 mb-6">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" for='Password'>Peso do resíduo</label>
+                            <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" htmlFor='Password'>Peso do resíduo</label>
                             <input className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
                         </div>
 
                         <div className="w-full md:w-full px-3 mb-6">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" for='Password'>Ponto de coleta</label>
+                            <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2" htmlFor='Password'>Ponto de coleta</label>
                         <input className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required/>
                     </div>
                 </div>

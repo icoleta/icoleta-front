@@ -83,7 +83,7 @@ const LoginUsuario = () => {
               />
             </div>
             <div className="w-full flex items-center justify-between px-3 mb-3 ">
-              <label for="remember" className="flex items-center w-1/2">
+              <label htmlFor="remember" className="flex items-center w-1/2">
                 <input
                   type="checkbox"
                   name=""

@@ -114,7 +114,7 @@ const CreatePoint = () => {
                 checked={items[index]}
                 onChange={() => handleChecked(index)}
               />
-              <label for={residuum.name}>{residuum.name}</label>
+              <label htmlFor={residuum.name}>{residuum.name}</label>
             </div>
           ))}
 
