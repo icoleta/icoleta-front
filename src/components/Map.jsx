@@ -8,19 +8,25 @@ function ChangeMapView({ coords }) {
   return null;
 }
 
-function Map({ children, width, height, position, interactive=true, ...props }) {
-
+function Map({
+  children,
+  width,
+  height,
+  position,
+  interactive = true,
+  ...props
+}) {
   return (
     <MapContainer
-      center={position} 
-      zoom={15} 
+      center={position}
+      zoom={15}
       style={{ width: width, height: height }}
       dragging={interactive}
       touchZoom={interactive}
       zoomControl={interactive}
       scrollWheelZoom={interactive}
       doubleClickZoom={interactive}
-    {...props}
+      {...props}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

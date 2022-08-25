@@ -4,6 +4,7 @@ import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import recycleIcon from "../assets/recycle_icon.svg";
 import points from "../data/points.json";
+import icImage from "../assets/ic.jpg";
 
 const mapIcon = L.icon({
   iconUrl: recycleIcon,
@@ -12,9 +13,7 @@ const mapIcon = L.icon({
 });
 
 function Home() {
-  const [position, setPosition] = useState([
-    -9.576503756696837, -35.75611430266957,
-  ]);
+  const [position, setPosition] = useState([-9.553288, -35.776893]);
   const [showPositionMarker, setShowPositionMarker] = useState(false);
 
   useEffect(() => {
@@ -41,12 +40,16 @@ function Home() {
                   icon={mapIcon}
                   position={[item.location.latitude, item.location.longitude]}
                 >
-                  <Popup>{item.title}</Popup>
+                  <Popup>
+                    {item.title}
+                    <img src={icImage} />
+                  </Popup>
                 </Marker>
               );
             })}
           </Map>
         </div>
+        {/*
         <div class="desktop:w-1/3 tablet:w-1/2 bg-white flex flex-col tablet:ml-auto w-full tablet:py-8 mt-8 tablet:mt-0">
           <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">
             Encontre o ponto de descarte mais próximo
@@ -94,6 +97,7 @@ function Home() {
             Buscar
           </button>
         </div>
+          */}
       </div>
     </div>
   );
