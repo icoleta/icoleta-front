@@ -59,12 +59,12 @@ const AdminEntidade = () => {
                 <li
                   class={
                     "py-3 rounded-lg border-b-2 hover:bg-sunset-orange" +
-                    (selectedItem === "residuum" ? " bg-orange-200" : "")
+                    (selectedItem === "discards" ? " bg-orange-200" : "")
                   }
-                  onClick={() => setSelectedItem("residuum")}
+                  onClick={() => setSelectedItem("discards")}
                 >
                   <a href="#" class="list-none">
-                    Resíduos
+                    Descartes
                   </a>
                 </li>
                 <li
@@ -81,12 +81,12 @@ const AdminEntidade = () => {
                 <li
                   class={
                     "py-3 rounded-lg border-b-2 hover:bg-sunset-orange" +
-                    (selectedItem === "discards" ? " bg-orange-200" : "")
+                    (selectedItem === "residuum" ? " bg-orange-200" : "")
                   }
-                  onClick={() => setSelectedItem("discards")}
+                  onClick={() => setSelectedItem("residuum")}
                 >
                   <a href="#" class="list-none">
-                    Descartes
+                    Resíduos
                   </a>
                 </li>
                 <li
