@@ -18,8 +18,8 @@ export const AuthProvider = function ({ children }) {
       setUser({
         email: localStorage.getItem("@App:email"),
         token: localStorage.getItem("@App:token"),
-        isCompany: localStorage.getItem("@App:isCompany"),
-        role: localStorage.getItem("@App:role"),
+        isCompany: Boolean(localStorage.getItem("@App:isCompany")),
+        role: parseInt(localStorage.getItem("@App:role")),
       });
 
       api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
