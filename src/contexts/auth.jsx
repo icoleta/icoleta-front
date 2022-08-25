@@ -32,7 +32,8 @@ export const AuthProvider = function ({ children }) {
         password,
       })
       .then((res) => {
-        const { token, role } = res.data;
+        const { role } = res.data;
+        const { token } = res.data.user
         const user = {
           email,
           token,
