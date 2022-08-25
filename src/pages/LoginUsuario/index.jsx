@@ -27,13 +27,13 @@ const LoginUsuario = () => {
   }
 
   return (
-    <div class="m-8">
-      <div class="text-center mt-8">
-        <div class="flex items-center justify-center">
+    <div className="m-8">
+      <div className="text-center mt-8">
+        <div className="flex items-center justify-center">
           <svg
             fill="none"
             viewBox="0 0 24 24"
-            class="w-12 h-12 text-olive-green"
+            className="w-12 h-12 text-olive-green"
             stroke="currentColor"
           >
             <path
@@ -44,17 +44,17 @@ const LoginUsuario = () => {
             />
           </svg>
         </div>
-        <h2 class="text-4xl tracking-tight">Acesso ao sistema</h2>
+        <h2 className="text-4xl tracking-tight">Acesso ao sistema</h2>
       </div>
-      <div class="flex justify-center my-2 mx-4 md:mx-0">
+      <div className="flex justify-center my-2 mx-4 md:mx-0">
         <form
           onSubmit={handleSubmit}
-          class="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
+          className="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
         >
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-full px-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-full px-3 mb-6">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="email"
               >
                 Email
@@ -67,9 +67,9 @@ const LoginUsuario = () => {
                 errors={errors}
               />
             </div>
-            <div class="w-full md:w-full px-3 mb-6">
+            <div className="w-full md:w-full px-3 mb-6">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="password"
               >
                 Senha
@@ -82,17 +82,17 @@ const LoginUsuario = () => {
                 errors={errors}
               />
             </div>
-            <div class="w-full flex items-center justify-between px-3 mb-3 ">
-              <label for="remember" class="flex items-center w-1/2">
+            <div className="w-full flex items-center justify-between px-3 mb-3 ">
+              <label for="remember" className="flex items-center w-1/2">
                 <input
                   type="checkbox"
                   name=""
                   id=""
-                  class="mr-1 bg-white shadow"
+                  className="mr-1 bg-white shadow"
                 />
-                <span class="text-sm text-gray-700 pt-1">Lembrar-me</span>
+                <span className="text-sm text-gray-700 pt-1">Lembrar-me</span>
               </label>
-              <div class="w-1/2 text-right">
+              <div className="w-1/2 text-right">
                 <a
                   href="/usuario/recuperar"
                   className="text-sunset-orange text-sm tracking-tight"
@@ -101,10 +101,10 @@ const LoginUsuario = () => {
                 </a>
               </div>
             </div>
-            <div class="w-full md:w-full px-3 mb-6">
+            <div className="w-full md:w-full px-3 mb-6">
               <button
                 type="submit"
-                class="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
               >
                 Entrar
               </button>
