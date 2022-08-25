@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import pointApi from "./../../services/api/points";
-import residuumApi from "./../../services/api/residuum";
 import discardApi from "./../../services/api/discards";
 
 function Discards() {
   const navigate = useNavigate();
   const [residuums, setResiduums] = useState([]);
   const [points, setPoints] = useState([]);
-  const [selectedResiduum, setSelectedResiduum] = useState(null);
-  const [selectedPoint, setSelectedPoint] = useState(null);
+  const [selectedResiduum, setSelectedResiduum] = useState([]);
+  const [selectedPointId, setSelectedPointId] = useState(-1);
   const [discards, setDiscards] = useState([])
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
@@ -18,27 +17,31 @@ function Discards() {
   );
 
   useEffect(() => {
-    residuumApi.fetchResiduums().then((res) => {
-      setResiduums(res.data);
-    });
+    discardApi.fetchDiscards().then(res => {
+      setDiscards(res.data)
+    })
 
     pointApi.fetchPoints().then((res) => {
       setPoints(res.data);
     });
-  }, []);
+  }, [])
 
   useEffect(() => {
-    discardApi.fetchDiscards()
-    .then(res => {
-      setDiscards(res.data)
-    })
-  }, [])
+    if(points) {
+      const pointIndex = points.findIndex(point => point.id === parseInt(selectedPointId))
+      if(pointIndex !== -1) {
+        setResiduums(points[pointIndex].collectable_items)
+      } else {
+        setResiduums([])
+      }
+    }
+  }, [points, selectedPointId]);
 
   async function whenSubmitted() {
     let payload = {
       email: values['email'],
       weight: parseInt(values["weight"]),
-      point_id: parseInt(selectedPoint),
+      point_id: parseInt(selectedPointId),
       residuum_id: parseInt(selectedResiduum),
     };
 
@@ -100,7 +103,7 @@ function Discards() {
                     <select
                       className="block w-full mt-2 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                       onInput={(e) => {
-                        setSelectedPoint(e.target.value)
+                        setSelectedPointId(e.target.value)
                         handleChange({
                           target: {
                             name: 'point_id',
@@ -111,7 +114,7 @@ function Discards() {
                     >
                       <option value="">Selecione um ponto</option>
                       {
-                        points.map((item) => (
+                        points && points.map((item) => (
                           <option
                             className="block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                             value={item.id}
@@ -132,7 +135,7 @@ function Discards() {
               </div>
               <div className="flex flex-col items-center w-full my-6">
                 {
-                  residuums.map((residuum, index) => (
+                  residuums && residuums.map((residuum, index) => (
                     <div key={index}>
                       <input
                         type="radio"
