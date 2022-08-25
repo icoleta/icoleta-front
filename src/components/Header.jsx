@@ -35,7 +35,7 @@ function Header() {
               {
                 !user.role && (
                   <Link
-                    to="/entidade/admin"
+                    to="/perfil"
                     className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
                   >
                     Dashboard
@@ -45,7 +45,7 @@ function Header() {
               {
                 user.role === 'company' && (
                   <Link
-                    to="/perfil"
+                    to="/entidade/admin"
                     className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
                   >
                     Dashboard
