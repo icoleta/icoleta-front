@@ -23,9 +23,9 @@ function Residuum() {
   }
   
   return (
-    <div class="col-span-4 items-center">
-      <div class="text-center mt-12  mb-6">
-          <h2 class="text-4xl tracking-tight">Resíduos coletados</h2>
+    <div className="col-span-4 items-center">
+      <div className="text-center mt-12  mb-6">
+          <h2 className="text-4xl tracking-tight">Resíduos coletados</h2>
         </div>
 
         <div className="flex flex-col justify-center">
@@ -64,7 +64,7 @@ function Residuum() {
                         <button>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-pencil"
+                            className="icon icon-tabler icon-tabler-pencil"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ function Residuum() {
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-trash"
+                            className="icon icon-tabler icon-tabler-trash"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
