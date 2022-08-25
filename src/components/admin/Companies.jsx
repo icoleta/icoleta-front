@@ -3,6 +3,9 @@ import React from "react";
 function Companies() {
   return (
     <div class="col-span-4 items-center">
+
+
+
       <div class="text-center mt-12  mb-6">
           <h2 class="text-4xl tracking-tight">Identidades cadastradas no sistema</h2>
         </div>
