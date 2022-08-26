@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import svg from "../assets/recycle_icon.png";
 
 // import points from "../data/points.json";
-import point from "../assets/point.png";
+import point from "../assets/ic.jpg";
 
 import pointApi from "./../services/api/points";
 
@@ -39,7 +39,6 @@ function ListPoints() {
           points.map((item) => {
             return (
               
-
               <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mx-8 mb-8" key={item.id}>
                   
                 <img src={point} alt="Ponto de coleta" className="h-auto w-full" />
