@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useAuth } from "../../contexts/auth";
 
 import personApi from '../../services/api/person'
 
 function PerfilUsuario() {
+    const { user } = useAuth()
+    
     const [discards, setDiscards] = useState([]);
     const [discardCount, setDiscardCount] = useState([]);
     const [totalWeight, setTotalWeight] = useState([]);
+    const [summaryByResiduum, setSummaryByResiduum] = useState([])
 
     useEffect(() => {
         personApi.listUserDiscards()
@@ -13,6 +17,7 @@ function PerfilUsuario() {
             setDiscards(res.data.discards)
             setDiscardCount(res.data.discardsCount)
             setTotalWeight(res.data.totalWeightDiscarded)
+            setSummaryByResiduum(Object.entries(res.data.summaryByResiduum))
         })
     }, [])
     
@@ -23,10 +28,10 @@ function PerfilUsuario() {
 
                 <div className=" flex col-span-4  bg-olive-green rounded-md flex items-center">
                     <div className="flex flex-col w-full mx-2 py-12 justify-between desktop:flex-row phone:mx-20">
-                        <h2 className="text-white text-4xl">Bem vindo! Essa é sua hash para descarte:</h2>
+                        <h2 className="text-white text-4xl">Bem vindo(a) {user?.name}!</h2>
 
                         <p className="mt-4 w-fit uppercase inline-block text-sm bg-sunset-orange text-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">
-                            Total descartado: {totalWeight} gramas
+                            Total descartado: {totalWeight / 1000}kg
                         </p>
                         <p className="mt-4 w-fit uppercase inline-block text-sm bg-sunset-orange text-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">
                             Número de descartes: {discardCount}
@@ -34,39 +39,28 @@ function PerfilUsuario() {
                     </div>
                 </div>
 
-                    <div className="container px-5 pt-20 mx-auto">
-                        <div className="flex flex-wrap -m-4 text-center">
-                            <div className="p-4 tablet:w-1/5 w-1/2">
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                                <p className="leading-relaxed">Papel</p>
-                            </div>
+                <div className="text-center mt-12">
+                    <h2 className="text-4xl tracking-tight text-olive-green">
+                        Total Descartado Por Tipo
+                    </h2>
+                </div>
 
-                            <div className="p-4 tablet:w-1/5 w-1/2">
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                                <p className="leading-relaxed">Metal</p>
+                <div className="container px-5 pt-10 mx-auto">
+                    <div className="flex flex-wrap -m-4 text-center">
+                    {
+                        summaryByResiduum.map(residuum => (
+                            <div key={`${residuum[0]}-summary`} className="p-4 tablet:w-1/5 w-1/2">
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">{residuum[1].weight / 1000}kg</h2>
+                                <p className="leading-relaxed">{residuum[0]}</p>
                             </div>
-
-                            <div className="p-4 tablet:w-1/5 w-1/2">
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                                <p className="leading-relaxed">Plástico</p>
-                            </div>
-
-                            <div className="p-4 tablet:w-1/5 w-1/2">
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                                <p className="leading-relaxed">Vidro</p>
-                            </div>
-
-                            <div className="p-4 tablet:w-1/5 w-1/2">
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7Kg</h2>
-                                <p className="leading-relaxed">Pilha</p>
-                            </div>
-                            
-                        </div>
+                        ))
+                    }
                     </div>
+                </div>
 
                 <div className="text-center mt-12  mb-6">
                     <h2 className="text-4xl tracking-tight text-olive-green">
-                        Seu histórico de descartes
+                        Seu Histórico de Descartes
                     </h2>
                 </div>
 
@@ -93,8 +87,8 @@ function PerfilUsuario() {
                             </thead>
                             <tbody>
                                 {
-                                    discards.map(discard => (
-                                        <tr className="bg-white border-b">
+                                    discards.map((discard, index) => (
+                                        <tr key={`discard-${index}`} className="bg-white border-b">
                                             <th scope="row" className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap">
                                                 {discard.created_at.substr(0, 10)}
                                             </th>

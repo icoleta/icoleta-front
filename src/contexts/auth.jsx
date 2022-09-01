@@ -14,6 +14,7 @@ export const AuthProvider = function ({ children }) {
       localStorage.getItem("@App:role")
     ) {
       setUser({
+        name: localStorage.getItem("@App:name"),
         email: localStorage.getItem("@App:email"),
         token: localStorage.getItem("@App:token"),
         role: localStorage.getItem("@App:role"),
@@ -32,9 +33,10 @@ export const AuthProvider = function ({ children }) {
         password,
       })
       .then((res) => {
-        const { role } = res.data;
+        const { role, name } = res.data;
         const { token } = res.data.user
         const user = {
+          name,
           email,
           token,
           role,
@@ -43,6 +45,7 @@ export const AuthProvider = function ({ children }) {
 
         api.defaults.headers.Authorization = `Bearer ${token}`;
 
+        localStorage.setItem("@App:name", name);
         localStorage.setItem("@App:email", email);
         localStorage.setItem("@App:token", token);
         localStorage.setItem("@App:role", role);
