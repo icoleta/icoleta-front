@@ -27,15 +27,31 @@ function PerfilUsuario() {
                 <div className="col-span-8 items-center"> 
 
                 <div className=" flex col-span-4  bg-olive-green rounded-md flex items-center">
-                    <div className="flex flex-col w-full mx-2 py-12 justify-between desktop:flex-row phone:mx-20">
+                    <div className="flex flex-col w-full mx-2 py-12 justify-between tablet:flex-row phone:mx-20">
                         <h2 className="text-white text-4xl">Bem vindo(a) {user?.name}!</h2>
 
-                        <p className="mt-4 w-fit uppercase inline-block text-sm bg-sunset-orange text-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">
-                            Total descartado: {totalWeight / 1000}kg
-                        </p>
-                        <p className="mt-4 w-fit uppercase inline-block text-sm bg-sunset-orange text-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">
-                            Número de descartes: {discardCount}
-                        </p>
+                        <div className="flex flex-col w-full laptop:w-fit mx-2 justify-center items-center tablet:justify-end phone:mx-2 phone:flex-row ">
+
+                            <div className="p-4 m-4 tablet:w-1/3 w-1/2 justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
+                                <p className="leading-relaxed">Peso</p>
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{totalWeight / 1000}kg</h2>
+                                <p className="leading-relaxed">Total</p>
+                            </div>
+
+                            <div className="p-4 m-4 tablet:w-1/3 w-1/2 justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
+                                <p className="leading-relaxed">Descartes</p>
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{discardCount}</h2>
+                                <p className="leading-relaxed">Totais</p>
+                            </div>
+
+                            <div className="p-4 m-4 tablet:w-1/3 w-1/2 justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
+                                <p className="leading-relaxed">Ranking</p>
+                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">1°</h2>
+                                <p className="leading-relaxed">Geral</p>
+                            </div>
+                        </div>
+
+                       
                     </div>
                 </div>
 

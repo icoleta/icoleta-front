@@ -15,7 +15,7 @@ const AtualizarSenha = () => {
   return (
     <div className="flex justify-center items-center h-4/6 flex-col">
       <form onSubmit={handleSubmit}>
-        <p className="text-lg mb-4">Atualizar senha</p>
+        <p className="text-lg mb-4">Atualizar Senha</p>
 
         <label
           htmlFor="password"
