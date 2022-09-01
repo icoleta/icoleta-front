@@ -33,7 +33,7 @@ function Header() {
           signed ? (
             <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
               {
-                !user.role && (
+                user.role !== 'admin' && user.role !== 'company' && (
                   <Link
                     to="/perfil"
                     className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
