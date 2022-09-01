@@ -73,7 +73,7 @@ function Header() {
                 className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 font-semibold"
                 onClick={logoutWrapper}
               >
-                Deslogar
+                Sair
               </button>
             </div>
           ) : (
