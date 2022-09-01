@@ -44,7 +44,7 @@ const LoginUsuario = () => {
             />
           </svg>
         </div>
-        <h2 className="text-4xl tracking-tight">Acesso ao sistema</h2>
+        <h2 className="text-4xl tracking-tight">Acesso ao Sistema</h2>
       </div>
       <div className="flex justify-center my-2 mx-4 md:mx-0">
         <form
@@ -90,14 +90,14 @@ const LoginUsuario = () => {
                   id=""
                   className="mr-1 bg-white shadow"
                 />
-                <span className="text-sm text-gray-700 pt-1">Lembrar-me</span>
+                <span className="text-sm text-gray-700 pt-1">Manter conectado</span>
               </label>
               <div className="w-1/2 text-right">
                 <a
                   href="/usuario/recuperar"
                   className="text-sunset-orange text-sm tracking-tight"
                 >
-                  Esqueci minha senha
+                  Recuperar senha
                 </a>
               </div>
             </div>

@@ -95,16 +95,13 @@ function Header() {
                 <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
                   <Link
                     to="/usuario/cadastrar"
-                    className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75
-                    rounded-t py-2 px-4 block whitespace-no-wrap
-                    "
+                    className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 rounded-t py-2 px-4 block whitespace-no-wrap"
                   >
                     Usuário
                   </Link>
                   <Link
                     to="/entidade/registro"
-                    className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75
-                    rounded-t py-2 px-4 block whitespace-no-wrap"
+                    className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 rounded-t py-2 px-4 block whitespace-no-wrap"
                   >
                     Entidade
                   </Link> 
@@ -115,7 +112,7 @@ function Header() {
                 to="/login"
                 className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
               >
-                Login
+                Entrar
               </Link>
             </div>
           )

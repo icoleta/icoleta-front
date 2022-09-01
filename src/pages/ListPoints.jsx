@@ -28,10 +28,10 @@ function ListPoints() {
     
       <div className="justify-center">
         <div className="flex m-8 items-center justify-center">
-        <img src={svg} className="w-8 h-8 " alt="logo" />
-        <h3 className="text-4xl text-center ml-2 font-bold text-gray-900 ">
-          Seu marketplace de coleta de resíduos
-        </h3>
+          <img src={svg} className="w-8 h-8 " alt="logo" />
+          <h3 className="text-4xl text-center ml-2 font-bold text-gray-900 ">
+            Sua Plataforma de Coleta de Resíduos
+          </h3>
 
         </div>
         <div className="grid grid-cols-4 items-center justify-center px-16">

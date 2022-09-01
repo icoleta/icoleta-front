@@ -109,7 +109,7 @@ const CadastroEntidade = () => {
                 type="submit"
                 className="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
               >
-                Criar conta de entidade
+                Criar Conta
               </button>
             </div>
           </div>

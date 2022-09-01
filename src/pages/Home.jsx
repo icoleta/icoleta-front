@@ -15,27 +15,27 @@ function Home() {
         <div className="flex mb-4 flex-col tablet:flex-row ">
           <div className="w-4/4 tablet:w-2/4  ">
             <h3 className="text-4xl font-bold text-gray-900">
-            Seu marketplace de coleta de resíduos
+            Sua plataforma de coleta de resíduos
             </h3>
             <p className="mt-4 text-lg font-normal text-gray-800">
-              O Icoleta é uma plataforma que conecta quem tem pontos de coleta
-              de lixo reciclável e quem precisa fazer o descarte correto.
+              O IColeta é conecta os pontos de coleta
+              de lixo reciclável com quem quer fazer o descarte correto.
             </p>
             <p className="mt-4 text-lg font-normal text-gray-800" >
-              Ajudamos e incentivamos pessoas a fazer o descarte correto de maneira eficiente e gamificada.
+              Ajuda e incentiva as pessoas a fazerem o descarte correto de maneira eficaz e gamificada.
             </p>
 
             <div className="pt-12" >
               <Link to="/lista-de-pontos">
                 <button className="flex w-full items-center focus:outline-none text-white bg-olive-green hover:bg-olive-green-dark focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2">
                   <FaClipboardList className="h-5 w-5 mr-2" />
-                  Pontos de coleta
+                  Pontos de Coleta
                 </button>
               </Link>
               <Link to="/mapa">
                 <button className="flex w-full items-center focus:outline-none text-white bg-olive-green hover:bg-olive-green-dark focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2">
                   <FaMapMarkedAlt className="h-5 w-5 mr-2" />
-                  Mapa dos pontos de coleta
+                  Mapa dos Pontos de Coleta
                 </button>
               </Link>
             </div>
@@ -47,7 +47,7 @@ function Home() {
 
 
         <h3 className="text-4xl font-bold text-gray-900 mb-8 mt-8">
-          Resíduos que recolhemos e o tempo de decomposição
+          Resíduos aceitos e o tempo de decomposição
         </h3>
 
         <div className="grid grid-cols-1 phone:grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 desktop:grid-cols-5 mb-28">

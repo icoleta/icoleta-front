@@ -5,6 +5,7 @@ import L from "leaflet";
 import recycleIcon from "../assets/recycle_icon.svg";
 import points from "../data/points.json";
 import icImage from "../assets/ic.jpg";
+import svg from "../assets/recycle_icon.png";
 
 const mapIcon = L.icon({
   iconUrl: recycleIcon,
@@ -28,9 +29,16 @@ function Home() {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex-col items-center justify-center">
+      <div className="flex m-8 items-center justify-center">
+        <img src={svg} className="w-8 h-8 " alt="logo" />
+        <h3 className="text-4xl text-center ml-2 font-bold text-gray-900 ">
+          Sua Plataforma de Coleta de Resíduos
+        </h3>
+      </div>
+
       <div className="container px-5 py-24 mx-auto flex tablet:flex-nowrap tablet:w-full flex-wrap">
-        <div className="desktop:w-2/3 tablet:w-1/2 bg-olive-green rounded-lg overflow-hidden phone:mr-10 p-8 laptop:p-12 flex items-end justify-start inicial">
+        <div className="desktop:w-3/3 tablet:w-1/2 bg-olive-green rounded-lg overflow-hidden phone:mr-10 p-8 laptop:p-12 flex items-center justify-center inicial">
           <Map position={position} height="500px" width="700px">
             {showPositionMarker && <Marker position={position}></Marker>}
             {points.map((item) => {

@@ -20,7 +20,7 @@ const CadastroUsuario = () => {
   return (
     <div className="m-8">
       <div className="text-center mt-8">
-        <h2 className="text-4xl tracking-tight">Cadastro de usuário</h2>
+        <h2 className="text-4xl tracking-tight">Cadastro de Usuário</h2>
       </div>
       <div className="flex justify-center my-2 mx-4 md:mx-0">
         <form
@@ -28,7 +28,7 @@ const CadastroUsuario = () => {
           className="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
         >
           <fieldset className="font-semibold my-2 text-lg text-center">
-            Informações da Pessoais
+            Informações Pessoais
           </fieldset>
 
           <div className="flex flex-wrap -mx-3 mb-6">
@@ -91,7 +91,7 @@ const CadastroUsuario = () => {
                 type="submit"
                 className="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
               >
-                Criar conta de usuário
+                Criar Conta
               </button>
             </div>
           </div>
