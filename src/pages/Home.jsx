@@ -18,11 +18,11 @@ function Home() {
             Sua plataforma de coleta de resíduos
             </h3>
             <p className="mt-4 text-lg font-normal text-gray-800">
-              O IColeta é conecta os pontos de coleta
+              O IColeta é uma plataforma que conecta os pontos de coleta
               de lixo reciclável com quem quer fazer o descarte correto.
             </p>
             <p className="mt-4 text-lg font-normal text-gray-800" >
-              Ajuda e incentiva as pessoas a fazerem o descarte correto de maneira eficaz e gamificada.
+              Ajudamos e incentivamos as pessoas a fazerem o descarte correto de uma maneira gamificada.
             </p>
 
             <div className="pt-12" >
