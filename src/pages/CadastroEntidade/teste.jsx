@@ -130,7 +130,7 @@
         </div>
       </div>
 
-      <div class="btn-flex mt-4">
+      <div className="btn-flex mt-4">
         <button
           type="submit"
           className="focus:outline-none text-black  bg-white hover:bg-gray focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"

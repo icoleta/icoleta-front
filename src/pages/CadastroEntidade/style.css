@@ -65,3 +65,7 @@
   font-family: Roboto;
   font-weight: 700;
 }
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

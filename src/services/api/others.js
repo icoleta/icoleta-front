@@ -7,8 +7,11 @@ const othersApi = {
   async fetchSemesters() {
     return api.get("/semester");
   },
-  async fetchRanking() {
+  async fetchRankingByDiscardCount() {
     return api.get('/ranking');
+  },
+  async fetchRankingByWeightDiscarded() {
+    return api.get('/ranking?category=weight');
   },
 };
 

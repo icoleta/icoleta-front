@@ -52,23 +52,23 @@ const CreatePoint = () => {
   }
 
   return (
-    <div class="m-8">
-      <div class="text-center mt-8">
-        <h2 class="text-4xl tracking-tight">Cadastro do ponto de coleta</h2>
+    <div className="m-8">
+      <div className="text-center mt-8">
+        <h2 className="text-4xl tracking-tight">Cadastro do ponto de coleta</h2>
       </div>
-      <div class="flex justify-center my-2 mx-4 md:mx-0">
+      <div className="flex justify-center my-2 mx-4 md:mx-0">
         <form
           onSubmit={handleSubmit}
-          class="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
+          className="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
         >
           <fieldset className="font-semibold my-2 text-lg text-center">
             Dados do ponto
           </fieldset>
 
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-full px-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-full px-3 mb-6">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="name"
               >
                 Nome
@@ -82,9 +82,9 @@ const CreatePoint = () => {
               />
             </div>
 
-            <div class="w-full md:w-full px-3 mb-6">
+            <div className="w-full md:w-full px-3 mb-6">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="hours"
               >
                 Horários de atendimento
@@ -114,15 +114,15 @@ const CreatePoint = () => {
                 checked={items[index]}
                 onChange={() => handleChecked(index)}
               />
-              <label for={residuum.name}>{residuum.name}</label>
+              <label htmlFor={residuum.name}>{residuum.name}</label>
             </div>
           ))}
 
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-full px-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-full px-3 mb-6">
               <button
                 type="submit"
-                class="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
               >
                 Criar ponto
               </button>

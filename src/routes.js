@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
 import Home from "./pages/Home";
+import Feedback from "./pages/Feedback";
 import Admin from "./pages/Admin";
 import ListPoints from "./pages/ListPoints";
 import Point from "./pages/Point";
@@ -44,6 +45,7 @@ function Paths() {
           <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route
             path="/admin"

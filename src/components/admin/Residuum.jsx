@@ -23,9 +23,9 @@ function Residuum() {
   }
   
   return (
-    <div class="col-span-4 items-center">
-      <div class="text-center mt-12  mb-6">
-          <h2 class="text-4xl tracking-tight">Resíduos coletados</h2>
+    <div className="col-span-4 items-center">
+      <div className="text-center mt-12  mb-6">
+          <h2 className="text-4xl tracking-tight">Resíduos coletados</h2>
         </div>
 
         <div className="flex flex-col justify-center">
@@ -64,15 +64,15 @@ function Residuum() {
                         <button>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-pencil"
+                            className="icon icon-tabler icon-tabler-pencil"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
-                            stroke-width="2"
+                            strokeWidth="2"
                             stroke="currentColor"
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
@@ -86,15 +86,15 @@ function Residuum() {
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-trash"
+                            className="icon icon-tabler icon-tabler-trash"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
-                            stroke-width="2"
+                            strokeWidth="2"
                             stroke="currentColor"
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <line x1="4" y1="7" x2="20" y2="7"></line>

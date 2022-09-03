@@ -1,7 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import authApi from "../services/api/auth";
 import { api } from "../services/api/request";
-import axios from "axios";
 
 const AuthContext = createContext({});
 
@@ -12,14 +11,13 @@ export const AuthProvider = function ({ children }) {
     if (
       localStorage.getItem("@App:token") &&
       localStorage.getItem("@App:email") &&
-      localStorage.getItem("@App:isCompany") &&
       localStorage.getItem("@App:role")
     ) {
       setUser({
+        name: localStorage.getItem("@App:name"),
         email: localStorage.getItem("@App:email"),
         token: localStorage.getItem("@App:token"),
-        isCompany: Boolean(localStorage.getItem("@App:isCompany")),
-        role: parseInt(localStorage.getItem("@App:role")),
+        role: localStorage.getItem("@App:role"),
       });
 
       api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
@@ -35,24 +33,25 @@ export const AuthProvider = function ({ children }) {
         password,
       })
       .then((res) => {
-        const { token, isCompany, role_id } = res.data.data;
+        const { role, name } = res.data;
+        const { token } = res.data.user
         const user = {
+          name,
           email,
           token,
-          isCompany,
-          role: role_id,
+          role,
         };
         setUser(user);
 
         api.defaults.headers.Authorization = `Bearer ${token}`;
 
+        localStorage.setItem("@App:name", name);
         localStorage.setItem("@App:email", email);
         localStorage.setItem("@App:token", token);
-        localStorage.setItem("@App:isCompany", isCompany);
-        localStorage.setItem("@App:role", role_id);
+        localStorage.setItem("@App:role", role);
         return true;
       })
-      .catch(function () {
+      .catch(_ => {
         return false;
       });
   }
@@ -61,7 +60,6 @@ export const AuthProvider = function ({ children }) {
     setUser(null);
     localStorage.removeItem("@App:token");
     localStorage.removeItem("@App:email");
-    localStorage.removeItem("@App:isCompany");
     localStorage.removeItem("@App:role");
     await authApi.logout();
   }

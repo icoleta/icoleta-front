@@ -26,19 +26,19 @@ const AdminEntidade = () => {
   
   return (
     <>
-      <main class="main-admin">
-        <div class="main-admin-container container-md">
-          <div class="container-entidade">
-            <div class="logo-entidade">
+      <main className="main-admin">
+        <div className="main-admin-container container-md">
+          <div className="container-entidade">
+            <div className="logo-entidade">
               <img src={logo} alt=""></img>
             </div>
-            <h3 class="h5">UFAL - Universidade Federal de Alagoas</h3>
+            <h3 className="h5">UFAL - Universidade Federal de Alagoas</h3>
           </div>
 
-          <div class="container-pontos">
-            <div class="text-4xl tracking-tight">Seus pontos de coleta</div>
+          <div className="container-pontos">
+            <div className="text-4xl tracking-tight">Seus pontos de coleta</div>
 
-            <div class="container-ponto">
+            <div className="container-ponto">
               {
                 points.map(point => {
                   console.log(point)
@@ -47,13 +47,13 @@ const AdminEntidade = () => {
               }
               {
                 points.map((point, index) => (
-                  <div key={index} class="container-ponto">
-                    <div class="ponto-img">
+                  <div key={index} className="container-ponto">
+                    <div className="ponto-img">
                       <img src={imaSede} alt=""></img>
                     </div>
-                    <div class="container-ponto-descricao">
+                    <div className="container-ponto-descricao">
                       <h4>{point.name}</h4>
-                      <div class="itens-coletados">
+                      <div className="itens-coletados">
                         {
                           point.collectable_items.map((item, index) => {
                             if(index == point.collectable_items.length -1) {
@@ -74,7 +74,7 @@ const AdminEntidade = () => {
       
                       <br></br>
       
-                      <p class="obs-horario-ponto">
+                      <p className="obs-horario-ponto">
                         {point.hours}
                       </p>
                     </div>
@@ -84,7 +84,7 @@ const AdminEntidade = () => {
             </div> 
 
             <div>
-              <Link to='/ponto/criar' class="appearance-none block w-fit bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500">Novo ponto</Link>
+              <Link to='/ponto/criar' className="appearance-none block w-fit bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500">Novo ponto</Link>
             </div>
           </div>
         </div>

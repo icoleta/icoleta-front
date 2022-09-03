@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import pointApi from "./../../services/api/points";
-import residuumApi from "./../../services/api/residuum";
 import discardApi from "./../../services/api/discards";
 
 function Discards() {
   const navigate = useNavigate();
   const [residuums, setResiduums] = useState([]);
   const [points, setPoints] = useState([]);
-  const [selectedResiduum, setSelectedResiduum] = useState(null);
-  const [selectedPoint, setSelectedPoint] = useState(null);
+  const [selectedResiduum, setSelectedResiduum] = useState([]);
+  const [selectedPointId, setSelectedPointId] = useState(-1);
   const [discards, setDiscards] = useState([])
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
@@ -18,27 +17,31 @@ function Discards() {
   );
 
   useEffect(() => {
-    residuumApi.fetchResiduums().then((res) => {
-      setResiduums(res.data);
-    });
+    discardApi.fetchDiscards().then(res => {
+      setDiscards(res.data)
+    })
 
     pointApi.fetchPoints().then((res) => {
       setPoints(res.data);
     });
-  }, []);
+  }, [])
 
   useEffect(() => {
-    discardApi.fetchDiscards()
-    .then(res => {
-      setDiscards(res.data)
-    })
-  }, [])
+    if(points) {
+      const pointIndex = points.findIndex(point => point.id === parseInt(selectedPointId))
+      if(pointIndex !== -1) {
+        setResiduums(points[pointIndex].collectable_items)
+      } else {
+        setResiduums([])
+      }
+    }
+  }, [points, selectedPointId]);
 
   async function whenSubmitted() {
     let payload = {
       email: values['email'],
       weight: parseInt(values["weight"]),
-      point_id: parseInt(selectedPoint),
+      point_id: parseInt(selectedPointId),
       residuum_id: parseInt(selectedResiduum),
     };
 
@@ -59,7 +62,7 @@ function Discards() {
             onSubmit={handleSubmit}
           >
             <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="flex w-full">
+              <div className="flex flex-col tablet:flex-row w-full">
                 <div className="w-full md:w-full px-3 mb-6">
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
@@ -81,7 +84,7 @@ function Discards() {
                     className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
                     htmlFor="weight"
                   >
-                    Peso do resíduo (em gramas)
+                    Peso do resíduo (g)
                   </label>
                   <input
                     className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
@@ -100,7 +103,7 @@ function Discards() {
                     <select
                       className="block w-full mt-2 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                       onInput={(e) => {
-                        setSelectedPoint(e.target.value)
+                        setSelectedPointId(e.target.value)
                         handleChange({
                           target: {
                             name: 'point_id',
@@ -111,7 +114,7 @@ function Discards() {
                     >
                       <option value="">Selecione um ponto</option>
                       {
-                        points.map((item) => (
+                        points && points.map((item) => (
                           <option
                             className="block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                             value={item.id}
@@ -130,9 +133,9 @@ function Discards() {
                   Tipo de resíduo
                 </span>
               </div>
-              <div className="flex flex-col items-center w-full my-6">
+              <div className="flex flex-col tablet:flex-row items-center w-full my-6">
                 {
-                  residuums.map((residuum, index) => (
+                  residuums && residuums.map((residuum, index) => (
                     <div key={index}>
                       <input
                         type="radio"
@@ -174,52 +177,55 @@ function Discards() {
           <h2 className="text-4xl tracking-tight">Histórico de descartes</h2>
         </div>
 
-        <div className="flex flex-col justify-center">
-          <div className="overflow-x-auto relative">
-            <table className="w-full text-sm text-left text-gray-500">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-                <tr>
-                  <th scope="col" className="py-3 px-6">
-                    ID
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Nome do usuário
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Quantidade doada{" "}
-                    <span className="text-gray-400 font-normal">(kg)</span>
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Material doado
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Ponto de coleta
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Editar
-                  </th>
-                  <th scope="col" className="py-3 px-6">
-                    Excluir
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  discards.map(discard => (
-                    <tr className="bg-white border-b">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-bold text-lg text-orange-500 whitespace-nowrap"
-                      >
-                        1
+        <div className="flex flex-col">
+          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+              <div className="overflow-x-auto">
+                <table className="min-w-full">
+                  <thead className="border-b">
+                    <tr>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        ID
                       </th>
-                      <td className="py-4 px-6 text-gray-700 font-semibold">
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Nome do usuário
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Quantidade doada{" "}
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Material doado
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Ponto de coleta
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Editar
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Excluir
+                      </th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                    discards.map(discard => (
+                      <tr className="bg-white border-b">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-sunset-orange">1</td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         {discard.person.name}
-                      </td>
-                      <td className="py-4 px-6">{discard.weight}</td>
-                      <td className="py-4 px-6">{discard.residuum.name}</td>
-                      <td className="py-4 px-6">{discard.point.name}</td>
-                      <td className="py-4 px-6">
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {discard.weight}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {discard.residuum.name}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {discard.point.name}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         <button>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -227,19 +233,19 @@ function Discards() {
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
-                            stroke-width="2"
+                            strokeWidth="2"
                             stroke="currentColor"
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
                             <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
                           </svg>
                         </button>
-                      </td>
-                      <td className="py-4 px-6">
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         <button>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -247,11 +253,11 @@ function Discards() {
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
-                            stroke-width="2"
+                            strokeWidth="2"
                             stroke="currentColor"
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -261,12 +267,15 @@ function Discards() {
                             <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
                           </svg>
                         </button>
-                      </td>
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
+                        </td>
+                      </tr>
+                    ))
+
+                  }
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
