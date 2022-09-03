@@ -5,6 +5,7 @@ import { useAuth } from "./contexts/auth";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import ListPoints from "./pages/ListPoints";
+import Point from "./pages/Point";
 import MapPoints from "./pages/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
@@ -37,6 +38,7 @@ function Paths() {
           <Route path="/" element={<Home />} />
           <Route path="/mapa" element={<MapPoints />} />
           <Route path="/lista-de-pontos" element={<ListPoints />} />
+          <Route path="/ponto/:id" element={<Point />} />
           <Route path="/login" element={<LoginUsuario />} />
           <Route path="/entidade/registro" element={<CadastroEntidade />} />
           <Route path="/usuario/cadastrar" element={<CadastroUsuario />} />
@@ -47,7 +49,7 @@ function Paths() {
             path="/admin"
             element={
               // <ProtectedRoute>
-                <Admin />
+              <Admin />
               // </ProtectedRoute>
             }
           />
@@ -55,7 +57,7 @@ function Paths() {
             path="/perfil"
             element={
               // <ProtectedRoute>
-                <Perfil />
+              <Perfil />
               // </ProtectedRoute>
             }
           />
@@ -63,7 +65,7 @@ function Paths() {
             path="/entidade"
             element={
               // <ProtectedRoute>
-                <Entity />
+              <Entity />
               // </ProtectedRoute>
             }
           />
@@ -71,7 +73,7 @@ function Paths() {
             path="/entidade/edicao"
             element={
               // <ProtectedRoute>
-                <EditarEntidade />
+              <EditarEntidade />
               // </ProtectedRoute>
             }
           />
@@ -79,7 +81,7 @@ function Paths() {
             path="/entidade/admin"
             element={
               // <ProtectedRoute>
-                <AdminEntidade />
+              <AdminEntidade />
               // </ProtectedRoute>
             }
           />
@@ -87,8 +89,8 @@ function Paths() {
             path="/ponto/criar"
             element={
               // <ProtectedRoute>
-                <CreatePoint />
-              // 
+              <CreatePoint />
+              //
             }
           />
         </Routes>
