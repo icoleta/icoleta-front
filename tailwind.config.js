@@ -6,7 +6,7 @@ module.exports = {
 
       'tablet': '964px',
 
-      'laptop': '1024px',
+      'laptop': '1023px',
 
       'desktop': '1280px',
 
