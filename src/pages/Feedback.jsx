@@ -1,15 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import pessoas from "../assets/recicle-icoleta.png";
-
 
 function Feedback() {
   return (
     <div className="flex justify-center">
         <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
-            <h1 className="sm:text-3xl text-2xl my-8 text-center text-4xl tracking-tight text-olive-green">Envie-nos um Feedback</h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Essa primeira versão do sistema é um teste e contamos com sua ajuda para melhorar a experiência de futuros usuários.</p>
+            <h1 className="sm:text-3xl text-4xl font-bold my-8 text-center text-4xl tracking-tight text-olive-green">Envie-nos um Feedback</h1>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Esta é a primeira versão do sistema, então contamos com seu feedback para melhorar sua experiêcia no sistema.  </p>
             </div>
             <div className="lg:w-1/2 md:w-2/3 mx-auto">
             <div className="flex flex-wrap -m-2">

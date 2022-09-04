@@ -74,6 +74,14 @@ function Header() {
           </div>
         ) : (
           <div className="child:ml-5 flex flex-col items-center text-slate-700 font-semibold text-sm phone:flex-row">
+
+            <Link
+              to="/"
+              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+            >
+              Início
+            </Link>
+
             <Link
               to="/ranking"
               className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
@@ -86,7 +94,7 @@ function Header() {
                 to="/usuario/cadastrar"
                 className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 rounded-t py-2 px-4 block whitespace-no-wrap"
               >
-                Cadastro Usuário
+                Cadastro
               </Link>
             )}
 
