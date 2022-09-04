@@ -2,7 +2,10 @@ import { api } from "./request";
 
 const pointApi = {
   async fetchPoints() {
-    return api.get("/point");
+    return api.get("/points");
+  },
+  async fetchPoint(id) {
+    return api.get(`/point/${id}`);
   },
   async fetchCompanyPoints() {
     return api.get("/company/point");
