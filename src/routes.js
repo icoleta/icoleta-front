@@ -45,7 +45,7 @@ function Paths() {
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/sobre" element={<About />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route
             path="/admin"
