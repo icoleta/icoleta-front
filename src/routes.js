@@ -21,7 +21,6 @@ import RecuperarSenha from "./pages/RecuperarSenha";
 import AtualizarSenha from "./pages/AtualizarSenha";
 import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
-import Point from "./pages/Point";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
