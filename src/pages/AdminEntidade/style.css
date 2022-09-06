@@ -1,22 +1,5 @@
-.header-admin {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
-}
-
-.header-navbar {
-  display: flex;
-  flex-direction: column;
-}
-
 .main-admin {
   padding: 0.5rem 2rem;
-}
-
-.main-admin-container {
-  display: flex;
-  justify-content: center;
-  margin: 3rem 0;
 }
 
 .container-entidade {
@@ -41,7 +24,6 @@
   margin: 0 1rem;
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 .container-pontos h2 {
@@ -55,7 +37,7 @@
 }
 
 .container-ponto-descricao {
-  margin: auto 2rem;
+  margin: 0rem 2rem;
 }
 
 .ponto-img img {
@@ -72,10 +54,6 @@
   font-size: 1rem;
   text-align: center;
   cursor: pointer;
-}
-
-.btn:hover {
-  opacity: 0.9;
 }
 
 .primary-button {

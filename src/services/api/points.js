@@ -14,7 +14,11 @@ const pointApi = {
     return api.get(`/company/point/${id}`);
   },
   createPoint(payload) {
-    return api.post("/company/point", payload);
+    return api.post("/company/point", payload, {
+      headers:{
+        'Content-Type': 'multipart/form-data'
+     }
+    });
   },
   editPoint(id, payload) {
     return api.put(`/company/point/${id}`, payload);
