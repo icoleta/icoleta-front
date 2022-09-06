@@ -1,5 +1,4 @@
 import React from "react";
-import pessoas from "../assets/recicle-icoleta.png";
 import icImage from "../assets/ic.jpg";
 import rank from "../assets/ranking.png";
 import alunos from "../assets/alunos.jpg";
@@ -17,7 +16,7 @@ function About() {
             <div className="w-24 h-full bg-sunset-orange"></div>
         </div>
         <div className="flex flex-wrap phone:flex-row flex-col py-6 mb-12">
-            <h1 className="phone:w-2/5 text-olive-green font-medium title-font text-2xl mb-2 phone:mb-0">Sobre o projeto </h1>
+            <h1 className="phone:w-2/5 text-olive-green font-medium title-font text-2xl mb-2 phone:mb-0">Sobre o Projeto </h1>
             <p className="phone:w-3/5 leading-relaxed text-base text-black-500 phone:pl-10 pl-0">O projeto surgiu com o intuito de facilitar e incentivar o descarte de materiais recicláveis. 
             Assim, foi desenvolvida uma plataforma que conecta os pontos de coleta
             de lixo reciclável com quem quer fazer o descarte correto de maneira sustentável e gamificada.</p>

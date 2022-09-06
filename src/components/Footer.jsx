@@ -7,7 +7,9 @@ function Footer() {
 
 
       <div className="flex justify-center tablet:flex-row">
-        <Link to="/sobre" className="text-center hover:text-olive-green">Sobre o projeto |</Link>
+        <Link to="/sobre" className="text-center hover:text-olive-green">Sobre o projeto</Link>
+        &nbsp;
+        <span>|</span>
         <Link to="/feedback" className="ml-1 text-center hover:text-olive-green">Enviar feedback</Link>
         <span className="inline-flex">
                             
