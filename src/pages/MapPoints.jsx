@@ -6,6 +6,8 @@ import recycleIcon from "../assets/recycle_icon.svg";
 import points from "../data/points.json";
 import icImage from "../assets/ic.jpg";
 import svg from "../assets/recycle_icon.png";
+import pessoas from "../assets/pessoas-icoleta.png";
+import { Link } from "react-router-dom";
 
 const mapIcon = L.icon({
   iconUrl: recycleIcon,
@@ -37,9 +39,9 @@ function Home() {
         </h3>
       </div>
 
-      <div className="container px-5 py-24 mx-auto flex tablet:flex-nowrap tablet:w-full flex-wrap">
-        <div className="desktop:w-3/3 tablet:w-1/2 bg-olive-green rounded-lg overflow-hidden phone:mr-10 p-8 laptop:p-12 flex items-center justify-center inicial">
-          <Map position={position} height="500px" width="700px">
+      <div className="container px-5 py-24 mx-auto flex mb-4 items-center justify-center">
+        <div className=" bg-olive-green rounded-lg overflow-hidden phone:mr-10 p-8 flex items-center justify-center">
+          <Map position={position} height="600px" width="800px">
             {showPositionMarker && <Marker position={position}></Marker>}
             {points.map((item) => {
               return (
@@ -49,14 +51,17 @@ function Home() {
                   position={[item.location.latitude, item.location.longitude]}
                 >
                   <Popup>
-                    {item.title}
-                    <img src={icImage} />
+                    <Link to="/ponto/1" className="cursor-pointer">
+                      {item.title}
+                      <img src={icImage} />
+                    </Link>
                   </Popup>
                 </Marker>
               );
             })}
           </Map>
         </div>
+
         {/*
         <div className="desktop:w-1/3 tablet:w-1/2 bg-white flex flex-col tablet:ml-auto w-full tablet:py-8 mt-8 tablet:mt-0">
           <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">

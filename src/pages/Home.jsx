@@ -11,18 +11,18 @@ import vidro from "../assets/vidro.jpg";
 function Home() {
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col mt-12 w-3/5">
+      <div className="flex flex-col mt-12 tablet:w-3/5 w-4/5">
         <div className="flex mb-4 flex-col tablet:flex-row ">
-          <div className="w-4/4 tablet:w-2/4  ">
+          <div className="w-4/4 tablet:w-3/4  ">
             <h3 className="text-4xl font-bold text-gray-900">
-            Sua plataforma de coleta de resíduos
+              Sua plataforma de coleta de resíduos
             </h3>
             <p className="mt-4 text-lg font-normal text-gray-800">
               O IColeta é uma plataforma que conecta os pontos de coleta
               de lixo reciclável com quem quer fazer o descarte correto.
             </p>
             <p className="mt-4 text-lg font-normal text-gray-800" >
-              Ajudamos e incentivamos as pessoas a fazerem o descarte correto de uma maneira gamificada.
+              Ajudamos e incentivamos as pessoas a fazerem o descarte sustentável de uma maneira gamificada.
             </p>
 
             <div className="pt-12" >
