@@ -4,6 +4,7 @@ import { useAuth } from "./contexts/auth";
 
 import Home from "./pages/Home";
 import Feedback from "./pages/Feedback";
+import About from "./pages/About";
 import Admin from "./pages/Admin";
 import ListPoints from "./pages/ListPoints";
 import Point from "./pages/Point";
@@ -47,6 +48,7 @@ function Paths() {
           <Route path="/usuario/recuperar" element={<RecuperarSenha />} />
           <Route path="/usuario/atualizar" element={<AtualizarSenha />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/sobre" element={<About />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/ponto/:id" element={<Point />} />
           <Route

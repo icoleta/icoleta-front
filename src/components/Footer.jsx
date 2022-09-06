@@ -5,8 +5,12 @@ function Footer() {
   return (
     <div className="bg-almost-white px-1 tablet:px-32 py-8 flex flex-col text-center justify-center items-center">
 
+
       <div className="flex justify-center tablet:flex-row">
-        <Link to="/feedback" className="text-center hover:text-olive-green">Enviar feedback</Link>
+        <Link to="/sobre" className="text-center hover:text-olive-green">Sobre o projeto</Link>
+        &nbsp;
+        <span>|</span>
+        <Link to="/feedback" className="ml-1 text-center hover:text-olive-green">Enviar feedback</Link>
         <span className="inline-flex">
                             
           <a className="ml-4 text-olive-green  hover:text-olive-green-dark" href="https://www.instagram.com/icoleta_sustentavel/" target="_blank" rel="noreferrer" >
