@@ -22,7 +22,7 @@ function Header() {
   }
 
   return (
-    <div className="flex flex-col px-16 py-8 justify-between tablet:flex-row tablet:px-32">
+    <div className="flex flex-col px-8 py-8 justify-between tablet:flex-row tablet:px-32">
       <Link to="/">
         <div className="flex items-center tablet:child:ml-4 justify-center mb-2">
           <img src={svg} className="w-8 h-8" alt="logo" />
