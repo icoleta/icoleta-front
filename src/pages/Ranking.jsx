@@ -18,7 +18,7 @@ function Ranking() {
   }, [])
   
   return (
-    <>
+    <div className="flex w-full flex-col tablet:flex-row justify-center">
       <div className="flex flex-col mx-8">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="flex text-center justify-center items-center">
@@ -109,7 +109,7 @@ function Ranking() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

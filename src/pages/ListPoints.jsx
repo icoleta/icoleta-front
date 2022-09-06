@@ -28,10 +28,10 @@ function ListPoints() {
 
     
       <div className="justify-center">
-        <div className="flex m-8 items-center justify-center">
-          <img src={svg} className="w-8 h-8 " alt="logo" />
-          <h3 className="text-4xl text-center ml-2 font-bold text-gray-900 ">
-            Sua Plataforma de Coleta de Resíduos
+        <div className="flex text-center m-8 items-center justify-center">
+          <img src={svg} className="w-8 h-8 mr-2" alt="logo" />
+          <h3 className="text-4xl text-center font-bold text-gray-900 ">
+            Confira os pontos de descarte cadastrados:
           </h3>
 
         </div>
