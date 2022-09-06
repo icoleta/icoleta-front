@@ -22,7 +22,7 @@ function Header() {
   }
 
   return (
-    <div className="flex flex-col px-16 py-8  justify-between tablet:flex-row tablet:px-32">
+    <div className="flex flex-col px-8 py-8 justify-between tablet:flex-row tablet:px-32">
       <Link to="/">
         <div className="flex items-center tablet:child:ml-4 justify-center mb-2">
           <img src={svg} className="w-8 h-8" alt="logo" />
@@ -74,6 +74,14 @@ function Header() {
           </div>
         ) : (
           <div className="child:ml-5 flex flex-col items-center text-slate-700 font-semibold text-sm phone:flex-row">
+
+            <Link
+              to="/"
+              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+            >
+              Início
+            </Link>
+
             <Link
               to="/ranking"
               className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
@@ -86,7 +94,7 @@ function Header() {
                 to="/usuario/cadastrar"
                 className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 rounded-t py-2 px-4 block whitespace-no-wrap"
               >
-                Cadastro Usuário
+                Cadastro
               </Link>
             )}
 

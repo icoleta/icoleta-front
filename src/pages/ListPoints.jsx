@@ -25,26 +25,24 @@ function ListPoints() {
   }
 
   return (
-    <div className="justify-center">
-      <div className="flex m-8 items-center justify-center">
-        <img src={svg} className="w-8 h-8 " alt="logo" />
-        <h3 className="text-4xl text-center ml-2 font-bold text-gray-900 ">
-          Sua Plataforma de Coleta de Resíduos
-        </h3>
-      </div>
-      <div className="grid grid-cols-4 items-center justify-center px-16">
-        {points.map((item) => {
-          return (
-            <div
-              onClick={() => navigate(`/ponto/${item.id}`)}
-              className="max-w-sm cursor-pointer overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mx-8 mb-8"
-              key={item.id}
-            >
-              <img
-                src={point}
-                alt="Ponto de coleta"
-                className="h-auto w-full"
-              />
+
+    
+      <div className="justify-center">
+        <div className="flex text-center m-8 items-center justify-center">
+          <img src={svg} className="w-8 h-8 mr-2" alt="logo" />
+          <h3 className="text-4xl text-center font-bold text-gray-900 ">
+            Confira os pontos de descarte cadastrados:
+          </h3>
+
+        </div>
+        <div className="grid grid-cols-4 items-center justify-center px-16">
+        {
+          points.map((item) => {
+            return (
+              
+              <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mx-8 mb-8" key={item.id}>
+                  
+                <img src={point} alt="Ponto de coleta" className="h-auto w-full" />
 
               <p className="mt-4 text-lg font-normal text-gray-800 p-5">
                 {item.name}

@@ -32,14 +32,18 @@ function Home() {
 
   return (
     <div className="flex-col items-center justify-center">
-      <div className="flex m-8 items-center justify-center">
-        <img src={svg} className="w-8 h-8 " alt="logo" />
-        <h3 className="text-4xl text-center ml-2 font-bold text-gray-900 ">
-          Sua Plataforma de Coleta de Resíduos
+      <div className="flex flex-col m-8 items-center justify-center">
+        <h3 className="text-4xl text-center mb-4 font-bold text-gray-900 ">
+          Confira no mapa o ponto mais próximo de você! 
         </h3>
+        
+        <div className="flex items-center justify-center text-center">
+          <p className="mr-2  text-xl text-center">Os pontos de coleta são identificados pelo seguinte símbolo:</p>
+          <img src={svg} className="w-8 h-8 " alt="logo" />
+        </div>
       </div>
 
-      <div className="container px-5 py-24 mx-auto flex mb-4 items-center justify-center">
+      <div className="container px-5 py-18 mx-auto flex mb-4 items-center justify-center">
         <div className=" bg-olive-green rounded-lg overflow-hidden phone:mr-10 p-8 flex items-center justify-center">
           <Map position={position} height="600px" width="800px">
             {showPositionMarker && <Marker position={position}></Marker>}
