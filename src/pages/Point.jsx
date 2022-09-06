@@ -33,7 +33,7 @@ function Point() {
               {point.name}
             </h3>
             <img
-              src={pointImg}
+              src={process.env.REACT_APP_BACKEND_URL + point.path}
               alt="foto do ponto de coleta"
               className="h-72 w-96 my-2"
             />
