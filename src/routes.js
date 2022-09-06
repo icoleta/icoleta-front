@@ -20,6 +20,7 @@ import RecuperarSenha from "./pages/RecuperarSenha";
 import AtualizarSenha from "./pages/AtualizarSenha";
 import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
+import Point from "./pages/Point";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -47,11 +48,12 @@ function Paths() {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/ranking" element={<Ranking />} />
+          <Route path="/ponto/:id" element={<Point />} />
           <Route
             path="/admin"
             element={
               // <ProtectedRoute>
-                <Admin />
+              <Admin />
               // </ProtectedRoute>
             }
           />
@@ -59,7 +61,7 @@ function Paths() {
             path="/perfil"
             element={
               // <ProtectedRoute>
-                <Perfil />
+              <Perfil />
               // </ProtectedRoute>
             }
           />
@@ -67,7 +69,7 @@ function Paths() {
             path="/entidade"
             element={
               // <ProtectedRoute>
-                <Entity />
+              <Entity />
               // </ProtectedRoute>
             }
           />
@@ -75,7 +77,7 @@ function Paths() {
             path="/entidade/edicao"
             element={
               // <ProtectedRoute>
-                <EditarEntidade />
+              <EditarEntidade />
               // </ProtectedRoute>
             }
           />
@@ -83,7 +85,7 @@ function Paths() {
             path="/entidade/admin"
             element={
               // <ProtectedRoute>
-                <AdminEntidade />
+              <AdminEntidade />
               // </ProtectedRoute>
             }
           />
@@ -91,8 +93,8 @@ function Paths() {
             path="/ponto/criar"
             element={
               // <ProtectedRoute>
-                <CreatePoint />
-              // 
+              <CreatePoint />
+              //
             }
           />
         </Routes>

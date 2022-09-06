@@ -7,6 +7,7 @@ import points from "../data/points.json";
 import icImage from "../assets/ic.jpg";
 import svg from "../assets/recycle_icon.png";
 import pessoas from "../assets/pessoas-icoleta.png";
+import { Link } from "react-router-dom";
 
 const mapIcon = L.icon({
   iconUrl: recycleIcon,
@@ -54,16 +55,16 @@ function Home() {
                   position={[item.location.latitude, item.location.longitude]}
                 >
                   <Popup>
-                    {item.title}
-                    <img src={icImage} />
+                    <Link to="/ponto/1" className="cursor-pointer">
+                      {item.title}
+                      <img src={icImage} />
+                    </Link>
                   </Popup>
                 </Marker>
               );
             })}
           </Map>
         </div>
-
-
 
         {/*
         <div className="desktop:w-1/3 tablet:w-1/2 bg-white flex flex-col tablet:ml-auto w-full tablet:py-8 mt-8 tablet:mt-0">
