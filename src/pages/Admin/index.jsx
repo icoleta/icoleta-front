@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import './style.css'
+import React, { useEffect, useState } from "react";
+import "./style.css";
 import AreaAdmin from "../../components/admin/AreaAdmin";
 import Discards from "../../components/admin/Discards";
 import Residuum from "../../components/admin/Residuum";
@@ -8,7 +8,7 @@ import Companies from "../../components/admin/Companies";
 
 const AdminEntidade = () => {
   const [selectedItem, setSelectedItem] = useState("area");
-    
+
   return (
     <>
       <main className="main-admin">
@@ -50,8 +50,11 @@ const AdminEntidade = () => {
 
             <div className="bg-white rounded-md">
               <h1 className="text-center text-xl bg-white py-2 rounded-md border-b-2 cursor-pointer">
-                <a href="#" className="list-none text-olive-green"
-                  onClick={() => setSelectedItem("area")}>
+                <a
+                  href="#"
+                  className="list-none text-olive-green"
+                  onClick={() => setSelectedItem("area")}
+                >
                   Área do ADMIN
                 </a>
               </h1>

@@ -53,49 +53,49 @@ function Paths() {
           <Route
             path="/admin"
             element={
-              // <ProtectedRoute>
-              <Admin />
-              // </ProtectedRoute>
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/perfil"
             element={
-              // <ProtectedRoute>
-              <Perfil />
-              // </ProtectedRoute>
+              <ProtectedRoute>
+                <Perfil />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/entidade"
             element={
-              // <ProtectedRoute>
-              <Entity />
-              // </ProtectedRoute>
+              <ProtectedRoute>
+                <Entity />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/entidade/edicao"
             element={
-              // <ProtectedRoute>
-              <EditarEntidade />
-              // </ProtectedRoute>
+              <ProtectedRoute>
+                <EditarEntidade />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/entidade/admin"
             element={
-              // <ProtectedRoute>
-              <AdminEntidade />
-              // </ProtectedRoute>
+              <ProtectedRoute>
+                <AdminEntidade />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/ponto/criar"
             element={
-              // <ProtectedRoute>
-              <CreatePoint />
-              //
+              <ProtectedRoute>
+                <CreatePoint />
+              </ProtectedRoute>
             }
           />
         </Routes>
