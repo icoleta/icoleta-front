@@ -29,7 +29,7 @@ function About() {
           <div className="p-6">
             
             <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Instituto de Computação - UFAL</h1>
-            <p className="leading-relaxed mb-3">Um projeto de Extensão do Instituto de Computação da UFAL. Incentivando a sustentabilidade ambiental e o descarte correto de resíduos recicláveis por meio da tecnologia.</p>
+            <p className="leading-relaxed mb-3">Um projeto de extensão do Instituto de Computação da UFAL. Incentivando a sustentabilidade ambiental e o descarte correto de resíduos recicláveis por meio da tecnologia.</p>
             <div className="flex justify-end items-center flex-wrap">
               <a className="text-olive-green inline-flex items-center tablet:mb-2 laptop:mb-0" href="https://www.instagram.com/ic.ufal/" >Mais sobre o IC
                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
