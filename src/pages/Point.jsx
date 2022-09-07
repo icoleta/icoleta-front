@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 
 import svg from "../assets/recycle_icon.png";
 
-import pointImg from "../assets/ic.jpg";
-
 import pointApi from "./../services/api/points";
 
 function Point() {
@@ -33,7 +31,7 @@ function Point() {
               {point.name}
             </h3>
             <img
-              src={process.env.REACT_APP_BACKEND_URL + point.path}
+              src={point.path}
               alt="foto do ponto de coleta"
               className="h-72 w-96 my-2"
             />
