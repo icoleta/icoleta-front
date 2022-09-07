@@ -49,7 +49,7 @@ const AdminEntidade = () => {
                 points.map((point, index) => (
                   <div key={'point_'+index} className="container-ponto border border-slate-300 rounded-md">
                     <div className="ponto-img">
-                      <img src={point.path} alt="Imagem do ponto"></img> 
+                      <img src={point.image} alt="Imagem do ponto"></img> 
                     </div>
                     <div className="container-ponto-descricao py-2">
                       <h4 className="text-lg">{point.name}</h4>

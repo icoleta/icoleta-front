@@ -31,7 +31,7 @@ function Point() {
               {point.name}
             </h3>
             <img
-              src={point.path}
+              src={point.image}
               alt="foto do ponto de coleta"
               className="h-72 w-96 my-2"
             />

@@ -36,7 +36,7 @@ function ListPoints() {
             return (
               <Link key={'point_'+point.id} to={`/ponto/${point.id}`}>
                 <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mx-8 mb-8" key={point.id}>
-                  <img src={point.path} alt="Ponto de coleta" className="h-auto w-full" />
+                  <img src={point.image} alt="Ponto de coleta" className="h-auto w-full" />
     
                   <p className="mt-4 text-lg font-normal text-gray-800 p-5">
                     {point.name}
