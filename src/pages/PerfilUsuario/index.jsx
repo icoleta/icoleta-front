@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/auth";
+import user_default from "../../assets/user_default.png";
 
 import personApi from '../../services/api/person'
 
@@ -22,11 +23,29 @@ function PerfilUsuario() {
     }, [])
     
     return (
-            <div className="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
+        <div className="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
 
-                <div className="col-span-8 items-center"> 
+            <div className="col-span-8 items-center"> 
+            
 
                 <div className=" flex col-span-4  bg-olive-green rounded-md flex items-center">
+                    <div className="flex flex-col justify-center text-center">
+                        <div className="shrink-0 mt-5 flex justify-center text-center">
+                            <img className="h-20 w-20 object-cover rounded-full" src={user_default} alt="Foto atual de perfil" />
+                        </div> 
+                        <label className="block pt-2 flex justify-center text-center">
+                            <span className="sr-only t-2">Escolher foto de perfil</span>
+                            <input type="file" className="w-full text-sm text-slate-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-sunset-orange file:text-almost-white
+                            hover:file:bg-sunset-orange-dark
+                            content: 'Select some files'
+                            "/>
+                        </label>
+                    </div>
+                    
                     <div className="flex flex-col w-full mx-2 py-12 justify-between tablet:flex-row phone:mx-20">
                         <h2 className="text-white text-4xl">Bem vindo(a) {user?.name}!</h2>
 
