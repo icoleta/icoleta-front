@@ -4,7 +4,6 @@ import residuumApi from "./../../services/api/residuum";
 
 function Residuum() {
   const [residuum, setResiduum] = useState([])
-  const [deletedItem, setDeletedItem] = useState(false)
 
   useEffect(() => {
     getResiduum()
@@ -19,7 +18,7 @@ function Residuum() {
 
   async function handleRemoveResiduum(residuumId) {
     await residuumApi.deleteResiduum(residuumId)
-    setDeletedItem(!deletedItem)
+    getResiduum()
   }
   
   return (
