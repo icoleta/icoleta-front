@@ -41,7 +41,6 @@ function PerfilUsuario() {
                             file:text-sm file:font-semibold
                             file:bg-sunset-orange file:text-almost-white
                             hover:file:bg-sunset-orange-dark
-                            content: 'Select some files'
                             "/>
                         </label>
                     </div>
