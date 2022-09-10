@@ -61,9 +61,9 @@ function Paths() {
           <Route
             path="/perfil"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <Perfil />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
