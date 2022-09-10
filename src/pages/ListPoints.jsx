@@ -24,13 +24,12 @@ function ListPoints() {
   return (
       <div className="justify-center">
         <div className="flex text-center m-8 items-center justify-center">
-          <img src={svg} className="w-8 h-8 mr-2" alt="logo" />
           <h3 className="text-4xl text-center font-bold text-gray-900 ">
             Confira os pontos de descarte cadastrados:
           </h3>
 
         </div>
-        <div className="grid grid-cols-4 items-center justify-center px-16">
+        <div className="grid grid-cols-1 phone:grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 desktop:grid-cols-5 items-center justify-center px-2 phone:px-16">
         {
           points.map((point) => {
             return (
