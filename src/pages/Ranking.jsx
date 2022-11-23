@@ -6,15 +6,28 @@ import othersApi from '../services/api/others'
 function Ranking() {
   const [rankingByCount, setRankingByCount] = useState([])
   const [rankingByWeight, setRankingByWeight] = useState([])
+  const [time, setTime] = useState(Date.now())
 
   useEffect(() => {
-    othersApi.fetchRankingByDiscardCount().then(res => {
-      setRankingByCount(res.data.data.ranking)
-    })
+    // othersApi.fetchRankingByDiscardCount().then(res => {
+    //   setRankingByCount(res.data.data.ranking)
+    // })
 
     othersApi.fetchRankingByWeightDiscarded().then(res => {
       setRankingByWeight(res.data.data.ranking)
     })
+
+    // Updates ranking every 30s
+    const interval = setInterval(() => {
+      othersApi.fetchRankingByWeightDiscarded().then(res => {
+        setRankingByWeight(res.data.data.ranking)
+      })
+
+      setTime(Date.now())
+    }, 30000)
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   return (
