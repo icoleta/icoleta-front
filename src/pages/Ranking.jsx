@@ -104,17 +104,19 @@ function Ranking() {
                 </thead>
                 <tbody>
                   {
-                    rankingByWeight.map((pos, index) => (
-                      <tr key={`position-weight-${index}`} className="bg-white border-b">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-sunset-orange">{index + 1}</td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {pos.person.name}
-                        </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {pos.sum}
-                        </td>
-                      </tr>
-                    ))
+                    rankingByWeight
+                      .filter((_, index) => index <= 19)
+                      .map((pos, index) => (
+                        <tr key={`position-weight-${index}`} className="bg-white border-b">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-sunset-orange">{index + 1}</td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {pos.person.name}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {pos.sum}
+                          </td>
+                        </tr>
+                      ))
                   }
                 </tbody>
               </table>
