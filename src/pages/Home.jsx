@@ -47,10 +47,10 @@ function Home() {
 
 
         <h3 className="text-4xl font-bold text-gray-900 mb-8 mt-8">
-          Resíduos aceitos e o tempo de decomposição
+          Tempo de decomposição de resíduos recicláveis
         </h3>
 
-        <div className="grid grid-cols-1 phone:grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 desktop:grid-cols-5 mb-28">
+        <div className="grid grid-cols-1 phone:grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 desktop:grid-cols-4 mb-10">
 
           <div className="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={papel}  alt="plant" className="h-auto w-[1900px]" />
@@ -84,15 +84,23 @@ function Home() {
             </div>
           </div>
 
-          <div className="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
+          {/* <div className="mb-4 max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl mr-4">
             <img src={pilha} alt="plant" className="h-auto w-[1900px] " />
             <div className="p-5">
               <p className="text-medium mb-5 text-gray-700">Substâncias tóxicas</p>
               <button className="w-full rounded-md bg-sunset-orange  py-2 text-white  bg-sunset-orange hover:bg-sunset-orange-dark duration-75">Pilhas</button>
             </div>
-          </div>
+          </div> */}
           
         </div>
+
+        <h3 className="text-4xl font-bold text-gray-900 mb-8 mt-8">
+          A relevância do correto descarte de resíduos
+        </h3>
+
+        <p className="mb-5 text-lg font-normal text-gray-800">Garantir o descarte adequado do lixo é de extrema importância para evitar que materiais como plástico e vidro permaneçam no meio ambiente, causando danos às diferentes espécies. Por isso, é essencial que tenhamos consciência ecológica e repensemos nossos hábitos de consumo.</p>
+
+        <p className="mb-10 text-lg font-normal text-gray-800">É fundamental encaminhar tudo o que pode ser reciclado para o devido processo, destacando a importância da separação correta dos materiais recicláveis, como plástico, papel, vidro e metal, para que possam ser reutilizados adequadamente.</p>
 
       </div>
     </div>
