@@ -21,12 +21,13 @@ import RecuperarSenha from "./pages/RecuperarSenha";
 import AtualizarSenha from "./pages/AtualizarSenha";
 import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
+import EditPoint from "./pages/EditPoint";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
 
   if (!signed) {
-    return <Navigate to="/" replace />;
+    //return <Navigate to="/" replace />;
   }
 
   return children;
@@ -62,7 +63,7 @@ function Paths() {
             path="/perfil"
             element={
               // <ProtectedRoute>
-                <Perfil />
+              <Perfil />
               // </ProtectedRoute>
             }
           />
@@ -95,6 +96,14 @@ function Paths() {
             element={
               <ProtectedRoute>
                 <CreatePoint />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ponto/editar/:id"
+            element={
+              <ProtectedRoute>
+                <EditPoint />
               </ProtectedRoute>
             }
           />
