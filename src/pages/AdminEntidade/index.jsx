@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import pointApi from './../../services/api/points';
-import { useAuth } from '../../contexts/auth';
-import logo from '../../assets/logo-ufal.png';
+import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+import pointApi from "./../../services/api/points";
+import {useAuth} from "../../contexts/auth";
+import logo from "../../assets/logo-ufal.png";
 
 const AdminEntidade = () => {
   const [points, setPoints] = useState([]);
-  const { user } = useAuth();
+  const {user} = useAuth();
 
   useEffect(() => {
     getCompanyPoints();
@@ -17,7 +17,7 @@ const AdminEntidade = () => {
       const response = await pointApi.fetchCompanyPoints();
       setPoints(response.data);
     } catch (error) {
-      console.error('Error fetching points:', error);
+      console.error("Error fetching points:", error);
     }
   }
 
@@ -29,7 +29,7 @@ const AdminEntidade = () => {
             <div className="logo-entidade">
               <img src={logo} alt=""></img>
             </div>
-            <h3 className="text-xl">{user.name ?? ''}</h3>
+            <h3 className="text-xl">{user.name ?? ""}</h3>
 
             <div className="flex justify-center my-2">
               <Link
@@ -47,7 +47,7 @@ const AdminEntidade = () => {
             <div className="container-ponto flex flex-col">
               {points.map((point, index) => (
                 <div
-                  key={'point_' + index}
+                  key={"point_" + index}
                   className="container-ponto border border-slate-300 rounded-md relative"
                 >
                   <div className="ponto-img">
@@ -63,7 +63,8 @@ const AdminEntidade = () => {
                             className="mr-1"
                           >
                             {item.name}
-                            {itemIndex !== point.collectable_items.length - 1 && (
+                            {itemIndex !==
+                              point.collectable_items.length - 1 && (
                               <span> - </span>
                             )}
                           </span>
@@ -72,7 +73,10 @@ const AdminEntidade = () => {
                     </div>
                     <p className="obs-horario-ponto">{point.hours}</p>
                     <Link
-                      to={`/ponto/editar/${point.id}`}
+                      to={{
+                        pathname: `/ponto/editar/${point.id}`,
+                        state: {pointData: point},
+                      }}
                       className="bg-blue-500 text-white py-2 px-4 rounded-md absolute top-2 right-2"
                     >
                       Editar
