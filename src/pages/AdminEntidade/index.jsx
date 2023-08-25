@@ -87,7 +87,7 @@ const AdminEntidade = () => {
           <div className="bg-blue-500 text-white p-1 rounded-md mt-4">
           <Link
             to={{
-              pathname: `/ponto/editar/${point.id}`,
+              pathname: `/ponto/excluir/${point.id}`,
               state: { pointData: point },
             }}
             className="hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
