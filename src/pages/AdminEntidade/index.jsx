@@ -27,7 +27,7 @@ const AdminEntidade = () => {
         <div className="flex justify-center my-12 container-md">
           <div className="container-entidade">
             <div className="logo-entidade">
-              <img src={logo} alt=""></img>
+              <img src={logo} alt="" className="inline-flex"></img>
             </div>
             <h3 className="text-xl">{user.name ?? ""}</h3>
 
@@ -42,49 +42,68 @@ const AdminEntidade = () => {
           </div>
 
           <div className="container-pontos">
-            <div className="text-4xl tracking-tight">Seus Pontos de Coleta</div>
+            <div className="text-4xl tracking-tight p-2">Seus Pontos de Coleta</div>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+  {points.map((point, index) => (
+    <div
+      key={"point_" + index}
+      className="border border-gray-300 rounded-md shadow-md flex"
+    >
+      <div className="w-1/3 h-32">
+        <img
+          src={point.path}
+          alt="Imagem do ponto"
+          className="object-cover w-full h-full"
+        />
+      </div>
+      <div className="flex-grow p-4 flex flex-col justify-between">
+        <div>
+          <h4 className="text-xl font-semibold mb-2">{point.name}</h4>
+          <div className="mb-2">
+            {point.collectable_items.map((item, itemIndex) => (
+              <span key={`point_${index}_item_${itemIndex}`} className="mr-1">
+                {item.name}
+                {itemIndex !== point.collectable_items.length - 1 && (
+                  <span> - </span>
+                )}
+              </span>
+            ))}
+          </div>
+          <p className="text-gray-600 mb-2">{point.hours}</p>
 
-            <div className="container-ponto flex flex-col">
-              {points.map((point, index) => (
-                <div
-                  key={"point_" + index}
-                  className="container-ponto border border-slate-300 rounded-md relative"
-                >
-                  <div className="ponto-img">
-                    <img src={point.path} alt="Imagem do ponto"></img>
-                  </div>
-                  <div className="container-ponto-descricao py-2">
-                    <h4 className="text-lg">{point.name}</h4>
-                    <div className="itens-coletados">
-                      {point.collectable_items.map((item, itemIndex) => {
-                        return (
-                          <span
-                            key={`point_${index}_item_${itemIndex}`}
-                            className="mr-1"
-                          >
-                            {item.name}
-                            {itemIndex !==
-                              point.collectable_items.length - 1 && (
-                              <span> - </span>
-                            )}
-                          </span>
-                        );
-                      })}
-                    </div>
-                    <p className="obs-horario-ponto">{point.hours}</p>
-                    <Link
-                      to={{
-                        pathname: `/ponto/editar/${point.id}`,
-                        state: {pointData: point},
-                      }}
-                      className="bg-blue-500 text-white py-2 px-4 rounded-md absolute top-2 right-2"
-                    >
-                      Editar
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="flex flex-row gap-1 justify-end">
+          <div className="bg-blue-500 text-white p-1 rounded-md mt-4">
+          <Link
+            to={{
+              pathname: `/ponto/editar/${point.id}`,
+              state: { pointData: point },
+            }}
+            className="hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+          >
+            Editar
+          </Link>
+          </div>
+
+          <div className="bg-blue-500 text-white p-1 rounded-md mt-4">
+          <Link
+            to={{
+              pathname: `/ponto/editar/${point.id}`,
+              state: { pointData: point },
+            }}
+            className="hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+          >
+            Excluir
+          </Link>
+          </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  ))}
+</div>
+
+
           </div>
         </div>
       </main>
