@@ -22,6 +22,7 @@ import AtualizarSenha from "./pages/AtualizarSenha";
 import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
 import EditPoint from "./pages/EditPoint";
+import ClaimDiscard from "./pages/ClaimDiscard";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -104,6 +105,14 @@ function Paths() {
             element={
               <ProtectedRoute>
                 <EditPoint />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/descarte/:token"
+            element={
+              <ProtectedRoute>
+                <ClaimDiscard />
               </ProtectedRoute>
             }
           />
