@@ -144,7 +144,7 @@ function Ranking() {
                 >
                   <div className="flex items-center justify-start mb-4 p-6">
                     <p className="text-lg font-semibold text-sunset-orange mr-2">
-                      1º
+                      3º
                     </p>
                   </div>
                   <div className="flex flex-col items-center w-full">
