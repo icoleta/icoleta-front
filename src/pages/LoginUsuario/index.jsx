@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
-import Input from "../../components/Input";
+import logo from "../../assets/logonova.svg";
+import envelope from "../../assets/EnvelopeSimple.svg";
+import lock from "../../assets/Lock.svg";
+
 import useForm from "../../hooks/useForm";
 
 const LoginUsuario = () => {
@@ -27,92 +30,60 @@ const LoginUsuario = () => {
   }
 
   return (
-    <div className="m-8">
-      <div className="text-center mt-8">
-        <div className="flex items-center justify-center">
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            className="w-12 h-12 text-olive-green"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-            />
-          </svg>
-        </div>
-        <h2 className="text-4xl tracking-tight">Acesso ao Sistema</h2>
-      </div>
-      <div className="flex justify-center my-2 mx-4 md:mx-0">
-        <form
-          onSubmit={handleSubmit}
-          className="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
-        >
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md:w-full px-3 mb-6">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <Input
-                type="mail"
-                id="email"
-                name="email"
-                onChange={handleChange}
-                errors={errors}
-              />
-            </div>
-            <div className="w-full md:w-full px-3 mb-6">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="password"
-              >
-                Senha
-              </label>
-              <Input
-                type="password"
-                id="password"
-                name="password"
-                onChange={handleChange}
-                errors={errors}
-              />
-            </div>
-            <div className="w-full flex items-center justify-between px-3 mb-3 ">
-              <label htmlFor="remember" className="flex items-center w-1/2">
-                <input
-                  type="checkbox"
-                  name=""
-                  id=""
-                  className="mr-1 bg-white shadow"
-                />
-                <span className="text-sm text-gray-700 pt-1">Manter conectado</span>
-              </label>
-              <div className="w-1/2 text-right">
-                <a
-                  href="/usuario/recuperar"
-                  className="text-sunset-orange text-sm tracking-tight"
-                >
-                  Recuperar senha
-                </a>
-              </div>
-            </div>
-            <div className="w-full md:w-full px-3 mb-6">
-              <button
-                type="submit"
-                className="appearance-none block w-full bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
-              >
-                Entrar
-              </button>
-            </div>
+    <div className=" bg-[#4B9093] h-screen w-screen">
+      <Link to="/" className=" font-bold text-white text-[24px] p-10" >Voltar para o Início</Link>
+      <div className="flex justify-center">
+        <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-[800px] w-[500px] bg-white">
+          <div className="flex flex-col justify-center items-center mb-[10px]">
+            <img src={logo} alt="" />
+            <h2 className="font-black text-[#4B9093] text-[33px]"><span className="text-[#F59A73]">IC</span>oleta</h2>
+            <h3 className="font-mulish font-regular text-[24px]">Acesso ao sistema</h3>
           </div>
-        </form>
+          <form action="submit" className="">
+            <div className="flex flex-col mb-4">
+              <label htmlFor="" className=" font-semibold text-[16px]">Endereço de e-mail</label>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Digite seu e-mail"
+                  onChange={handleChange}
+                  className=" h-[48px] text-[14px] w-[400px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
+                /> 
+                <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
+                    <img src={envelope} alt="" className="" /> 
+                </div> 
+              </div>
+              
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="" className="font-semibold text-[16px]">Senha</label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="password"
+                  name=" password"
+                  placeholder="******************"
+                  onChange={handleChange}
+                  className="h-[48px] w-[400px] text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
+                /> 
+                <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
+                    <img src={lock} alt="" className="" /> 
+                </div> 
+              </div>
+        
+            </div>
+            <button className="mt-[80px] bg-[#F59A73] border rounded-[10px] font-inter font-bold text-white text-[18px] w-[400px] h-[48px] ">Entrar na plataforma</button>
+          </form>
+          <div className="mt-[20px] flex flex-col items-center">
+            <div className="text-[#7C7C8A] text-[14px] font-regular">Esqueceu a senha?<Link to="/usuario/recuperar" className="text-[#F59A73] text-[14px] font-bold"> Recuperar senha</Link></div>
+            <div className="text-[#7C7C8A] text-[14px] font-regular">Não possui conta?<Link to="/usuario/cadastrar" className="text-[#F59A73] text-[14px] font-bold"> Cadastre-se</Link></div>
+          </div>
+        </div>
       </div>
     </div>
+    
   );
 };
 

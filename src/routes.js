@@ -37,7 +37,7 @@ const ProtectedRoute = function ({ children }) {
 function Paths() {
   return (
     <BrowserRouter>
-      <Body>
+      {/* <Body> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mapa" element={<MapPoints />} />
@@ -117,7 +117,7 @@ function Paths() {
             }
           />
         </Routes>
-      </Body>
+      {/* </Body> */}
     </BrowserRouter>
   );
 }
