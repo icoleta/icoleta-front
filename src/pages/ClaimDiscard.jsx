@@ -11,7 +11,7 @@ function ClaimDiscard() {
 
   const [residuums, setResiduums] = useState([]);
   const [points, setPoints] = useState([]);
-  const [selectedResiduum, setSelectedResiduum] = useState(1);
+  const [selectedResiduum, setSelectedResiduum] = useState(4);
   const [selectedPointId, setSelectedPointId] = useState(-1);
   const [selectedWeight, setSelectedWeight] = useState(0);
 
@@ -36,8 +36,6 @@ function ClaimDiscard() {
   }, [points, selectedPointId]);
 
   async function handleSubmit() {
-    console.log('teste')
-    
     const payload = {
       email: user.email,
       token,
