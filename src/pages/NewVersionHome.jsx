@@ -136,9 +136,9 @@ const NewVersionHome = () => {
                         <p className="mt-4 text-lg font-normal text-justify max-w-[350px] text-[#7C7C8A]" >
                             Um projeto de extensão do Instituto de Computação da UFAL. Incentivando a sustentabilidade ambiental e o descarte correto de resíduos recicláveis por meio da tecnologia.
                         </p>
-                        <Link to="/https://www.instagram.com/ic.ufal/" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
+                        <a href="https://www.instagram.com/ic.ufal/" target="_blank" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
                             Mais sobre o IC
-                        </Link>
+                        </a>
                     </div>
 
                     <div className="flex flex-col justify-between items-center max-w-[442px] border-solid border-[2px] rounded p-[12px] gap-[12px] border-gray-200">
@@ -149,9 +149,9 @@ const NewVersionHome = () => {
                         <p className="mt-4 text-lg font-normal text-justify max-w-[350px] text-[#7C7C8A]" >
                             Iniciando o projeto como orientador o Prof. Ranilson Paiva e como desenvolvedores os alunos de Ciência da Computação, Fernando Lins, Priscila Teodório, Pedro Mateus, Victor Araújo e Jonas Almeida.
                         </p>
-                        <Link to="/https://www.instagram.com/ic.ufal/" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
+                        <a href="#section-five" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
                             Entrar em contato
-                        </Link>
+                        </a>
                     </div>
 
                     <div className="flex flex-col justify-between items-center max-w-[442px] border-solid border-[2px] rounded p-[12px] gap-[12px] border-gray-200">
@@ -162,9 +162,9 @@ const NewVersionHome = () => {
                         <p className="mt-4 text-lg font-normal text-justify max-w-[350px] text-[#7C7C8A]" >
                             Todos podem descartar de maneira anônima nos pontos de coleta, mas para participar do ranking é necessário se cadastrar no sistema e falar com um dos voluntário para pesar e contar os resíduos.
                         </p>
-                        <Link to="/https://www.instagram.com/ic.ufal/" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
+                        <a href="https://www.instagram.com/icoleta_sustentavel/" target="_blank" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
                             Falar com um voluntário
-                        </Link>
+                        </a>
                     </div>
 
                 </div>
