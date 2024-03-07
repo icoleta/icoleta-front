@@ -171,17 +171,7 @@ const NewVersionHome = () => {
 
             </div>
 
-            <div id="feedback" className="flex flex-col border-[2px] mx-[24px] laptop:mx-0 border-solid border-[#F59A73]">
-                <div className="bg-[#F59A73] flex flex-col py-[42px] justify-center items-center">
-                    <h3 className="text-4xl font-bold text-white">
-                        Contato
-                    </h3>
-                    <p className="mt-4 text-lg font-normal text-center text-white max-w-[864px]">
-                        Você pode entrar em contato conosco através do e-mail ou instagram.
-                        Além disso, pode nos enviar um feedback. Esta é a primeira versão do sistema, então contamos com seu feedback para melhorar sua experiêcia no sistema.
-                    </p>
-                </div>
-
+            <div id="feedback" className="flex flex-col border-[2px] mx-[24px] rounded laptop:mx-0 border-solid border-[#F59A73]">
                 <Feedback />
             </div>
         </div>
