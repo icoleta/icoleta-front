@@ -40,8 +40,7 @@ function Paths() {
     <BrowserRouter>
       <Body>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<NewVersionHome />} />
+          <Route path="/" element={<NewVersionHome />} />
           <Route path="/mapa" element={<MapPoints />} />
           <Route path="/lista-de-pontos" element={<ListPoints />} />
           <Route path="/ponto/:id" element={<Point />} />

@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
-import svg from "../assets/recycle_icon.png";
+import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/auth";
 import useOutsideClick from "../hooks/useOutsideClick";
 import { useNavigate } from "react-router-dom";
+import logoHeader from "../assets/logo-header.png";
 
 import "../pages/CadastroEntidade/style.css";
 
@@ -22,16 +23,11 @@ function Header() {
   }
 
   return (
-    <div className="flex flex-col px-8 py-8 justify-between tablet:flex-row tablet:px-32">
-      <Link to="/">
-        <div className="flex items-center tablet:child:ml-4 justify-center mb-2">
-          <img src={svg} className="w-8 h-8" alt="logo" />
-          <h3 className="text-4xl font-bold text-slate-900 tracking-tighter">
-            IColeta
-          </h3>
-        </div>
+    <div className="flex flex-col items-center px-8 py-[12px] justify-between tablet:flex-row tablet:px-32 shadow-md">
+      <Link to="/" className="transition ease-in-out delay-150 hover:scale-105 duration-300">
+        <img src={logoHeader} className="h-[60px]" alt="Logo do IColeta" title="Logo do IColeta" />
       </Link>
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-[12px]">
         {signed ? (
           <div className="child:ml-4 flex items-center text-slate-700 font-semibold text-sm">
             {user.role !== "admin" && user.role !== "company" && (
@@ -73,42 +69,44 @@ function Header() {
             </button>
           </div>
         ) : (
-          <div className="child:ml-5 flex flex-col items-center text-slate-700 font-semibold text-sm phone:flex-row">
+          <div className="flex flex-col md:flex-row gap-[12px] justify-center items-center text-slate-700 font-semibold text-sm phone:flex-row">
 
-            <Link
-              to="/"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+            <ScrollLink
+              to="sobre-projeto"
+              smooth={true}
+              duration={500}
+              className="rounded-md cursor-pointer py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
             >
-              Início
-            </Link>
+              Sobre
+            </ScrollLink>
 
             <Link
               to="/ranking"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+              className="rounded-md py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
             >
-              Ranking
+              Classificações
             </Link>
 
             {location.pathname !== "/usuario/cadastrar" && (
               <Link
                 to="/usuario/cadastrar"
-                className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 rounded-t py-2 px-4 block whitespace-no-wrap"
+                className="rounded-md py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
               >
-                Cadastro
+                Cadastre-se
               </Link>
             )}
 
             {location.pathname === "/usuario/cadastrar" && (
               <Link
                 to="/entidade/registro"
-                className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75 rounded-t py-2 px-4 block whitespace-no-wrap"
+                className="rounded-md bg-sunset-orange py-2 px-6 text-white hover:bg-sunset-orange-dark duration-75 rounded-t block whitespace-no-wrap"
               >
                 Cadastro Entidade
               </Link>
             )}
             <Link
               to="/login"
-              className="rounded-md bg-sunset-orange py-2 px-6 mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+              className="rounded-md bg-sunset-orange py-2 px-6 text-white transition ease-in-out delay-150 hover:scale-105 duration-300 text-[18px] hover:opacity-90"
             >
               Entrar
             </Link>

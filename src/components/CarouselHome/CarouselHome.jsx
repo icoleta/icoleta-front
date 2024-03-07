@@ -30,8 +30,8 @@ const CarouselHome = () => {
     }
 
     return (
-        <div className="flex flex-col gap-[42px] h-[500px] justify-center items-center transition-all">
-            <div className="flex gap-[32px]">
+        <div className="flex flex-col gap-[42px] justify-center items-center transition-all">
+            <div className="flex gap-[32px] flex-col items-center laptop:flex-row">
                 <img src={informacoes[isSelected].img} alt="" className="rounded my-auto max-h-[364px] w-[500px]" />
 
                 <div className="flex flex-col max-w-[650px]">
