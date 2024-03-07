@@ -39,16 +39,17 @@ const LoginUsuario = () => {
             <h2 className="font-black text-[#4B9093] text-[33px]"><span className="text-[#F59A73]">IC</span>oleta</h2>
             <h3 className="font-mulish font-regular text-[24px]">Acesso ao sistema</h3>
           </div>
-          <form action="submit" className="">
+          <form onSubmit={handleSubmit} className="">
             <div className="flex flex-col mb-4">
               <label htmlFor="" className=" font-semibold text-[16px]">Endereço de e-mail</label>
               <div class="relative">
                 <input
-                  type="text"
+                  type="email"
                   id="email"
                   name="email"
                   placeholder="Digite seu e-mail"
                   onChange={handleChange}
+                  errors={errors}
                   className=" h-[48px] text-[14px] w-[400px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
                 /> 
                 <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
@@ -63,9 +64,10 @@ const LoginUsuario = () => {
                 <input
                   type="password"
                   id="password"
-                  name=" password"
+                  name="password"
                   placeholder="******************"
                   onChange={handleChange}
+                  errors={errors}
                   className="h-[48px] w-[400px] text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
                 /> 
                 <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
@@ -74,7 +76,7 @@ const LoginUsuario = () => {
               </div>
         
             </div>
-            <button className="mt-[80px] bg-[#F59A73] border rounded-[10px] font-inter font-bold text-white text-[18px] w-[400px] h-[48px] ">Entrar na plataforma</button>
+            <button type="submit" className="mt-[80px] bg-[#F59A73] border rounded-[10px] font-inter font-bold text-white text-[18px] w-[400px] h-[48px] ">Entrar na plataforma</button>
           </form>
           <div className="mt-[20px] flex flex-col items-center">
             <div className="text-[#7C7C8A] text-[14px] font-regular">Esqueceu a senha?<Link to="/usuario/recuperar" className="text-[#F59A73] text-[14px] font-bold"> Recuperar senha</Link></div>
