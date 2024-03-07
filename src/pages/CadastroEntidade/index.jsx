@@ -34,7 +34,7 @@ const CadastroEntidade = () => {
             <h3 className="font-mulish font-regular text-[24px] text-[#7C7C8A]">Cadastro de <span className="font-black text-[#F59A73]">Entidade</span></h3>
             <p className="font-mulish font-regular text-[16px] text-[#7C7C8A]">Preencha com informações  da entidade</p>
           </div>
-          <form action="submit" className="">
+          <form onSubmit={handleSubmit} className="">
           <div className="flex flex-col mb-4">
               <label htmlFor="" className=" font-semibold text-[16px]">Nome</label>
               <div class="relative">
@@ -44,6 +44,7 @@ const CadastroEntidade = () => {
                   name="name"
                   placeholder="Digite o nome"
                   onChange={handleChange}
+                  errors={errors}
                   className=" h-[48px] text-[14px] w-[400px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
                 /> 
                 <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
@@ -60,6 +61,7 @@ const CadastroEntidade = () => {
                   name="phone"
                   placeholder="Digite o telefone"
                   onChange={handleChange}
+                  errors={errors}
                   className=" h-[48px] text-[14px] w-[400px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
                 /> 
                 <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
@@ -77,6 +79,7 @@ const CadastroEntidade = () => {
                   name="email"
                   placeholder="Digite seu e-mail"
                   onChange={handleChange}
+                  errors={errors}
                   className=" h-[48px] text-[14px] w-[400px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
                 /> 
                 <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
@@ -90,9 +93,10 @@ const CadastroEntidade = () => {
                 <input
                   type="password"
                   id="password"
-                  name=" password"
+                  name="password"
                   placeholder="******************"
                   onChange={handleChange}
+                  errors={errors}
                   className="h-[48px] w-[400px] text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
                 /> 
                 <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
@@ -101,7 +105,7 @@ const CadastroEntidade = () => {
               </div>
         
             </div>
-            <button className="mt-[60px] bg-[#F59A73] rounded-[10px] font-inter font-bold text-white text-[18px] w-[400px] h-[48px] ">Cadastrar</button>
+            <button type="submit" className="mt-[60px] bg-[#F59A73] rounded-[10px] font-inter font-bold text-white text-[18px] w-[400px] h-[48px] ">Cadastrar</button>
           </form>
           <div className="mt-[20px] flex flex-col items-center">
             <div className="text-[#7C7C8A] text-[14px] font-regular">Já possui conta?<Link to="/login" className="text-[#F59A73] text-[14px] font-bold"> Login</Link></div>
