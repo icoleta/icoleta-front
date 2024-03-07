@@ -30,8 +30,7 @@ const LoginUsuario = () => {
   }
 
   return (
-    <div className=" bg-[#4B9093] h-screen w-screen">
-      <Link to="/" className="flex justify-center items-center font-bold  hover:underline w-[309px] h-[31px] text-white text-[24px] pt-10 " >Voltar para o Início</Link>
+    <div className=" bg-[#4B9093] h-screen w-full">
       <div className="flex justify-center">
         <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-[800px] w-[500px] bg-white">
           <div className="flex flex-col justify-center items-center mb-[10px]">

@@ -21,9 +21,8 @@ const CadastroUsuario = () => {
   }
 
   return (
-    <div className="flex justify-between bg-[#4B9093] h-screen w-screen">
-      <Link to="/" className="flex mt-10 mr-10 justify-center items-center font-bold text-white text-[24px]  hover:underline w-[309px] h-[61px]" >Voltar para o Início</Link>
-      <div className="flex justify-center mt-20">
+    <div className="flex justify-center bg-[#4B9093] h-screen w-full">
+      <div className="flex justify-center">
         <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-[800px] w-[500px] bg-white">
           <div className="flex flex-col justify-center items-center mb-[10px]">
             <img src={logo} alt="" />
@@ -92,7 +91,6 @@ const CadastroUsuario = () => {
           </div>
         </div>
       </div>
-      <Link to="/entidade/registro" className=" flex mt-10 mr-10 justify-center items-center font-mulish font-bold rounded-[10px] bg-[#F59A73] text-white text-[24px] w-[309px] h-[61px]" >Cadastro de Entidade</Link>
     </div>
   );
 };
