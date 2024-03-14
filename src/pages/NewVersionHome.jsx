@@ -48,69 +48,7 @@ const NewVersionHome = () => {
 
                 <CarouselHome />
             </div>
-
-            {/* <div id="section-three" className="flex flex-col gap-[40px] py-[49px] items-center bg-[#4B9093]">
-                <h3 className="text-4xl font-bold text-white">
-                    Top Contribuidores do IColeta
-                </h3>
-
-                <div className="flex gap-[12px]">
-                    <div className="flex relative flex-col w-[400px] h-[350px] mt-[50px] justify-center items-center bg-white rounded">
-                        <p className="mt-4 text-4xl absolute right-[24px] top-[12px] font-bold text-[#4b9093]" >
-                            2°
-                        </p>
-                        <img src={queijadinha} alt="" />
-                        <div className="flex flex-col gap-[12px] w-full items-center">
-                            <h3 className="text-4xl font-bold text-[#4B9093]">
-                                João Queijadinha
-                            </h3>
-                            <div className="border-solid border-[1px] border-gray-300 w-full"></div>
-                            <h3 className="text-4xl font-bold text-[#4B9093]">
-                                1300 Kg
-                            </h3>
-                        </div>
-                    </div>
-                    <div className="flex relative flex-col w-[400px] h-[400px] bg-white justify-center items-center rounded">
-                        <p className="mt-4 text-4xl absolute right-[24px] top-[12px] font-bold text-[#4b9093]" >
-                            1°
-                        </p>
-                        <img src={queijadinha} alt="" />
-                        <div className="flex flex-col gap-[12px] w-full items-center">
-                            <h3 className="text-4xl font-bold text-[#4B9093]">
-                                João Queijadinha
-                            </h3>
-                            <div className="border-solid border-[1px] border-gray-300 w-full"></div>
-                            <h3 className="text-4xl font-bold text-[#4B9093]">
-                                1300 Kg
-                            </h3>
-                        </div>
-                    </div>
-                    <div className="flex relative flex-col w-[400px] h-[300px] mt-[100px] bg-white justify-center items-center rounded">
-                        <p className="mt-4 text-4xl absolute right-[24px] top-[12px] font-bold text-[#4b9093]" >
-                            1°
-                        </p>
-                        <img src={queijadinha} alt="" />
-                        <div className="flex flex-col gap-[12px] w-full items-center">
-                            <h3 className="text-4xl font-bold text-[#4B9093]">
-                                João Queijadinha
-                            </h3>
-                            <div className="border-solid border-[1px] border-gray-300 w-full"></div>
-                            <h3 className="text-4xl font-bold text-[#4B9093]">
-                                1300 Kg
-                            </h3>
-                        </div>
-                    </div>
-
-                </div>
-
-                <Link to="/ranking">
-                    <button className="flex w-full items-center focus:outline-none text-white bg-[#F59A73] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 focus:ring-1 focus:ring-orange-300 font-medium rounded-lg text-base px-5 py-4 mb-2">
-                        Mais Detalhes
-                    </button>
-                </Link>
-
-            </div> */}
-
+            
             <div id="sobre-projeto" className="flex flex-col gap-[24px] py-[42px] justify-center items-center bg-white">
                 <div className="flex flex-col laptop:flex-row px-[24px] gap-[90px] items-center">
                     <div className="flex flex-col max-w-[500px]">
