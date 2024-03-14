@@ -40,7 +40,6 @@ function PerfilUsuario() {
                             </label >
                             <input type="file" id="profile-img" className="hidden" />
                         </div>
-                       
 
                         <div className="flex flex-col justify-between tablet:flex-row ">
 
@@ -57,14 +56,7 @@ function PerfilUsuario() {
                                     <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{discardCount}</h2>
                                     <p className="leading-relaxed">Totais</p>
                                 </div>
-
-                                {/* <div className="p-4 m-4 tablet:w-1/3 w-1/2 justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
-                                <p className="leading-relaxed">Ranking</p>
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">1°</h2>
-                                <p className="leading-relaxed">Geral</p>
-                                  </div> */}
                             </div>
-
                         </div>
                     </div>
 

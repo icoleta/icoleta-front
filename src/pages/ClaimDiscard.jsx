@@ -1,32 +1,19 @@
 import React, {useEffect, useState} from "react";
 import pointApi from "../services/api/points";
 import {useNavigate, useParams} from "react-router-dom";
-import useForm from "../hooks/useForm";
 import discardApi from "../services/api/discards";
+import { useAuth } from "../contexts/auth";
 
 function ClaimDiscard() {
   const navigate = useNavigate();
+  const { user } = useAuth()
   const {token} = useParams();
 
   const [residuums, setResiduums] = useState([]);
   const [points, setPoints] = useState([]);
-  const [selectedResiduum, setSelectedResiduum] = useState([]);
+  const [selectedResiduum, setSelectedResiduum] = useState(4);
   const [selectedPointId, setSelectedPointId] = useState(-1);
-
-  const [email, setEmail] = useState("");
-  let payload = {
-    weight: null,
-    point_id: null,
-    residuum_id: null,
-    email: null,
-  };
-
-  // const {values, errors, handleChange, handleSubmit} = useForm(whenSubmitted, [
-  //   "email",
-  //   "weight",
-  //   "point_id",
-  //   "residuum_id",
-  // ]);
+  const [selectedWeight, setSelectedWeight] = useState(0);
 
   useEffect(() => {
     pointApi.fetchPoints().then((res) => {
@@ -49,29 +36,24 @@ function ClaimDiscard() {
   }, [points, selectedPointId]);
 
   async function handleSubmit() {
-    await discardApi.createDiscardAsUser({...payload, email});
-    alert("Descarte criado");
+    const payload = {
+      email: user.email,
+      token,
+      residuum_id: selectedResiduum,
+      weight: selectedWeight
+    }
+    
+    const res = await discardApi.createDiscardAsUser(payload);
+
+    if (res.status === 201) {
+      alert('Descarte criado')
+    } else {
+      alert('Falha ao descartar')
+    }
     navigate("/");
   }
 
-  // async function whenSubmitted() {
-  //   console.log(values);
-
-  //   let payload = {
-  //     email: values["email"],
-  //     weight: parseInt(values["weight"]),
-  //     point_id: parseInt(selectedPointId),
-  //     residuum_id: parseInt(selectedResiduum),
-  //   };
-
-  //   await discardApi.createDiscardAsUser(payload);
-  //   alert("Descarte criado");
-  //   navigate("/");
-  // }
-
   function parseJwt(token) {
-    console.log(token)
-    
     const base64Url = token.split(".")[1];
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const jsonPayload = decodeURIComponent(
@@ -83,29 +65,26 @@ function ClaimDiscard() {
         })
         .join("")
     );
-    console.log(jsonPayload)
 
-    const {weight, point_id, residuum_id, email} = JSON.parse(jsonPayload);
+    const { weight, point_id, residuum_id } = JSON.parse(jsonPayload);
     
     document.querySelector("#weight").value = weight;
+    setSelectedWeight(weight)
     document.querySelector(`#point-${point_id}`)?.setAttribute("selected", "");
     document
       .querySelector(`#residuum-${residuum_id}`)
       ?.setAttribute("selected", "");
     setSelectedPointId(point_id);
-    setSelectedResiduum(residuum_id);
-    document.querySelector('#email').value = email
+  }
 
-    payload.weight = weight;
-    payload.point_id = point_id;
-    payload.residuum_id = residuum_id;
+  function handleSelectResiduum(e) {
+    setSelectedResiduum(e.target.value)
   }
 
   return (
     <div className="m-32">
       <form
         className="w-full bg-white rounded-lg shadow-md p-6"
-        onSubmit={handleSubmit}
       >
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="flex flex-col tablet:flex-row w-full">
@@ -121,8 +100,9 @@ function ClaimDiscard() {
                 type="email"
                 id="email"
                 name="email"
-                onChange={(e) => setEmail(e.target.value)}
+                value={user?.email}
                 required
+                disabled
               />
             </div>
             <div className="w-full md:w-full px-3 mb-6">
@@ -139,13 +119,14 @@ function ClaimDiscard() {
                 id="weight"
                 name="weight"
                 required
+                disabled
               />
             </div>
 
             <div className="w-full md:w-full px-3 mb-6">
               <label className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2">
                 Ponto de coleta
-                <select className="block w-full mt-2 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none">
+                <select className="block w-full mt-2 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" disabled>
                   <option value="">Selecione um ponto</option>
                   {points &&
                     points.map((item) => (
@@ -177,7 +158,8 @@ function ClaimDiscard() {
                     id={`residuum-${residuum.id}`}
                     className="my-2"
                     value={residuum.id}
-                    checked={residuum.id === selectedResiduum}
+                    checked={residuum.name === 'Metal'}
+                    onChange={handleSelectResiduum}
                   />
                   <label htmlFor={`residuum-${residuum.id}`}>
                     {residuum.name}
@@ -188,7 +170,8 @@ function ClaimDiscard() {
         </div>
         <div className="w-full md:w-full px-3 mb-6">
           <button
-            type="submit"
+            type="button"
+            onClick={handleSubmit}
             className="appearance-none block justify-center w-full bg-olive-green hover:bg-olive-green-dark text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           >
             Cadastrar
