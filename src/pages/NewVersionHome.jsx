@@ -38,7 +38,7 @@ const NewVersionHome = () => {
                         </button>
                     </Link>
                 </div>
-                <img src={pessoas} alt="" />
+                <img src={pessoas} alt="Imagem Ilustrativa de Duas Pessoas Fazendo Reciclagem" title="Imagem Ilustrativa de Duas Pessoas Fazendo Reciclagem" />
             </div>
 
             <div id="carousel" className="flex flex-col gap-[32px] justify-center items-center bg-[#F59A73] px-[42px] laptop:px-[127px] py-[42px]">
@@ -48,7 +48,7 @@ const NewVersionHome = () => {
 
                 <CarouselHome />
             </div>
-            
+
             <div id="sobre-projeto" className="flex flex-col gap-[24px] py-[42px] justify-center items-center bg-white">
                 <div className="flex flex-col laptop:flex-row px-[24px] gap-[90px] items-center">
                     <div className="flex flex-col max-w-[500px]">
@@ -61,7 +61,7 @@ const NewVersionHome = () => {
                     </div>
                     <div className="flex">
 
-                        <img src={logo} className="h-full" alt="" />
+                        <img src={logo} className="h-full" alt="Logo do IColeta" title="Logo do IColeta" />
                     </div>
                 </div>
 
