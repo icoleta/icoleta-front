@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import edit_icon from "../../assets/edit_icon.png"
 import { useAuth } from "../../contexts/auth";
-import user_default from "../../assets/user_default.png";
+import user_default from "../../assets/user_default.jpg";
 
 import personApi from '../../services/api/person'
 
@@ -25,50 +26,41 @@ function PerfilUsuario() {
     return (
         <div className="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
 
-            <div className="col-span-8 items-center"> 
-                <div className=" flex col-span-4  bg-olive-green rounded-md flex items-center">
-                    <div className="flex flex-col justify-center text-center">
-                        <div className="shrink-0 mt-5 flex justify-center text-center">
-                            <img className="h-20 w-20 object-cover rounded-full" src={user_default} alt="Foto atual de perfil" />
-                        </div> 
-                        <label className="block pt-2 flex justify-center text-center">
-                            <span className="sr-only t-2">Escolher foto de perfil</span>
-                            <input type="file" className="w-full text-sm text-slate-500
-                            file:mr-4 file:py-2 file:px-4
-                            file:rounded-full file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-sunset-orange file:text-almost-white
-                            hover:file:bg-sunset-orange-dark
-                            "/>
-                        </label>
-                    </div>
-                    
-                    <div className="flex flex-col w-full mx-2 py-12 justify-between tablet:flex-row phone:mx-20">
-                        <h2 className="text-white text-4xl">Bem vindo(a) {user?.name}!</h2>
+            <div className="col-span-8 items-center ">
+                <div className=" col-span-4  bg-olive-green rounded-md px-5 tablet:px-20 py-12 ">
+                    <h2 className="text-white text-4xl text-center">Bem vindo(a) {user?.name}!</h2>
 
-                        <div className="flex flex-col w-full laptop:w-fit mx-2 justify-center items-center tablet:justify-end phone:mx-2 phone:flex-row ">
-
-                            <div className="p-4 m-4 w-1/2 justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
-                                <p className="leading-relaxed">Peso</p>
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{totalWeight / 1000}kg</h2>
-                                <p className="leading-relaxed">Total</p>
-                            </div>
-
-                            <div className="p-4 m-4 w-1/2 justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
-                                <p className="leading-relaxed">Descartes</p>
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{discardCount}</h2>
-                                <p className="leading-relaxed">Totais</p>
-                            </div>
-
-                            {/* <div className="p-4 m-4 tablet:w-1/3 w-1/2 justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
-                                <p className="leading-relaxed">Ranking</p>
-                                <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">1°</h2>
-                                <p className="leading-relaxed">Geral</p>
-                            </div> */}
+                    <div className="flex justify-between items-center  " >
+                        <div>
+                            <label for="profile-img">
+                                <div className=" shrink-0 mt-5 flex justify-center h-20 w-20 rounded-full  relative text-center border-4 bg-gray-50	 border-solid group hover:cursor-pointer">
+                                    <img className="bg-neutral-400	 w-full object-cover rounded-full group-hover:brightness-50" src={user_default} alt="Foto atual de perfil" />
+                                    <img src={edit_icon} alt="Editar" className="w-7 absolute left-6 top-6 text-white hidden	 group-hover:block " />
+                                </div>
+                            </label >
+                            <input type="file" id="profile-img" className="hidden" />
                         </div>
 
+                        <div className="flex flex-col justify-between tablet:flex-row ">
 
+                            <div className="flex flex-col laptop:w-fit mx-2 justify-center items-center tablet:justify-end phone:mx-2 phone:flex-row ">
+
+                                <div className="p-4 m-4 w-full sm:w-fit justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
+                                    <p className="leading-relaxed">Peso</p>
+                                    <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{totalWeight / 1000}kg</h2>
+                                    <p className="leading-relaxed">Total</p>
+                                </div>
+
+                                <div className="p-4 m-4 w-full sm:w-fit justify-center text-center bg-sunset-orange text-white py-2 px-4 rounded">
+                                    <p className="leading-relaxed">Descartes</p>
+                                    <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">{discardCount}</h2>
+                                    <p className="leading-relaxed">Totais</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
 
                 <div className="text-center mt-12">
