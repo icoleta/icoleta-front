@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/auth";
 import useOutsideClick from "../hooks/useOutsideClick";
@@ -71,14 +70,12 @@ function Header() {
         ) : (
           <div className="flex flex-col md:flex-row gap-[12px] justify-center items-center text-slate-700 font-semibold text-sm phone:flex-row">
 
-            <ScrollLink
-              to="sobre-projeto"
-              smooth={true}
-              duration={500}
+            <Link
+              to="/#sobre-projeto"
               className="rounded-md cursor-pointer py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
             >
               Sobre
-            </ScrollLink>
+            </Link>
 
             <Link
               to="/ranking"
