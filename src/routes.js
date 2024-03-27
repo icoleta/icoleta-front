@@ -1,8 +1,11 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, 
+  // Navigate 
+} from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
 import Home from "./pages/Home";
+import NewVersionHome from "./pages/NewVersionHome";
 import Feedback from "./pages/Feedback";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
@@ -39,7 +42,7 @@ function Paths() {
     <BrowserRouter>
       <Body>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<NewVersionHome />} />
           <Route path="/mapa" element={<MapPoints />} />
           <Route path="/lista-de-pontos" element={<ListPoints />} />
           <Route path="/ponto/:id" element={<Point />} />

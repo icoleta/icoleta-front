@@ -13,6 +13,9 @@ const discardApi = {
   async verifyDiscard(id, payload) {
     return api.patch(`/admin/discards/${id}`, payload);
   },
+  async createDiscardAsUser(payload) {
+    return api.post('/discards', payload);
+  }
 };
 
 export default discardApi;
