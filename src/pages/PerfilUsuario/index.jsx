@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import edit_icon from "../../assets/edit_icon.png"
 import { useAuth } from "../../contexts/auth";
 import user_default from "../../assets/user_default.jpg";
+import papel_icon from "../../assets/papel_icon.png"
+import metal_icon from "../../assets/metal_icon.png"
+import plastico_icon from "../../assets/plastico_icon.png"
+import pilha_icon from "../../assets/pilha_icon.png"
+import vidro_icon from "../../assets/vidro_icon.png"
+
 
 import personApi from '../../services/api/person'
 
@@ -13,6 +19,8 @@ function PerfilUsuario() {
     const [totalWeight, setTotalWeight] = useState([]);
     const [summaryByResiduum, setSummaryByResiduum] = useState([])
 
+    const residuumIcons = [papel_icon, metal_icon, plastico_icon, pilha_icon, vidro_icon];
+
     useEffect(() => {
         personApi.listUserDiscards()
             .then(res => {
@@ -20,6 +28,7 @@ function PerfilUsuario() {
                 setDiscardCount(res.data.discardsCount)
                 setTotalWeight(res.data.totalWeightDiscarded)
                 setSummaryByResiduum(Object.entries(res.data.summaryByResiduum))
+                
             })
     }, [])
 
@@ -71,17 +80,18 @@ function PerfilUsuario() {
 
                 </div>
 
-                <div className="text-center mt-12">
-                    <h2 className="text-4xl tracking-tight text-olive-green">
-                        Total Descartado Por Tipo
-                    </h2>
-                </div>
+                <h2 className="text-4xl tracking-tight text-center mt-12  text-olive-green">
+                    Total Descartado Por Tipo
+                </h2>
 
                 <div className="container px-5 pt-10 mx-auto">
                     <div className="flex flex-wrap -m-4 text-center">
+
                         {
-                            summaryByResiduum.map(residuum => (
-                                <div key={`${residuum[0]}-summary`} className="p-4 tablet:w-1/5 w-1/2">
+
+                            summaryByResiduum.map((residuum, id) => (
+                                <div key={`${residuum[0]}-summary`} className="p-4 tablet:w-1/5 w-1/2 text-center ">
+                                    <img className="w-12  inline-block" src={residuumIcons[id]} alt=""/>
                                     <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">{residuum[1].weight / 1000}kg</h2>
                                     <p className="leading-relaxed">{residuum[0]}</p>
                                 </div>
@@ -90,11 +100,9 @@ function PerfilUsuario() {
                     </div>
                 </div>
 
-                <div className="text-center mt-12  mb-6">
-                    <h2 className="text-4xl tracking-tight text-olive-green">
-                        Seu Histórico de Descartes
-                    </h2>
-                </div>
+                <h2 className="text-4xl tracking-tight  mt-12  mb-6 text-center text-olive-green">
+                    Seu Histórico de Descartes
+                </h2>
 
                 <div className="flex flex-col justify-center">
                     <div className="overflow-x-auto relative">
