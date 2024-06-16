@@ -9,8 +9,24 @@ import rank from "../assets/ranking.png";
 import alunos from "../assets/alunos.jpg";
 import logo from "../assets/logo.png"
 import Feedback from "./Feedback";
+import { useEffect } from "react";
 
 const NewVersionHome = () => {
+
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash === "#sobre-projeto") {
+            const aboutElement = document.getElementById("sobre-projeto");
+            if (aboutElement) {
+                aboutElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest",
+                });
+            }
+        }
+    }, []);
+
     return (
         <div className="flex flex-col m-0 mx-auto max-w-[1440px]">
             <div id="introducao" className="flex flex-col-reverse laptop:flex-row gap-[24px] laptop:gap-[138px] bg-[#4B9093] px-[42px] laptop:px-[150px] py-[42px]">
@@ -38,7 +54,7 @@ const NewVersionHome = () => {
                         </button>
                     </Link>
                 </div>
-                <img src={pessoas} alt="Imagem Ilustrativa de Pessoas no Banner" title="Imagem Ilustrativa de Pessoas no Banner" />
+                <img src={pessoas} alt="Imagem Ilustrativa de Duas Pessoas Fazendo Reciclagem" title="Imagem Ilustrativa de Duas Pessoas Fazendo Reciclagem" />
             </div>
 
             <div id="carousel" className="flex flex-col gap-[32px] justify-center items-center bg-[#F59A73] px-[42px] laptop:px-[127px] py-[42px]">
