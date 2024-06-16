@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Input from "../../components/Input";
+import logo from "../../assets/logonova.svg";
+import envelope from "../../assets/EnvelopeSimple.svg";
 import useForm from "../../hooks/useForm";
 
 const RecuperarSenha = () => {
@@ -15,93 +14,38 @@ const RecuperarSenha = () => {
   }
 
   return (
-    <div className="m-8">
-      <div className="text-center mt-8">
-        <h2 className="text-4xl tracking-tight">Recuperar Senha</h2>
-      </div>
-      <div className="flex justify-center my-2 mx-4 md:mx-0">
-        <form
-          onSubmit={handleSubmit}
-          className="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
-        >
-          
-          
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md:w-full px-3 mb-6">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="email"
-              >
-                Email:
-              </label>
-              <Input
-                type="mail"
-                id="email"
-                name="email"
-                onChange={handleChange}
-                errors={errors}
-              />
+    <div className=" bg-[#4B9093] h-screen w-full">
+      <div className="flex justify-center">
+        <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-[600px] w-[500px] bg-white">
+          <div className="flex flex-col justify-center items-center mb-[10px]">
+            <img src={logo} alt="" />
+            <h2 className="font-black text-[#4B9093] text-[33px]"><span className="text-[#F59A73]">IC</span>oleta</h2>
+            <h3 className="font-mulish font-regular text-[24px]">Recuperar Senha</h3>
+          </div>
+          <form onSubmit={handleSubmit} className="">
+            <div className="flex flex-col">
+              <label htmlFor="" className=" font-semibold text-[16px]">Endereço de e-mail</label>
+              <div class="relative">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Digite seu e-mail"
+                  onChange={handleChange}
+                  errors={errors}
+                  className=" h-[48px] text-[14px] w-[400px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
+                /> 
+                <div class="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
+                    <img src={envelope} alt="" className="" /> 
+                </div> 
+              </div>  
             </div>
-        
+            <button type="submit" className="mt-[40px] bg-[#F59A73] border rounded-[10px] font-inter font-bold text-white text-[18px] w-[400px] h-[48px] ">Enviar email</button>
+          </form>
 
-            
-          </div>
-
-          <div className="flex mb-6">
-              <button
-                type="submit"
-                className="appearance-none block w-full justify-center bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
-              >
-                Enviar email
-              </button>
-
-              {/* <Link
-                to="/usuario/atualizar"
-                className="appearance-none block w-full text-center bg-olive-green text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-olive-green-dark focus:outline-none focus:bg-white focus:border-gray-500"
-              >
-                Atualizar senha
-              </Link> */}
-
-          </div>
-        </form>
+        </div>
       </div>
     </div>
-    // <div className="flex justify-center items-center h-4/6 flex-col">
-    //   <form onSubmit={handleSubmit}>
-    //     <p className="text-lg mb-4">Recuperar senha</p>
-
-    //     <label
-    //       htmlFor="email"
-    //       className="block mb-2 text-sm font-medium text-gray-900"
-    //     >
-    //       Email:
-    //     </label>
-    //     <Input
-    //       type="email"
-    //       id="email"
-    //       name="email"
-    //       onChange={handleChange}
-    //       errors={errors}
-    //     />
-    //     <br></br>
-
-    //     <div className="btn-flex-login">
-    //       <button
-    //         type="submit"
-    //         className="focus:outline-none text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-    //       >
-    //         Enviar email
-    //       </button>
-
-    //       <Link
-    //         to="/usuario/atualizar"
-    //         className="focus:outline-none text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-    //       >
-    //         Atualizar senha
-    //       </Link>
-    //     </div>
-    //   </form>
-    // </div>
   );
 };
 

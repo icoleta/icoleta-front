@@ -76,7 +76,6 @@ const NewVersionHome = () => {
                         </p>
                     </div>
                     <div className="flex">
-
                         <img src={logo} className="h-full" alt="Logo do IColeta" title="Logo do IColeta" />
                     </div>
                 </div>
