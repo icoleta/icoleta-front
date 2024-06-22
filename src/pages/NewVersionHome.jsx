@@ -28,8 +28,8 @@ const NewVersionHome = () => {
     }, []);
 
     return (
-        <div className="flex flex-col m-0 mx-auto max-w-[1440px]">
-            <div id="introducao" className="flex flex-col-reverse laptop:flex-row gap-[24px] laptop:gap-[138px] bg-[#4B9093] px-[42px] laptop:px-[150px] py-[42px]">
+        <>
+            <div id="introducao" className="flex flex-col-reverse justify-center laptop:flex-row gap-[24px] laptop:gap-[138px] bg-[#4B9093] px-[10%] laptop:px-[150px] py-[42px] ">
                 <div className="flex flex-col gap-[12px] justify-center">
                     <h3 className="text-4xl font-bold text-white text-center laptop:text-left">
                         Sua plataforma de coleta de resíduos
@@ -57,7 +57,7 @@ const NewVersionHome = () => {
                 <img src={pessoas} alt="Imagem Ilustrativa de Duas Pessoas Fazendo Reciclagem" title="Imagem Ilustrativa de Duas Pessoas Fazendo Reciclagem" />
             </div>
 
-            <div id="carousel" className="flex flex-col gap-[32px] justify-center items-center bg-[#F59A73] px-[42px] laptop:px-[127px] py-[42px]">
+            <div id="carousel" className="flex flex-col gap-[32px] justify-center items-center bg-[#F59A73] px-[10%] laptop:px-[150px] py-[42px]">
                 <h3 className="text-4xl font-bold text-white text-center">
                     Resíduos aceitos e o tempo de decomposição
                 </h3>
@@ -66,7 +66,7 @@ const NewVersionHome = () => {
             </div>
 
             <div id="sobre-projeto" className="flex flex-col gap-[24px] py-[42px] justify-center items-center bg-white">
-                <div className="flex flex-col laptop:flex-row px-[24px] gap-[90px] items-center">
+                <div className="flex flex-col laptop:flex-row px-[10%] laptop:px-[150px] py-[42px] gap-[90px] items-center">
                     <div className="flex flex-col max-w-[500px]">
                         <h3 className="text-4xl font-bold text-[#4B9093]">
                             Sobre o Projeto
@@ -80,7 +80,7 @@ const NewVersionHome = () => {
                     </div>
                 </div>
 
-                <div id="sobre-informacoes" className="flex flex-col laptop:flex-row gap-[12px]">
+                <div id="sobre-informacoes" className="flex flex-col laptop:flex-row gap-[12px] px-[10%] laptop:px-[150px] py-[42px]">
                     <div className="flex flex-col justify-between items-center max-w-[442px] border-solid border-[2px] rounded p-[12px] gap-[12px] border-gray-200">
                         <img src={icImage} className="laptop:h-48 tablet:h-36 w-full object-cover object-center" alt="Imagem do Instituto da Computação" title="Imagem do Instituto da Computação" />
                         <h3 className="text-2xl font-bold text-[#0F0F0F]">
@@ -124,10 +124,10 @@ const NewVersionHome = () => {
 
             </div>
 
-            <div id="feedback" className="flex flex-col border-[2px] mx-[24px] rounded laptop:mx-0 border-solid border-[#F59A73]">
+            <div id="feedback" className="flex flex-col border-[2px] mx-[24px] rounded laptop:mx-0 border-solid border-[#F59A73] laptop:px-[150px] py-[42px]">
                 <Feedback />
             </div>
-        </div>
+        </>
     );
 }
 

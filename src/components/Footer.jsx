@@ -28,7 +28,7 @@ function Footer() {
       </div>
 
       <div className="text-sm text-blueGray-500 py-1">
-        Copyright © <span>2022</span><a href="https://www.instagram.com/icoleta_sustentavel/" className="text-blueGray-500 hover:text-gray-800" target="_blank" rel="noreferrer" /> IColeta - Todos os direitos reservados
+        Copyright © <span>2024</span><a href="https://www.instagram.com/icoleta_sustentavel/" className="text-blueGray-500 hover:text-gray-800" target="_blank" rel="noreferrer" /> IColeta - Todos os direitos reservados
 
       </div>
     </div>
