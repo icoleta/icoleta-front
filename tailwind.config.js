@@ -8,7 +8,9 @@ module.exports = {
 
       laptop: "1023px",
 
-      desktop: "1280px",
+      desktop: "1279px",
+
+      "2xl": "1535px",
     },
     extend: {
       colors: {
