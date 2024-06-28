@@ -21,7 +21,7 @@ const CadastroUsuario = () => {
 
   return (
     <div className="flex justify-center items-center bg-[#4B9093] h-screen w-full">
-      <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-[600px] w-[400px] 2xl:h-[700px] 2xl:w-[500px] phone:h-[450px] phone:w-[300px] bg-white">
+      <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-auto p-4 w-[400px] 2xl:w-[500px] phone:w-[300px] bg-white">
         <div className="flex flex-col justify-center items-center mb-[10px]">
           <img src={logo} alt="" className="h-[70px] w-[70px] 2xl:h-[110px]  2xl:w-[110px] phone:h-[60px] phone:w-[60px]" />
           <h2 className="font-black text-[#4B9093] text-[25px] 2xl:text-[33px] phone:text-[22px]"><span className="text-[#F59A73]">IC</span>oleta</h2>

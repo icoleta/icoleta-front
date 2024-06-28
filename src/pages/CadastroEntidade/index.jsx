@@ -25,11 +25,11 @@ const CadastroEntidade = () => {
 
   return (
     <div className="flex justify-center items-center bg-[#4B9093] h-screen w-full">
-      <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-[650px] w-[400px] 2xl:h-[750px] 2xl:w-[500px] phone:h-[500px] phone:w-[350px] bg-white">
+      <div className="flex flex-col justify-center items-center border rounded-[20px] shadow-sm m-8 h-auto p-4 w-[400px] 2xl:w-[500px] phone:w-[350px] bg-white">
         <div className="flex flex-col justify-center items-center mb-[10px] phone:mb-[5px]">
           <img src={logo} alt="" className="h-[70px] w-[70px] 2xl:h-[110px]  2xl:w-[110px] phone:h-[60px] phone:w-[60px]" />
           <h2 className="font-black text-[#4B9093] text-[25px] 2xl:text-[33px] phone:text-[22px]"><span className="text-[#F59A73]">IC</span>oleta</h2>
-          <h3 className="font-mulish font-regular text-[18px] 2xl:text-[30px] phone:text-[15px] text-[#7C7C8A]">Cadastro de <span className="font-black text-[#F59A73]">Entidade</span></h3>
+          <h3 className="font-mulish font-regular text-[16px] 2xl:text-[25px] phone:text-[15px] text-[#7C7C8A]">Cadastro de <span className="font-black text-[#F59A73]">Entidade</span></h3>
           <p className="font-mulish font-regular text-[12px] 2xl:text-[16px] text-[#7C7C8A]">Preencha com informações  da entidade</p>
         </div>
         <form onSubmit={handleSubmit} className="">
