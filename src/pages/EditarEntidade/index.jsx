@@ -13,11 +13,11 @@ const EditarEntidade = () => {
   async function whenSubmitted() {}
 
   return (
-    <div className="m-8">
+    <div className="phone:m-8">
       <div className="text-center mt-8">
         <h2 className="text-4xl tracking-tight">Editar Entidade</h2>
       </div>
-      <div className="flex justify-center my-2 mx-4 md:mx-0">
+      <div className="flex justify-center my-2 mx-4 tablet:mx-0">
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
