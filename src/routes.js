@@ -27,6 +27,7 @@ import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
 import EditPoint from "./pages/EditPoint";
 import ClaimDiscard from "./pages/ClaimDiscard";
+import PageNotFound from "./pages/PageNotFound";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -43,6 +44,7 @@ function Paths() {
     <BrowserRouter>
       <Body>
         <Routes>
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<NewVersionHome />} />
           <Route path="/mapa" element={<MapPoints />} />
           <Route path="/lista-de-pontos" element={<ListPoints />} />
