@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import svg from "../assets/recycle_icon.png";
+import svg from "../../assets/recycle_icon.png";
 
-import pointApi from "./../services/api/points";
+import pointApi from "./../../services/api/points";
 
 function Point() {
   const { id } = useParams();

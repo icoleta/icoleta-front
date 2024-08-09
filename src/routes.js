@@ -6,13 +6,13 @@ import {
 import { useAuth } from "./contexts/auth";
 
 
-import NewVersionHome from "./pages/NewVersionHome";
+import NewVersionHome from "./pages/NewVersionHome/NewVersionHome";
 import Feedback from "./pages/Feedback/Feedback";
 import About from "./pages/About/About";
 import Admin from "./pages/Admin";
-import ListPoints from "./pages/ListPoints";
-import Point from "./pages/Point";
-import MapPoints from "./pages/MapPoints";
+import ListPoints from "./pages/ListPoints/ListPoints";
+import Point from "./pages/Point/Point";
+import MapPoints from "./pages/MapPoints/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
 import Body from "./components/Body";
@@ -23,11 +23,11 @@ import CadastroUsuario from "./pages/CadastroUsuario";
 import LoginUsuario from "./pages/LoginUsuario";
 import RecuperarSenha from "./pages/RecuperarSenha";
 import AtualizarSenha from "./pages/AtualizarSenha";
-import Ranking from "./pages/Ranking";
+import Ranking from "./pages/Ranking/Ranking";
 import Perfil from "./pages/PerfilUsuario";
 import EditPoint from "./pages/EditPoint";
 import ClaimDiscard from "./pages/ClaimDiscard/ClaimDiscard";
-import PageNotFound from "./pages/PageNotFound";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();

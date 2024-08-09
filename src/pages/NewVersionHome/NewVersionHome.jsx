@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
 // ASSETS
-import pessoas from "../assets/recicle-icoleta.png";
+import pessoas from "../../assets/recicle-icoleta.png";
 import { FaClipboardList, FaMapMarkedAlt } from "react-icons/fa";
-import CarouselHome from "../components/CarouselHome/CarouselHome";
-import icImage from "../assets/ic.jpg";
-import rank from "../assets/ranking.png";
-import alunos from "../assets/alunos.jpg";
-import logo from "../assets/logo.png"
-import Feedback from "./Feedback/Feedback";
+import CarouselHome from "../../components/CarouselHome/CarouselHome";
+import icImage from "../../assets/ic.jpg";
+import rank from "../../assets/ranking.png";
+import alunos from "../../assets/alunos.jpg";
+import logo from "../../assets/logo.png"
+import Feedback from "../Feedback/Feedback";
 import { useEffect } from "react";
 
 const NewVersionHome = () => {
