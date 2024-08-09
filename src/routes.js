@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
-
 import NewVersionHome from "./pages/NewVersionHome/NewVersionHome";
 import Feedback from "./pages/Feedback/Feedback";
 import About from "./pages/About/About";
