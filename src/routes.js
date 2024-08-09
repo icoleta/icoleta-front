@@ -5,10 +5,10 @@ import {
 } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
-import Home from "./pages/Home";
+
 import NewVersionHome from "./pages/NewVersionHome";
-import Feedback from "./pages/Feedback";
-import About from "./pages/About";
+import Feedback from "./pages/Feedback/Feedback";
+import About from "./pages/About/About";
 import Admin from "./pages/Admin";
 import ListPoints from "./pages/ListPoints";
 import Point from "./pages/Point";
@@ -16,7 +16,7 @@ import MapPoints from "./pages/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
 import Body from "./components/Body";
-import Entity from "./pages/Entity";
+import Entity from "./pages/Entity/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
 import CreatePoint from "./pages/CreatePoint";
 import CadastroUsuario from "./pages/CadastroUsuario";
@@ -26,7 +26,7 @@ import AtualizarSenha from "./pages/AtualizarSenha";
 import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
 import EditPoint from "./pages/EditPoint";
-import ClaimDiscard from "./pages/ClaimDiscard";
+import ClaimDiscard from "./pages/ClaimDiscard/ClaimDiscard";
 import PageNotFound from "./pages/PageNotFound";
 
 const ProtectedRoute = function ({ children }) {
