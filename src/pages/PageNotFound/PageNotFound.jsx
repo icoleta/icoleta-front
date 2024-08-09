@@ -1,4 +1,4 @@
-import erro404 from '../assets/404.svg'
+import erro404 from '../../assets/404.svg'
   
 
 function PageNotFound() {

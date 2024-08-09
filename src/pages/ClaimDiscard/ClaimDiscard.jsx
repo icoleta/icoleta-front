@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import pointApi from "../services/api/points";
+import pointApi from "../../services/api/points";
 import {useNavigate, useParams} from "react-router-dom";
-import discardApi from "../services/api/discards";
-import { useAuth } from "../contexts/auth";
+import discardApi from "../../services/api/discards";
+import { useAuth } from "../../contexts/auth";
 
 function ClaimDiscard() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function ClaimDiscard() {
       setPoints(res.data);
       parseJwt(token);
     });
-  }, []);
+  },);
 
   useEffect(() => {
     if (points) {
