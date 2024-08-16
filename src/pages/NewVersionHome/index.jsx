@@ -8,7 +8,7 @@ import icImage from "../../assets/ic.jpg";
 import rank from "../../assets/ranking.png";
 import alunos from "../../assets/alunos.jpg";
 import logo from "../../assets/logo.png"
-import Feedback from "../Feedback/Feedback";
+import Feedback from "../Feedback";
 import { useEffect } from "react";
 
 const NewVersionHome = () => {

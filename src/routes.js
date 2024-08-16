@@ -5,28 +5,28 @@ import {
 } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
-import NewVersionHome from "./pages/NewVersionHome/NewVersionHome";
-import Feedback from "./pages/Feedback/Feedback";
-import About from "./pages/About/About";
+import NewVersionHome from "./pages/NewVersionHome";
+import Feedback from "./pages/Feedback";
+import About from "./pages/About";
 import Admin from "./pages/Admin";
-import ListPoints from "./pages/ListPoints/ListPoints";
-import Point from "./pages/Point/Point";
-import MapPoints from "./pages/MapPoints/MapPoints";
+import ListPoints from "./pages/ListPoints";
+import Point from "./pages/Point";
+import MapPoints from "./pages/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
 import Body from "./components/Body/Body";
-import Entity from "./pages/Entity/Entity";
+import Entity from "./pages/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
 import CreatePoint from "./pages/CreatePoint";
 import CadastroUsuario from "./pages/CadastroUsuario";
 import LoginUsuario from "./pages/LoginUsuario";
 import RecuperarSenha from "./pages/RecuperarSenha";
 import AtualizarSenha from "./pages/AtualizarSenha";
-import Ranking from "./pages/Ranking/Ranking";
+import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
 import EditPoint from "./pages/EditPoint";
-import ClaimDiscard from "./pages/ClaimDiscard/ClaimDiscard";
-import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import ClaimDiscard from "./pages/ClaimDiscard";
+import PageNotFound from "./pages/PageNotFound";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
