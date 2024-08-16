@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Map from "../../components/Map";
+import Map from "../../components/Map/Map";
 import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import recycleIcon from "../../assets/recycle_icon.svg";

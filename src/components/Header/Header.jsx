@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../contexts/auth";
-import useOutsideClick from "../hooks/useOutsideClick";
+import { useAuth } from "../../contexts/auth";
+import useOutsideClick from "../../hooks/useOutsideClick";
 import { useNavigate } from "react-router-dom";
-import logoHeader from "../assets/logo-header.png";
+import logoHeader from "../../assets/logo-header.png";
 
-import "../pages/CadastroEntidade/style.css";
+import "../../pages/CadastroEntidade/style.css";
 
 function Header() {
   const { signed, user, Logout } = useAuth();
