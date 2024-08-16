@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../../components/Input";
+import Input from "../../components/Input/Input";
 import useForm from "../../hooks/useForm";
 
 import "./style.css";

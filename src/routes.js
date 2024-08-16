@@ -14,7 +14,7 @@ import Point from "./pages/Point/Point";
 import MapPoints from "./pages/MapPoints/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
-import Body from "./components/Body";
+import Body from "./components/Body/Body";
 import Entity from "./pages/Entity/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
 import CreatePoint from "./pages/CreatePoint";
