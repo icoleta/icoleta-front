@@ -1,6 +1,7 @@
 import React from "react";
 import Paths from "./routes";
 import { AuthProvider } from "./contexts/auth";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

@@ -8,6 +8,7 @@ import person from "../../assets/Person.svg";
 import phone from "../../assets/Phone.svg";
 
 import companyApi from "./../../services/api/company";
+import { toast, ToastContainer } from "react-toastify";
 
 
 
@@ -19,8 +20,23 @@ const CadastroEntidade = () => {
   );
 
   async function whenSubmitted() {
-    await companyApi.createCompany(values);
-    navigate("/login");
+    try {
+      await companyApi.createCompany(values);
+      navigate("/login", { state: { registrationSuccess: true } });
+    } catch (error) {
+      console.log(error.request.response)
+      if (error.request.response === `{"error":{"email":["The email has already been taken."]}}`) {
+        toast.warning("Email já cadastrado. Tente novamente.");
+      }
+      else if (error.request.response === `{"error":{"phone":["The phone has already been taken."]}}`) {
+        toast.warning("Telefone já cadastrado. Tente novamente.");
+      }
+      else if (error.request.response === `{"error":{"phone":["The phone has already been taken."],"email":["The email has already been taken."]}}`) {
+        toast.warning("Telefone e E-mail já cadastrados. Tente novamente.");
+      } else {
+        toast.error("Erro ao criar entidade. Tente novamente.");
+      }
+    }
   }
 
   return (
@@ -33,7 +49,7 @@ const CadastroEntidade = () => {
           <p className="font-mulish font-regular text-[12px] 2xl:text-[16px] text-[#7C7C8A]">Preencha com informações  da entidade</p>
         </div>
         <form onSubmit={handleSubmit} className="">
-        <div className="flex flex-col mb-4 phone:mb-[10px]">
+          <div className="flex flex-col mb-4 phone:mb-[10px]">
             <label htmlFor="" className=" font-semibold text-[12px] 2xl:text-[15px] phone:text-[13px]">Nome</label>
             <div className="relative">
               <input
@@ -44,10 +60,10 @@ const CadastroEntidade = () => {
                 onChange={handleChange}
                 errors={errors}
                 className=" h-[40px] w-[280px] 2xl:w-[400px] phone:w-[250px] phone:h-[40px] text-[12px] 2xl:text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
-              /> 
-              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
-                  <img src={person} alt="" className="" /> 
-              </div> 
+              />
+              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none">
+                <img src={person} alt="" className="" />
+              </div>
             </div>
           </div>
           <div className="flex flex-col mb-4 phone:mb-[10px]">
@@ -57,17 +73,18 @@ const CadastroEntidade = () => {
                 type="text"
                 id="phone"
                 name="phone"
-                placeholder="Digite o telefone"
+                placeholder="(82) 99912-3456"
+                maxLength={11}
                 onChange={handleChange}
                 errors={errors}
                 className=" h-[40px] w-[280px] 2xl:w-[400px] phone:w-[250px] phone:h-[40px] text-[12px] 2xl:text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
-              /> 
-              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
-                  <img src={phone} alt="" className="" /> 
-              </div> 
+              />
+              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none">
+                <img src={phone} alt="" className="" />
+              </div>
             </div>
           </div>
-          
+
           <div className="flex flex-col mb-4 phone:mb-[10px]">
             <label htmlFor="" className=" font-semibold text-[12px] 2xl:text-[15px] phone:text-[13px]">Endereço de e-mail</label>
             <div className="relative">
@@ -79,13 +96,13 @@ const CadastroEntidade = () => {
                 onChange={handleChange}
                 errors={errors}
                 className=" h-[40px] w-[280px] 2xl:w-[400px] phone:w-[250px] phone:h-[40px] text-[12px] 2xl:text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
-              /> 
-              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
-                  <img src={envelope} alt="" className="" /> 
-              </div> 
+              />
+              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none">
+                <img src={envelope} alt="" className="" />
+              </div>
             </div>
           </div>
-            <div className="flex flex-col phone:mb-[10px]">
+          <div className="flex flex-col phone:mb-[10px]">
             <label htmlFor="" className="font-semibold text-[12px] 2xl:text-[15px] phone:text-[13px]">Senha</label>
             <div className="relative">
               <input
@@ -96,12 +113,12 @@ const CadastroEntidade = () => {
                 onChange={handleChange}
                 errors={errors}
                 className="h-[40px] w-[280px] 2xl:w-[400px] phone:w-[250px] phone:h-[40px] text-[12px] 2xl:text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
-              /> 
-              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
-                  <img src={lock} alt="" className="" /> 
-              </div> 
+              />
+              <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none">
+                <img src={lock} alt="" className="" />
+              </div>
             </div>
-      
+
           </div>
           <button type="submit" className="w-[280px] 2xl:w-[400px] phone:w-[250px] phone:h-[40px] phone:mt-[10px] phone:text-[14px] h-[40px] mt-[60px] bg-[#F59A73] rounded-[10px] font-inter font-bold text-white text-[18px] ">Cadastrar</button>
         </form>
@@ -109,7 +126,7 @@ const CadastroEntidade = () => {
           <div className="text-[#7C7C8A] text-[14px] font-regular">Já possui conta?<Link to="/login" className="text-[#F59A73] text-[14px] phone:text-[12px] font-bold"> Login</Link></div>
         </div>
       </div>
-
+      <ToastContainer />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import envelope from "../../assets/EnvelopeSimple.svg";
 import lock from "../../assets/Lock.svg";
 import person from "../../assets/Person.svg";
 import personApi from "./../../services/api/person";
+import { ToastContainer, toast } from "react-toastify";
 
 const CadastroUsuario = () => {
   const navigate = useNavigate();
@@ -14,9 +15,17 @@ const CadastroUsuario = () => {
   );
 
   async function whenSubmitted() {
-    console.log("values", values);
-    await personApi.createUser(values);
-    navigate("/login");
+    try {
+      await personApi.createUser(values);
+      navigate("/login", { state: { registrationSuccess: true } });
+    } catch (error) {
+      console.log(error.request.response)
+      if (error.request.response === `{"error":{"email":["The email has already been taken."]}}`) {
+        toast.warning("Email já cadastrado. Tente novamente.");
+      } else {
+        toast.error("Erro ao criar usuário. Tente novamente.");
+      }
+    }
   }
 
   return (
@@ -88,6 +97,7 @@ const CadastroUsuario = () => {
           <div className="text-[#7C7C8A] text-[14px] font-regular">Já possui conta?<Link to="/login" className="text-[#F59A73] text-[14px] phone:text-[12px] font-bold"> Login</Link></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

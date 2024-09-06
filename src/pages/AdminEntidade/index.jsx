@@ -1,12 +1,22 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import pointApi from "./../../services/api/points";
 import {useAuth} from "../../contexts/auth";
+import { ToastContainer, toast } from "react-toastify";
 import logo from "../../assets/logo-ufal.png";
 
 const AdminEntidade = () => {
   const [points, setPoints] = useState([]);
   const {user} = useAuth();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.registrationSuccess) {
+      toast.success("Login realizado com sucesso!", {
+        position: "bottom-right",
+      });
+    }
+  }, [location]);
 
   useEffect(() => {
     getCompanyPoints();
@@ -87,6 +97,7 @@ const AdminEntidade = () => {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </main>
     </>
   );

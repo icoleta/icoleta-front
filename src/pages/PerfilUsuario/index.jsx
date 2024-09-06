@@ -10,6 +10,8 @@ import vidro_icon from "../../assets/vidro_icon.png"
 
 
 import personApi from '../../services/api/person'
+import { useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 function PerfilUsuario() {
     const { user } = useAuth()
@@ -20,6 +22,16 @@ function PerfilUsuario() {
     const [summaryByResiduum, setSummaryByResiduum] = useState([])
 
     const residuumIcons = [papel_icon, metal_icon, plastico_icon, pilha_icon, vidro_icon];
+
+    const location = useLocation();
+
+    useEffect(() => {
+      if (location.state?.registrationSuccess) {
+        toast.success("Login realizado com sucesso!", {
+            position: "bottom-right",
+          });
+      }
+    }, [location]);
 
     useEffect(() => {
         personApi.listUserDiscards()
@@ -136,6 +148,7 @@ function PerfilUsuario() {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }
