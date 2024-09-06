@@ -1,9 +1,9 @@
 import React from "react";
-import icImage from "../assets/ic.jpg";
-import rank from "../assets/ranking.png";
-import alunos from "../assets/alunos.jpg";
-import lixeira from "../assets/lixeira-wifi.jpg";
-import instagram from "../assets/insta.jpg";
+import icImage from "../../assets/ic.jpg";
+import rank from "../../assets/ranking.png";
+import alunos from "../../assets/alunos.jpg";
+import lixeira from "../../assets/lixeira-wifi.jpg";
+import instagram from "../../assets/insta.jpg";
 import { Link } from "react-router-dom";
 
 function About() {

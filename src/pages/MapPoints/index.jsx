@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Map from "../components/Map";
+import Map from "../../components/Map/Map";
 import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
-import recycleIcon from "../assets/recycle_icon.svg";
-import points from "../data/points.json";
-import icImage from "../assets/ic.jpg";
-import svg from "../assets/recycle_icon.png";
-import pessoas from "../assets/pessoas-icoleta.png";
+import recycleIcon from "../../assets/recycle_icon.svg";
+import points from "../../data/points.json";
+import icImage from "../../assets/ic.jpg";
+import svg from "../../assets/recycle_icon.png";
+import pessoas from "../../assets/pessoas-icoleta.png";
 import { Link } from "react-router-dom";
 
 const mapIcon = L.icon({

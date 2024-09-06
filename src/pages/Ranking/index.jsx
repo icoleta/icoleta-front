@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 
-import othersApi from "../services/api/others";
+import othersApi from "../../services/api/others";
 
 function Ranking() {
   const [rankingByCount, setRankingByCount] = useState([]);

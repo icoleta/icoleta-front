@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "../../components/Input";
+import Input from "../../components/Input/Input";
 import useForm from "../../hooks/useForm";
 import pointApi from "./../../services/api/points";
 import { useParams } from "react-router";

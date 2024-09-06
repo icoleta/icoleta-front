@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
-import Home from "./pages/Home";
 import NewVersionHome from "./pages/NewVersionHome";
 import Feedback from "./pages/Feedback";
 import About from "./pages/About";
@@ -15,7 +14,7 @@ import Point from "./pages/Point";
 import MapPoints from "./pages/MapPoints";
 import CadastroEntidade from "./pages/CadastroEntidade";
 import EditarEntidade from "./pages/EditarEntidade";
-import Body from "./components/Body";
+import Body from "./components/Body/Body";
 import Entity from "./pages/Entity";
 import AdminEntidade from "./pages/AdminEntidade";
 import CreatePoint from "./pages/CreatePoint";
@@ -27,6 +26,7 @@ import Ranking from "./pages/Ranking";
 import Perfil from "./pages/PerfilUsuario";
 import EditPoint from "./pages/EditPoint";
 import ClaimDiscard from "./pages/ClaimDiscard";
+import PageNotFound from "./pages/PageNotFound";
 
 const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
@@ -43,6 +43,7 @@ function Paths() {
     <BrowserRouter>
       <Body>
         <Routes>
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<NewVersionHome />} />
           <Route path="/mapa" element={<MapPoints />} />
           <Route path="/lista-de-pontos" element={<ListPoints />} />

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import svg from "../assets/recycle_icon.png";
+import svg from "../../assets/recycle_icon.png";
 
-import pointApi from "./../services/api/points";
+import pointApi from "../../services/api/points";
 
 function ListPoints() {
   // const navigate = useNavigate();
