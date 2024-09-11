@@ -1,10 +1,10 @@
-import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
 import logo from "../../assets/logonova.svg";
 import envelope from "../../assets/EnvelopeSimple.svg";
 import lock from "../../assets/Lock.svg";
-
+import { ToastContainer, toast } from "react-toastify";
 import useForm from "../../hooks/useForm";
 
 const LoginUsuario = () => {
@@ -14,19 +14,31 @@ const LoginUsuario = () => {
     whenSubmitted,
     ["email", "password"]
   );
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.registrationSuccess) {
+      toast.success("Cadastro realizado com sucesso!", {
+        position: "bottom-right",
+      });
+    }
+  }, [location]);
 
   if (user) {
-    if (user.role === 'admin') navigate("/admin");
-    else if (user.role === 'company') navigate("/entidade/admin");
-    else navigate("/perfil");
+    if (user.role === 'admin') navigate("/admin", { state: { registrationSuccess: true } });
+    else if (user.role === 'company') navigate("/entidade/admin", { state: { registrationSuccess: true } });
+    else navigate("/perfil", { state: { registrationSuccess: true } });
   }
 
   async function whenSubmitted() {
     const { email, password } = values;
     const wasLoginSuccessful = await Login(email, password);
     if (!wasLoginSuccessful) {
-      alert("Nome de usuário ou senha incorretas");
+      toast.warning("Email ou Senha inválidos.", {
+        position: "bottom-right",
+      });
     }
+
   }
 
   return (
@@ -81,6 +93,7 @@ const LoginUsuario = () => {
           <div className="text-[#7C7C8A] text-[14px] font-regular">Não possui conta?<Link to="/usuario/cadastrar" className="text-[#F59A73] text-[14px] phone:text-[12px] font-bold"> Cadastre-se</Link></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
