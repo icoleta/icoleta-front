@@ -37,7 +37,7 @@ function ClaimDiscard() {
 
   async function handleSubmit() {
     const payload = {
-      email: user.email,
+      name: user.name,
       token,
       residuum_id: selectedResiduum,
       weight: selectedWeight
@@ -93,14 +93,14 @@ function ClaimDiscard() {
                 className="block uppercase tracking-wide text-gray-700 text-xt font-bold mb-2"
                 htmlFor="email"
               >
-                Email do usuário
+                usuário
               </label>
               <input
                 className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
-                type="email"
-                id="email"
-                name="email"
-                value={user?.email}
+                type="name"
+                id="name"
+                name="name"
+                value={user?.name}
                 required
                 disabled
               />
