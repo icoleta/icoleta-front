@@ -3,6 +3,7 @@ import pointApi from "../../services/api/points";
 import {useNavigate, useParams} from "react-router-dom";
 import discardApi from "../../services/api/discards";
 import { useAuth } from "../../contexts/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 function ClaimDiscard() {
   const navigate = useNavigate();
@@ -36,6 +37,8 @@ function ClaimDiscard() {
   }, [points, selectedPointId]);
 
   async function handleSubmit() {
+    const autoCloseDelay = 5000
+
     const payload = {
       email: user.email,
       token,
@@ -46,11 +49,21 @@ function ClaimDiscard() {
     const res = await discardApi.createDiscardAsUser(payload);
 
     if (res.status === 201) {
-      alert('Descarte criado')
+      toast.success("Descarte criado !", {
+        position: "top-center",
+        autoClose: autoCloseDelay
+      });
+
     } else {
-      alert('Falha ao descartar')
+      toast.error("Falha ao descartar !", {
+        position: "top-center",
+        autoClose: autoCloseDelay
+      });
     }
-    navigate("/");
+
+    setTimeout(() => {
+      navigate("/");
+    },autoCloseDelay);
   }
 
   function parseJwt(token) {
@@ -176,8 +189,10 @@ function ClaimDiscard() {
           >
             Cadastrar
           </button>
-        </div>
+        </div> 
       </form>
+
+      <ToastContainer  />
     </div>
   );
 }

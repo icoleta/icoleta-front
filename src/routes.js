@@ -58,6 +58,14 @@ function Paths() {
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/ponto/:id" element={<Point />} />
           <Route
+            path="/descarte/:token"
+            element={
+              <ProtectedRoute>
+                <ClaimDiscard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/admin"
             element={
               <ProtectedRoute>
@@ -113,14 +121,7 @@ function Paths() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/descarte/:token"
-            element={
-              <ProtectedRoute>
-                <ClaimDiscard />
-              </ProtectedRoute>
-            }
-          />
+         
         </Routes>
       </Body>
     </BrowserRouter>
