@@ -49,7 +49,7 @@ function ClaimDiscard() {
     const res = await discardApi.createDiscardAsUser(payload);
 
     if (res.status === 201) {
-      toast.success("Descarte criado !", {
+      toast.success("Obrigado pelo descarte!", {
         position: "top-center",
         autoClose: autoCloseDelay
       });
