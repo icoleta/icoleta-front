@@ -1,7 +1,7 @@
 import React from "react";
 import {
   BrowserRouter, Routes, Route,
-  // Navigate 
+  Navigate 
 } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 
@@ -32,7 +32,7 @@ const ProtectedRoute = function ({ children }) {
   const { signed } = useAuth();
 
   if (!signed) {
-    //return <Navigate to="/" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return children;
@@ -57,14 +57,7 @@ function Paths() {
           <Route path="/sobre" element={<About />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/ponto/:id" element={<Point />} />
-          <Route
-            path="/descarte/:token"
-            element={
-              <ProtectedRoute>
-                <ClaimDiscard />
-              </ProtectedRoute>
-            }
-          />
+          
           <Route
             path="/admin"
             element={
@@ -76,9 +69,9 @@ function Paths() {
           <Route
             path="/perfil"
             element={
-              // <ProtectedRoute>
-              <Perfil />
-              // </ProtectedRoute>
+              <ProtectedRoute>
+                <Perfil />
+              </ProtectedRoute>
             }
           />
           <Route
@@ -94,6 +87,14 @@ function Paths() {
             element={
               <ProtectedRoute>
                 <EditarEntidade />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/descarte/:token"
+            element={
+              <ProtectedRoute>
+                <ClaimDiscard />
               </ProtectedRoute>
             }
           />
