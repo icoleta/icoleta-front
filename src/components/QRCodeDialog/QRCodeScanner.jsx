@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { QrReader } from "react-qr-reader";
 import { styled } from "@mui/material/styles";
-import Loading from "../Loading";
+import Loading from "../Qrcode/Loading";
 
 const PREFIX = "QRCodeScanner";
 

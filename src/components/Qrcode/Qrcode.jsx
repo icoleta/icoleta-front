@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import { Grid, IconButton, SvgIcon, TextField } from "@mui/material";
 import { MdOutlineQrCodeScanner } from "react-icons/md";
-import { QRCodeDialog } from "./QRCodeDialog";
+import { QRCodeDialog } from "../QRCodeDialog";
 
 const Root = styled("div")(() => ({
   [`& @global`]: {

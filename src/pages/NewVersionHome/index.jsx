@@ -9,7 +9,7 @@ import rank from "../../assets/ranking.png";
 import alunos from "../../assets/alunos.jpg";
 import logo from "../../assets/logo.png"
 import Feedback from "../Feedback";
-import { Qrcode } from "../../components/Qrcode";
+import { Qrcode } from "../../components/Qrcode/Qrcode";
 import { useEffect } from "react";
 
 const NewVersionHome = () => {
