@@ -12,7 +12,7 @@ import Feedback from "../Feedback";
 import { Qrcode } from "../../components/Qrcode";
 import { useEffect } from "react";
 
-const NewVersionQrcode = () => {
+const NewVersionHome = () => {
 
     useEffect(() => {
         const hash = window.location.hash;
