@@ -9,9 +9,10 @@ import rank from "../../assets/ranking.png";
 import alunos from "../../assets/alunos.jpg";
 import logo from "../../assets/logo.png"
 import Feedback from "../Feedback";
+import { Qrcode } from "../../components/Qrcode";
 import { useEffect } from "react";
 
-const NewVersionHome = () => {
+const NewVersionQrcode = () => {
 
     useEffect(() => {
         const hash = window.location.hash;
@@ -29,6 +30,8 @@ const NewVersionHome = () => {
 
     return (
         <>
+            
+            <Qrcode />
             <div id="introducao" className="flex flex-col-reverse justify-center laptop:flex-row gap-[24px] laptop:gap-[138px] bg-[#4B9093] px-[10%] laptop:px-[150px] py-[42px] ">
                 <div className="flex flex-col gap-[12px] justify-center">
                     <h3 className="text-4xl font-bold text-white text-center laptop:text-left">
