@@ -52,7 +52,7 @@ export function QRCodeScanner({ setCode, setOpen }) {
           delay={300}
           onError={handleError}
           onScan={handleScan}
-          constraints={{ facingMode: { exact: "environment" } } // Tenta usar a câmera traseira de forma mais explícita
+          constraints={{ facingMode: { exact: "environment" } } // usa so a camera traseira
           }
           style={{
             height: "100%",

@@ -31,7 +31,7 @@ const NewVersionHome = () => {
     return (
         <>
             
-            <Qrcode />
+            
             <div id="introducao" className="flex flex-col-reverse justify-center laptop:flex-row gap-[24px] laptop:gap-[138px] bg-[#4B9093] px-[10%] laptop:px-[150px] py-[42px] ">
                 <div className="flex flex-col gap-[12px] justify-center">
                     <h3 className="text-4xl font-bold text-white text-center laptop:text-left">

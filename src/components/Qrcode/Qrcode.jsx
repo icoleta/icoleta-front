@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import { Grid, IconButton, SvgIcon, TextField } from "@mui/material";
+import { IconButton, SvgIcon } from "@mui/material";
 import { MdOutlineQrCodeScanner } from "react-icons/md";
 import { QRCodeDialog } from "../QRCodeDialog";
 
@@ -40,21 +40,12 @@ export function Qrcode() {
 
   return (
     <Root>
-      <Grid
-        container
-        spacing={2}
-        textAlign="center"
-        sx={{ position: "absolute", top: "calc(50% - 112px)" }}
-      >
+      <IconButton onClick={handleOpenQrCodeReader}>
+        <SvgIcon >
+          <MdOutlineQrCodeScanner style={{ color: 'white'}} />
+        </SvgIcon>
+      </IconButton>
         
-        <Grid item xs={10} textAlign="botom">
-          <IconButton onClick={handleOpenQrCodeReader}>
-            <SvgIcon>
-              <MdOutlineQrCodeScanner />
-            </SvgIcon>
-          </IconButton>
-        </Grid>
-      </Grid>
       <QRCodeDialog
         open={openQrCodeReader}
         setOpen={setOpenQrCodeReader}

@@ -32,24 +32,12 @@ export function QRCodeDialog({ open, setOpen, setCode }) {
       maxWidth={"sm"}
     >
       <DialogTitle id="alert-dialog-title">
-        <Grid
-          container
-          justifyContent="space-between"
-          direction="row"
-          alignItems="center"
-          wrap="nowrap"
-        >
-          <Grid item>
-            <Typography>Leitor de QR Code</Typography>
-          </Grid>
-          <Grid item>
-            <IconButton onClick={handleClose}>
-              <SvgIcon>
-                <IoIosClose />
-              </SvgIcon>
-            </IconButton>
-          </Grid>
-        </Grid>
+        <IconButton onClick={handleClose}>
+          <SvgIcon>
+            <IoIosClose />
+          </SvgIcon>
+        </IconButton>
+        
       </DialogTitle>
 
       <DialogContent>
