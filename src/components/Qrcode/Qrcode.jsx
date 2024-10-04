@@ -26,8 +26,7 @@ const Qrcode = () => {
       if (code) {
         navigate(`/descarte/:${code.data}`);
         console.log(code.data);
-      } 
-      else {
+      } else {
         toast.error("Envie um QR Code válido");
       }
     };
@@ -45,10 +44,13 @@ const Qrcode = () => {
       />
       <label
         htmlFor="file_input"
-        className="flex justify-center items-center w-full h-full cursor-pointer"
+        className="flex justify-center items-center w-full h-full cursor-pointer relative"
       >
+        <p className="absolute -top-14  text-xs text-white w-fit shadow-lg bg-olive-green rounded-md px-2 py-1">
+          Ler QR Code
+        </p>
         <BsQrCode
-          size={window.innerWidth < 768 ? 30 : 40}
+          size={window.innerWidth < 768 ? 30 : 32}
           className="text-olive-green"
         />
       </label>
