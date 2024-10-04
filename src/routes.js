@@ -93,9 +93,9 @@ function Paths() {
           <Route
             path="/descarte/:token"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <ClaimDiscard />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route

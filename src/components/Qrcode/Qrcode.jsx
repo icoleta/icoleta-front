@@ -1,10 +1,11 @@
 import jsQR from "jsqr";
 import { BsQrCode } from "react-icons/bs";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Qrcode = () => {
   const fr = new FileReader();
-
+  const navigate = useNavigate();
   const handleUpload = (e) => {
     fr.readAsDataURL(e.target.files[0]);
   };
@@ -23,8 +24,10 @@ const Qrcode = () => {
       }
       const code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
+        navigate(`/descarte/:${code.data}`);
         console.log(code.data);
-      } else {
+      } 
+      else {
         toast.error("Envie um QR Code válido");
       }
     };
@@ -32,7 +35,7 @@ const Qrcode = () => {
   };
 
   return (
-    <button className="fixed bottom-14 cursor-pointer right-10 bg-white border-2 border-olive-green rounded-full w-16 h-16 lg:w-24 lg:h-24  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 focus:ring-1 focus:ring-orange-300 shadow-lg">
+    <button className="fixed bottom-10  right-6 bg-white border-2 border-olive-green rounded-full w-16 h-16 lg:w-24 lg:h-24  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 focus:ring-1 focus:ring-orange-300 shadow-lg">
       <input
         type="file"
         onChange={handleUpload}
@@ -45,7 +48,7 @@ const Qrcode = () => {
         className="flex justify-center items-center w-full h-full cursor-pointer"
       >
         <BsQrCode
-          size={window.innerWidth < 768 ? 32 : 48}
+          size={window.innerWidth < 768 ? 30 : 40}
           className="text-olive-green"
         />
       </label>
