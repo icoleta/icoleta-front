@@ -13,19 +13,36 @@ const Qrcode = () => {
   fr.onload = function () {
     const image = new Image();
     image.onload = function () {
+      const maxDimension = 600; // Define a maximum dimension for the image
+      let width = image.width;
+      let height = image.height;
+
+      // Calculate new dimensions while maintaining aspect ratio
+      if (width > height) {
+        if (width > maxDimension) {
+          height *= maxDimension / width;
+          width = maxDimension;
+        }
+      } else {
+        if (height > maxDimension) {
+          width *= maxDimension / height;
+          height = maxDimension;
+        }
+      }
+
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
-      canvas.width = image.width;
-      canvas.height = image.height;
-      ctx?.drawImage(image, 0, 0);
+      canvas.width = width;
+      canvas.height = height;
+      ctx?.drawImage(image, 0, 0, width, height);
       const imageData = ctx?.getImageData(0, 0, canvas.width, canvas.height);
       if (!imageData) {
         return;
       }
       const code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
+        alert(code.data);
         navigate(`/descarte/:${code.data}`);
-        console.log(code.data);
       } else {
         toast.error("Envie um QR Code válido");
       }
