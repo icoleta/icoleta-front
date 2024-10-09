@@ -41,7 +41,7 @@ const Qrcode = () => {
       }
       const code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
-        alert(code.data);
+        console.log(code.data);
         navigate(`/descarte/:${code.data}`);
       } else {
         toast.error("Envie um QR Code válido");
