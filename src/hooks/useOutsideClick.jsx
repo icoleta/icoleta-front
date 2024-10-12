@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 function useOutsideClick(ref, callback) {
   useEffect(() => {
     function handleClickOutside(event) {
+      console.log(callback)
       if (ref.current && !ref.current.contains(event.target)) {
         callback();
       }
@@ -12,7 +13,7 @@ function useOutsideClick(ref, callback) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, callback]);
 }
 
 export default useOutsideClick;
