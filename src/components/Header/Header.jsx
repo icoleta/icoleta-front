@@ -8,6 +8,7 @@ import "../../pages/CadastroEntidade/style.css";
 import { UseToggle } from "../../hooks/useToggle";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { useEffect } from "react";
 
 
 
@@ -23,10 +24,22 @@ function Header() {
     navigate("/");
   }
 
+  useEffect(() => {
+    if (toggle){
+      document.body.classList.add('overflow-hidden');
+
+    }else{
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => document.body.classList.add('overflow-hidden');
+
+  }, [toggle])
+
 
   return (
     <>
-
+      {/*dark bkg*/}
       <div  className={`${!toggle && 'hidden'} z-10 w-screen h-screen	 bg-stone-950/50 absolute overscroll-none	`}></div>
 
       <div  className=" z-10 relative bg-white	w-full flex  items-center px-8 py-[12px] justify-between tablet:flex-col laptop:flex-row tablet:px-[10%] shadow-md">
@@ -34,11 +47,12 @@ function Header() {
           <img src={logoHeader} className="h-[3rem] w-[10rem] tablet:h-[60px] tablet:w-[100%] grow" alt="Logo do IColeta" title="Logo do IColeta" />
         </Link>
 
+        
         <button className = {`${toggle && 'hidden'} tablet:hidden`} onClick={() => onToggle()}>
           <GiHamburgerMenu className="w-6 h-6"/>
         </button>
 
-        {/*close bttm*/}
+        {/*close menu bttm*/}
         <button className = {`${!toggle && 'hidden'} tablet:hidden right-0`} onClick={() => onToggle()}>
           <IoMdClose className="w-6 h-6"/> 
         </button>
