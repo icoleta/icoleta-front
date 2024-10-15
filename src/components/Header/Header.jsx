@@ -41,6 +41,12 @@ function Header() {
 
   }, [toggle])
 
+  function handleMenuClick(event){
+    if (event.target !== event.currentTarget && toggle){
+      onToggle()
+    }
+  }
+
 
   return (
     <>
@@ -59,7 +65,7 @@ function Header() {
         </button>
 
         <div className={`right-0 ${!toggle && 'translate-x-full'}  bg-white top-[4.6rem] pt-[1rem] h-screen w-[15rem] absolute z-10  px-[8px]  tablet:py-0 tablet:static tablet:h-auto tablet:w-auto tablet:translate-x-0  duration-300 ease-out transition-all`}>
-          <navbar onClick = {onToggle} className="laptop:child:ml-4 flex flex-col mt-4 px-4 gap-[12px] items-end justify-center tablet:flex-row tablet:mt-0 tablet:px-0 tablet:items-center text-slate-700 font-semibold text-sm ">
+          <navbar onClick = {handleMenuClick} className="laptop:child:ml-4 flex flex-col mt-4 px-4 gap-[12px] items-end justify-center tablet:flex-row tablet:mt-0 tablet:px-0 tablet:items-center text-slate-700 font-semibold text-sm ">
 
             {signed ? (
               <>
