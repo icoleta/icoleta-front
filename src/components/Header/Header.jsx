@@ -25,6 +25,8 @@ function Header() {
   }
 
   useEffect(() => {
+    document.body.classList.add('overflow-x-hidden');
+
     if (toggle){
       document.body.classList.add('overflow-hidden');
 
@@ -32,33 +34,37 @@ function Header() {
       document.body.classList.remove('overflow-hidden');
     }
 
-    return () => document.body.classList.add('overflow-hidden');
+    return () => {
+      document.body.classList.remove('overflow-hidden')
+      document.body.classList.remove('overflow-x-hidden');
+    };
 
   }, [toggle])
 
+  function handleLinkClick(event){
+    console.log(event.target)
+    if (event.target !== event.currentTarget && toggle)
+      onToggle()
+  }
 
   return (
     <>
       {/*dark bkg*/}
       <div  className={`${!toggle ? 'invisible' : 'visible'}  absolute  duration-100 ease-out transition-all z-10 w-full h-screen	bg-gray-900 opacity-50  `}></div>
 
-      <div  className=" z-10 relative bg-white	w-full flex  items-center px-8 py-[12px] justify-between tablet:flex-col laptop:flex-row tablet:px-[10%] shadow-md">
+      <div  className=" z-10 relative bg-white	w-full flex  items-center px-8 py-[12px] justify-between tablet:flex-col laptop:flex-row tablet:px-[10%] shadow-md ">
         <Link to="/" className="transition ease-in-out delay-150 hover:scale-105 duration-300">
           <img src={logoHeader} className="h-[3rem] w-[10rem] tablet:h-[60px] tablet:w-[100%] grow" alt="Logo do IColeta" title="Logo do IColeta" />
         </Link>
         
-        <button className = {`${toggle && 'hidden'} tablet:hidden`} onClick={() => onToggle()}>
-          <GiHamburgerMenu className="w-6 h-6"/>
+        <button className = {`tablet:hidden`} onClick={() => onToggle()}>
+          {toggle ? <IoMdClose className="w-8 h-8"/> 
+          : <GiHamburgerMenu className="w-6 h-6"/>
+          }
         </button>
 
-        {/*close menu bttm*/}
-        <button className = {`${!toggle && 'hidden'} tablet:hidden right-0`} onClick={() => onToggle()}>
-          <IoMdClose className="w-6 h-6"/> 
-        </button>
-
-        <div className={`${toggle ? 'right-0' : 'translate-x-full'}  bg-white top-[4.6rem] pt-[1rem] h-screen w-[15rem] absolute z-10  px-[8px]  tablet:py-0 tablet:static tablet:h-auto tablet:w-auto tablet:translate-x-0 right-0 duration-300 ease-out transition-all`}>
-
-          <div className="laptop:child:ml-4 flex flex-col mt-4 px-4 gap-[12px] items-end justify-center tablet:flex-row tablet:mt-0 tablet:px-0 tablet:items-center text-slate-700 font-semibold text-sm ">
+        <div className={`right-0 ${!toggle && 'translate-x-full'}  bg-white top-[4.6rem] pt-[1rem] h-screen w-[15rem] absolute z-10  px-[8px]  tablet:py-0 tablet:static tablet:h-auto tablet:w-auto tablet:translate-x-0  duration-300 ease-out transition-all`}>
+          <navbar onClick = {onToggle} className="laptop:child:ml-4 flex flex-col mt-4 px-4 gap-[12px] items-end justify-center tablet:flex-row tablet:mt-0 tablet:px-0 tablet:items-center text-slate-700 font-semibold text-sm ">
 
             {signed ? (
               <>
@@ -142,7 +148,7 @@ function Header() {
               </>
             )}
             
-          </div>
+          </navbar>
         </div>
 
       </div>
