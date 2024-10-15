@@ -40,7 +40,7 @@ function Header() {
   return (
     <>
       {/*dark bkg*/}
-      <div  className={`${!toggle ? 'invisible' : 'visible'}  absolute  duration-100 ease-out transition-all z-10 w-screen h-screen	bg-gray-900 opacity-50  `}></div>
+      <div  className={`${!toggle ? 'invisible' : 'visible'}  absolute  duration-100 ease-out transition-all z-10 w-full h-screen	bg-gray-900 opacity-50  `}></div>
 
       <div  className=" z-10 relative bg-white	w-full flex  items-center px-8 py-[12px] justify-between tablet:flex-col laptop:flex-row tablet:px-[10%] shadow-md">
         <Link to="/" className="transition ease-in-out delay-150 hover:scale-105 duration-300">
@@ -56,7 +56,7 @@ function Header() {
           <IoMdClose className="w-6 h-6"/> 
         </button>
 
-        <div className={`${toggle ? 'right-0' : 'translate-x-full'}  bg-white top-[4.6rem] pt-[1rem] h-screen w-[15rem] absolute z-10 tablet:inline-block px-[8px]  tablet:px-0 tablet:py-0 tablet:static tablet:h-auto tablet:w-auto tablet:translate-x-0 right-0 duration-300 ease-out transition-all`}>
+        <div className={`${toggle ? 'right-0' : 'translate-x-full'}  bg-white top-[4.6rem] pt-[1rem] h-screen w-[15rem] absolute z-10  px-[8px]  tablet:py-0 tablet:static tablet:h-auto tablet:w-auto tablet:translate-x-0 right-0 duration-300 ease-out transition-all`}>
 
           <div className="laptop:child:ml-4 flex flex-col mt-4 px-4 gap-[12px] items-end justify-center tablet:flex-row tablet:mt-0 tablet:px-0 tablet:items-center text-slate-700 font-semibold text-sm ">
 
