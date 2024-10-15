@@ -41,11 +41,6 @@ function Header() {
 
   }, [toggle])
 
-  function handleLinkClick(event){
-    console.log(event.target)
-    if (event.target !== event.currentTarget && toggle)
-      onToggle()
-  }
 
   return (
     <>
@@ -112,7 +107,7 @@ function Header() {
                   to="/#sobre-projeto"
                   className="rounded-md cursor-pointer py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
                 >
-                  Sobre
+                  Inicio
                 </Link>
 
                 <Link
