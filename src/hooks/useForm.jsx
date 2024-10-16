@@ -36,6 +36,11 @@ function useForm(callback, fields) {
           ...tempErrors,
           [field]: "Insira um E-MAIL válido.",
         };
+      }else if (field === "message" && values[field].length < 10){
+        tempErrors = {
+          ...tempErrors,
+          [field]: "A MENSAGEM precisa ter no mínimo 10 characteres.",
+        };
       };
     });
     setErrors(tempErrors);

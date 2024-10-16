@@ -21,6 +21,7 @@ module.exports = {
         "almost-white": "#F4F7F8",
         "gray-second": "#D2D4D4",
         "gray-third": "#7C7C8A",
+        "warning-red": "#dc2626",
       },
     },
   },
