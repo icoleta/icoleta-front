@@ -13,20 +13,6 @@ import { useEffect } from "react";
 
 const NewVersionHome = () => {
 
-    useEffect(() => {
-        const hash = window.location.hash;
-        if (hash === "#sobre-projeto") {
-            const aboutElement = document.getElementById("sobre-projeto");
-            if (aboutElement) {
-                aboutElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                    inline: "nearest",
-                });
-            }
-        }
-    }, []);
-
     return (
         <>
             <div id="introducao" className="flex flex-col-reverse justify-center laptop:flex-row gap-[24px] laptop:gap-[138px] bg-[#4B9093] px-[10%] laptop:px-[150px] py-[42px] ">
