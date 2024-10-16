@@ -57,6 +57,7 @@ function Paths() {
           <Route path="/sobre" element={<About />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/ponto/:id" element={<Point />} />
+          <Route path="/contato" element = {<Feedback/>}/>
           
           <Route
             path="/admin"

@@ -123,6 +123,13 @@ function Header() {
                   Classificações
                 </Link>
 
+                <Link
+                  to="/contato"
+                  className="rounded-md py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+                >
+                  Contate-nos
+                </Link>
+
                 {location.pathname !== "/usuario/cadastrar" && (
                   <Link
                     to="/usuario/cadastrar"

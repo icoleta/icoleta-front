@@ -8,8 +8,7 @@ import icImage from "../../assets/ic.jpg";
 import rank from "../../assets/ranking.png";
 import alunos from "../../assets/alunos.jpg";
 import logo from "../../assets/logo.png"
-import Feedback from "../Feedback";
-import { useEffect } from "react";
+
 
 const NewVersionHome = () => {
 
@@ -88,9 +87,9 @@ const NewVersionHome = () => {
                         <p className="mt-4 text-lg font-normal text-justify max-w-[350px] text-[#7C7C8A]" >
                             Iniciando o projeto como orientador o Prof. Ranilson Paiva e como desenvolvedores os alunos de Ciência da Computação, Fernando Lins, Priscila Teodório, Pedro Mateus, Victor Araújo e Jonas Almeida.
                         </p>
-                        <a href="#feedback" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
+                        <Link to="/feedback" className="text-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 font-medium text-[#4B9093] underline">
                             Entrar em contato
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="flex flex-col justify-between items-center max-w-[442px] border-solid border-[2px] rounded p-[12px] gap-[12px] border-gray-200">
@@ -110,9 +109,6 @@ const NewVersionHome = () => {
 
             </div>
 
-            <div id="feedback" className="flex flex-col border-[2px] mx-[24px] rounded laptop:mx-0 border-solid border-[#F59A73] laptop:px-[150px] py-[42px]">
-                <Feedback />
-            </div>
         </>
     );
 }
