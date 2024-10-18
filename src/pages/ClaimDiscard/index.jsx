@@ -80,6 +80,7 @@ function ClaimDiscard() {
     );
 
     const { weight, point_id, residuum_id } = JSON.parse(jsonPayload);
+    console.log(weight, point_id, residuum_id);
     
     document.querySelector("#weight").value = weight;
     setSelectedWeight(weight)
