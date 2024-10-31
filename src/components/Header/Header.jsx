@@ -68,13 +68,12 @@ function Header() {
 
         <div className={`right-0 ${!toggle && 'translate-x-full'}  bg-white top-[4.6rem] pt-[1rem] h-screen w-[15rem] absolute z-10  px-[8px]  tablet:py-0 tablet:static tablet:h-auto tablet:w-auto tablet:translate-x-0  duration-300 ease-out transition-all`}>
           <navbar onClick = {handleMenuClick} className="laptop:child:ml-4 flex flex-col mt-4 px-4 gap-[12px] items-end justify-center tablet:flex-row tablet:mt-0 tablet:px-0 tablet:items-center text-slate-700 font-semibold text-sm ">
-
             {signed ? (
               <>
                 {user.role !== "admin" && user.role !== "company" && (
                   <Link
                     to="/perfil"
-                    className="rounded-md bg-sunset-orange py-2  mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+                    className="rounded-md text-sunset-orange py-2 px-6 transition ease-in-out delay-150 hover:scale-105 duration-300 text-[18px] hover:opacity-90"
                   >
                     Dashboard
                   </Link>
@@ -105,7 +104,7 @@ function Header() {
                   type="button"
                   className="rounded-md border-2 border-sunset-orange py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:scale-105 hover:text-white hover:bg-sunset-orange
                   duration-300 text-[18px] hover:opacity-90"
-                  // onClick={logoutWrapper}
+                  onClick={logoutWrapper}
                 >
                   Sair
                 </button>
