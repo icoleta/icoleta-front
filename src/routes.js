@@ -62,9 +62,9 @@ function Paths() {
           <Route
             path="/admin"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <Admin />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
