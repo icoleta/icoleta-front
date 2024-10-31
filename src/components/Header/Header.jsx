@@ -68,7 +68,93 @@ function Header() {
 
         <div className={`right-0 ${!toggle && 'translate-x-full'}  bg-white top-[4.6rem] pt-[1rem] h-screen w-[15rem] absolute z-10  px-[8px]  tablet:py-0 tablet:static tablet:h-auto tablet:w-auto tablet:translate-x-0  duration-300 ease-out transition-all`}>
           <navbar onClick = {handleMenuClick} className="laptop:child:ml-4 flex flex-col mt-4 px-4 gap-[12px] items-end justify-center tablet:flex-row tablet:mt-0 tablet:px-0 tablet:items-center text-slate-700 font-semibold text-sm ">
-            {signed ? (
+          <Link
+            to="/#sobre-projeto"
+            className="rounded-md cursor-pointer py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+          >
+            Inicio
+          </Link>
+
+          <Link
+            to="/ranking"
+            className="rounded-md cursor-pointer py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+          >
+            Classificações
+          </Link>
+
+          {!signed || signed && user.role !== "admin" && user.role !== "company" && (
+            <Link
+            to="/contato"
+            className="rounded-md cursor-pointer py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+          >
+            Contate-nos
+          </Link>)}
+
+          {signed ? (
+            <>
+              {user.role !== "admin" && user.role !== "company" && (
+                <Link
+                  to="/perfil"
+                  className="rounded-md py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+                >
+                  Dashboard
+                </Link>
+              )}
+              {user.role === "company" && (
+                <Link
+                  to="/entidade/admin"
+                  className="rounded-md py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+                >
+                  Dashboard
+                </Link>
+              )}
+              {user.role === "admin" && (
+                <Link
+                  to="/admin"
+                  className="rounded-md py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+                >
+                  Admin
+                </Link>
+              )}
+
+              <button
+                type="button"
+                className="rounded-md border-2 border-sunset-orange py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:scale-105 hover:text-white hover:bg-sunset-orange
+                  duration-300 text-[18px] hover:opacity-90"
+                onClick={logoutWrapper}
+              >
+                Sair
+              </button>
+            </>
+          ) : (
+            <>
+              {location.pathname !== "/usuario/cadastrar" && (
+                <Link
+                  to="/usuario/cadastrar"
+                  className="rounded-md py-2  text-sunset-orange transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 text-[18px]"
+                >
+                  Cadastre-se
+                </Link>
+              )}
+
+              {location.pathname === "/usuario/cadastrar" && (
+                <Link
+                  to="/entidade/registro"
+                  className="border border-sunset-orange text-sunset-orange rounded-md py-2 px-6 hover:bg-sunset-orange-dark  hover:text-white duration-75 rounded-t block whitespace-no-wrap"
+                >
+                  Cadastro Entidade
+                </Link>
+              )}
+              <Link
+                to="/login"
+                className="rounded-md bg-sunset-orange py-2 px-6 text-white transition ease-in-out delay-150 hover:scale-105 duration-300 text-[18px] hover:opacity-90"
+              >
+                Entrar
+              </Link>
+            </>
+          )}
+            
+            {/* {signed ? (
               <>
                 {user.role !== "admin" && user.role !== "company" && (
                   <Link
@@ -150,7 +236,7 @@ function Header() {
                 </Link>
               </>
             )}
-            
+             */}
           </navbar>
         </div>
 
