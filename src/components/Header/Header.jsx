@@ -25,6 +25,8 @@ function Header() {
   }
 
   useEffect(() => {
+    
+
     document.body.classList.add('overflow-x-hidden');
 
     if (toggle){
@@ -80,7 +82,7 @@ function Header() {
                 {user.role === "company" && (
                   <Link
                     to="/entidade/admin"
-                    className="rounded-md bg-sunset-orange py-2  mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+                    className="rounded-md text-sunset-orange py-2 px-6 transition ease-in-out delay-150 hover:scale-105 duration-300 text-[18px] hover:opacity-90"
                   >
                     Dashboard
                   </Link>
@@ -88,21 +90,22 @@ function Header() {
                 {user.role === "admin" && (
                   <Link
                     to="/admin"
-                    className="rounded-md bg-sunset-orange py-2  mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+                    className="rounded-md text-sunset-orange py-2 px-6 transition ease-in-out delay-150 hover:scale-105 duration-300 text-[18px] hover:opacity-90"
                   >
                     Admin
                   </Link>
                 )}
                 <Link
                   to="/ranking"
-                  className="rounded-md bg-sunset-orange py-2  mb-2 text-white hover:bg-sunset-orange-dark duration-75"
+                  className="rounded-md py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:scale-105 duration-300 text-[18px] hover:opacity-90"
                 >
                   Ranking
                 </Link>
                 <button
                   type="button"
-                  className="rounded-md bg-sunset-orange py-2  mb-2 text-white hover:bg-sunset-orange-dark duration-75 font-semibold"
-                  onClick={logoutWrapper}
+                  className="rounded-md border-2 border-sunset-orange py-2 px-6 text-sunset-orange transition ease-in-out delay-150 hover:scale-105 hover:text-white hover:bg-sunset-orange
+                  duration-300 text-[18px] hover:opacity-90"
+                  // onClick={logoutWrapper}
                 >
                   Sair
                 </button>
