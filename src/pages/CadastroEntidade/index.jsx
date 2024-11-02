@@ -16,7 +16,8 @@ const CadastroEntidade = () => {
   const navigate = useNavigate();
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
-    ["name", "phone", "email", "password"]
+    ["name", "phone", "email", "password"],
+    false
   );
 
   async function whenSubmitted() {

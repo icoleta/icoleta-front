@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-function useForm(callback, fields) {
+function useForm(callback, fields, isInputErrorUsed) {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -47,9 +47,11 @@ function useForm(callback, fields) {
     if (Object.keys(tempErrors).length) {
       const firstErrorKey = Object.keys(tempErrors)[0];
 
+      if (isInputErrorUsed === false) {
       toast.warning(tempErrors[firstErrorKey], {
-        position: "bottom-right",
-      });
+          position: "bottom-right",
+        });
+      }
 
       return false;
     }
@@ -66,6 +68,7 @@ function useForm(callback, fields) {
     e.preventDefault();
 
     if (validate()) callback();
+    
   }
 
   return { values, errors, handleChange, handleSubmit };
