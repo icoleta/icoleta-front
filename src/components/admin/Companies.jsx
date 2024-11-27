@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from "react";
 
 import companyApi from '../../services/api/company'
+import { UseToggle } from "../../hooks/useToggle";
+import ConfirmModal from "../Modal/ConfirmModal";
 
 function Companies() {
-  const [companies, setCompanies] = useState([])
+  const [companies, setCompanies] = useState([]);
+  const [openModal, setOpenModal] = UseToggle();
 
   useEffect(() => {
     companyApi.fetchCompanies()
       .then(res => {
         setCompanies(res.data)
     })
-  }, [])
+  }, []);
+
+
+  const onDeleteCallback = () => {
+    console.log("Excluido");
+    setOpenModal()
+}
   
   return (
     <div className="col-span-4 items-center">
+      <ConfirmModal open = {openModal} onConfirm = {onDeleteCallback} onClose={setOpenModal}/>
+
       <div className="text-center mt-12  mb-6">
         <h2 className="text-4xl tracking-tight">Identidades cadastradas no sistema</h2>
       </div>
@@ -70,8 +81,8 @@ function Companies() {
                         </svg>
                       </button>
                     </td>
-                    <td className="py-4 px-6">
-                      <button>
+                    <td className="pointer py-4 px-6 text-red-500 font-semibold">
+                      <button onClick={() => setOpenModal()}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="icon icon-tabler icon-tabler-trash"

@@ -7,8 +7,12 @@ import Users from "../../components/admin/Users";
 import Companies from "../../components/admin/Companies";
 import Feedbacks from "../../components/admin/Feedbacks";
 
+import ConfirmModal from "../../components/Modal/ConfirmModal";
+
+
 const AdminEntidade = () => {
   const [selectedItem, setSelectedItem] = useState("area");
+
 
   return (
     <>
