@@ -4,6 +4,9 @@ import useForm from "../../hooks/useForm";
 import pointApi from "./../../services/api/points";
 import discardApi from "./../../services/api/discards";
 
+import ConfirmModal from "../Modal/ConfirmModal";
+import { UseToggle } from "../../hooks/useToggle";
+
 function Discards() {
   const navigate = useNavigate();
   const [residuums, setResiduums] = useState([]);
@@ -16,6 +19,8 @@ function Discards() {
     ["email", "weight", "point_id", "residuum_id"]
   );
 
+  const [openModal, setOpenModal] = UseToggle();
+
   useEffect(() => {
     discardApi.fetchDiscards().then(res => {
       setDiscards(res.data)
@@ -24,6 +29,7 @@ function Discards() {
     pointApi.fetchPoints().then((res) => {
       setPoints(res.data);
     });
+
   }, [])
 
   useEffect(() => {
@@ -50,8 +56,16 @@ function Discards() {
     navigate("/");
   }
 
+  const onDeleteCallback = () => {
+    console.log('excluido')
+    setOpenModal()
+  }
+
   return (
     <div className="col-span-4 items-center">
+
+      <ConfirmModal open = {openModal} onConfirm = {onDeleteCallback} onClose={setOpenModal}/>
+
       <div>
         <div className="text-center mt-8">
           <h2 className="text-4xl tracking-tight">Cadastrar descarte do usuário</h2>
@@ -226,7 +240,7 @@ function Discards() {
                         {discard.point.name}
                         </td>
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        <button>
+                        <button >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="icon icon-tabler icon-tabler-pencil"
@@ -245,28 +259,28 @@ function Discards() {
                           </svg>
                         </button>
                         </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        <button>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon icon-tabler icon-tabler-trash"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            strokeWidth="2"
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <line x1="4" y1="7" x2="20" y2="7"></line>
-                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                          </svg>
-                        </button>
+                        <td className="pointer py-4 px-6 text-red-500 font-semibold">
+                          <button onClick = {() => setOpenModal()} >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="icon icon-tabler icon-tabler-trash"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              strokeWidth="2"
+                              stroke="currentColor"
+                              fill="none"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                              <line x1="4" y1="7" x2="20" y2="7"></line>
+                              <line x1="10" y1="11" x2="10" y2="17"></line>
+                              <line x1="14" y1="11" x2="14" y2="17"></line>
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                            </svg>
+                          </button>
                         </td>
                       </tr>
                     ))

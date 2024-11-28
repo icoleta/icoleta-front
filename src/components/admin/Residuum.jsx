@@ -1,14 +1,18 @@
 import React, { useState, useEffect, Confirm } from "react";
-
 import residuumApi from "./../../services/api/residuum";
+import ConfirmModal from "../Modal/ConfirmModal";
+import { UseToggle } from "../../hooks/useToggle";
 
 function Residuum() {
-  const [residuum, setResiduum] = useState([])
-  const [deletedItem, setDeletedItem] = useState(false)
+  const [residuum, setResiduum] = useState([]);
+  const [deletedItem, setDeletedItem] = useState(false);
+
+  const [openModal, setOpenModal] = UseToggle();
+  const [itemToDelete, setItemToDelete] = useState(null)
 
   useEffect(() => {
-    getResiduum()
-  }, [])
+    getResiduum();
+  }, []);
 
   async function getResiduum() {
     residuumApi.fetchResiduums()
@@ -17,13 +21,21 @@ function Residuum() {
     })
   }
 
-  async function handleRemoveResiduum(residuumId) {
-    await residuumApi.deleteResiduum(residuumId)
-    setDeletedItem(!deletedItem)
+  async function handleRemoveResiduum() {
+    await residuumApi.deleteResiduum(itemToDelete)
+    setDeletedItem(!deletedItem);
+    setOpenModal();
+  }
+
+  function handleDeleteClick(residuumId){
+    setItemToDelete(residuumId)
+    setOpenModal();
   }
   
   return (
     <div className="col-span-4 items-center">
+    <ConfirmModal open = {openModal} onConfirm = {handleRemoveResiduum} onClose={setOpenModal}/>
+
       <div className="text-center mt-12  mb-6">
           <h2 className="text-4xl tracking-tight">Resíduos coletados</h2>
         </div>
@@ -59,9 +71,9 @@ function Residuum() {
                         {item.name}
                       </td>
 
-                      <td className="py-4 px-6">
+                      <td className="pointer py-4 px-6 text-red-500 font-semibold">
                         <button
-                          onClick={() => handleRemoveResiduum(item.id)}
+                          onClick={() => handleDeleteClick(item.id)}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
