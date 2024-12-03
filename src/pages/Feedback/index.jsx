@@ -10,12 +10,14 @@ import { ToastContainer, toast } from "react-toastify";
 function Feedback() {
 
     const navigate = useNavigate();
+    const isInputErrorUsed = true;
+
     const { values, errors, handleChange, handleSubmit } = useForm(whenSubmitted, [
         "name",
         "email",
         "reason",
         "message",
-    ]);
+    ], isInputErrorUsed);
 
     async function whenSubmitted() {
         const autoCloseDelay = 2000
