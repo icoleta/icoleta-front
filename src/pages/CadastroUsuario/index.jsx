@@ -6,13 +6,15 @@ import lock from "../../assets/Lock.svg";
 import person from "../../assets/Person.svg";
 import personApi from "./../../services/api/person";
 import { ToastContainer, toast } from "react-toastify";
+import InputError from "../../components/Forms/InputError";
 
 const CadastroUsuario = () => {
   const navigate = useNavigate();
+  const isInputErrorUsed = true;
   const { values, errors, handleChange, handleSubmit } = useForm(
     whenSubmitted,
     ["name", "email", "password"],
-    false
+    isInputErrorUsed
   );
 
   async function whenSubmitted() {
@@ -51,10 +53,12 @@ const CadastroUsuario = () => {
                 errors={errors}
                 className=" h-[40px] w-[280px] 2xl:w-[400px] phone:w-[250px] phone:h-[35px] text-[12px] 2xl:text-[14px] border-2 rounded-[10px] p-[12px] pl-[40px] focus:outline-[#F59A73]"
               /> 
+              
               <div className="absolute inset-y-0 left-0 pl-3  flex items-center pointer-events-none"> 
                   <img src={person} alt="" className="" /> 
               </div> 
             </div>
+            <InputError error = {errors.name}/>
           </div>
           
           <div className="flex flex-col mb-4 phone:mb-[10px]">
@@ -73,6 +77,7 @@ const CadastroUsuario = () => {
                   <img src={envelope} alt="" className="" /> 
               </div> 
             </div>
+            <InputError error = {errors.email}/>
           </div>
           <div className="flex flex-col">
             <label htmlFor="" className="font-semibold text-[12px] 2xl:text-[15px] phone:text-[12px]">Senha</label>
@@ -90,6 +95,7 @@ const CadastroUsuario = () => {
                   <img src={lock} alt="" className="" /> 
               </div> 
             </div>
+            <InputError error = {errors.password}/>
       
           </div>
             <button type="submit" className="w-[280px] 2xl:w-[400px] phone:w-[250px] phone:h-[40px] phone:mt-[20px] phone:text-[14px] h-[40px] mt-[50px] bg-[#F59A73] rounded-[10px] font-inter font-bold text-white text-[18px] ">Cadastrar</button>
