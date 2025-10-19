@@ -1,13 +1,15 @@
 import { IoMdClose } from "react-icons/io";
+import { UseOverflowHidden } from "../../hooks/useOverflowHidden";
 
 const ConfirmModal = ({open, onConfirm, onClose }) => {
+    UseOverflowHidden(open);
 
     if (!open) return null;
 
     return (
         <div 
             onClick = {() => onClose()} 
-            className="bg-black/50 w-full h-full top-0 left-0 absolute z-10 "
+            className="bg-black/50 w-full h-full top-0 left-0 fixed z-10 "
         >
             <div 
                 onClick={(e) => e.stopPropagation()}

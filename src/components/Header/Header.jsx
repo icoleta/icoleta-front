@@ -8,14 +8,16 @@ import "../../pages/CadastroEntidade/style.css";
 import { UseToggle } from "../../hooks/useToggle";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import { useEffect } from "react";
+
+import { UseOverflowHidden } from "../../hooks/useOverflowHidden";
 
 
 
 function Header() {
   const { signed, user, Logout } = useAuth();
   const location = useLocation();
-  const [toggle, onToggle] = UseToggle()
+  const [toggle, onToggle] = UseToggle();
+  UseOverflowHidden(toggle);
 
   const navigate = useNavigate();
 
@@ -23,25 +25,6 @@ function Header() {
     await Logout();
     navigate("/");
   }
-
-  useEffect(() => {
-    
-
-    document.body.classList.add('overflow-x-hidden');
-
-    if (toggle){
-      document.body.classList.add('overflow-hidden');
-
-    }else{
-      document.body.classList.remove('overflow-hidden');
-    }
-
-    return () => {
-      document.body.classList.remove('overflow-hidden')
-      document.body.classList.remove('overflow-x-hidden');
-    };
-
-  }, [toggle])
 
   function handleMenuClick(event){
     if (event.target !== event.currentTarget && toggle){
